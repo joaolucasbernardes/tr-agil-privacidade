@@ -106,10 +106,10 @@
 
   <p class="meta">
     <b>Extensão:</b> TR Ágil, ferramentas da CPE para as Turmas Recursais (eproc TJMG)<br>
-    <b>Versão a que este texto corresponde:</b> 1.8.0<br>
+    <b>Versão a que este texto corresponde:</b> 1.9.0<br>
     <b>Responsável pelo tratamento:</b> João Lucas Bernardes, servidor lotado na CPE das Turmas Recursais do TJMG<br>
     <b>Contato:</b> <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
-    <b>Última atualização:</b> 5 de agosto de 2026
+    <b>Última atualização:</b> 10 de agosto de 2026
   </p>
 
   <h2 id="frase">Em uma frase</h2>
@@ -135,7 +135,9 @@
       <li><a href="#guarda">O que fica guardado no seu computador</a></li>
       <li><a href="#partilha">Com quem os dados são compartilhados</a></li>
       <li><a href="#gemini">O passo do Gemini, que é seu e não da extensão</a></li>
-      <li><a href="#escreve">O que ela escreve no eproc</a></li>
+      <li><a href="#escreve">O que ela escreve no eproc</a>
+        <ul><li><a href="#excluir">A exclusão de minuta duplicada</a></li></ul>
+      </li>
       <li><a href="#seguranca">Segurança</a></li>
       <li><a href="#retencao">Retenção, acesso e exclusão</a></li>
       <li><a href="#limitado">Uso limitado</a></li>
@@ -146,11 +148,13 @@
 
   <h2 id="serve">1. Para que a extensão serve</h2>
   <p>Apoiar a triagem de processos das Turmas Recursais no eproc do TJMG. Todas
-  as ferramentas servem a esse mesmo propósito, dentro da mesma tela de trabalho:
-  preencher a Certidão de Triagem, alertar sobre impedimento de magistrado,
-  localizar processos com as mesmas partes e resolver na própria capa dos autos
-  as marcações que a triagem exige (lembretes, localizadores situacionais,
-  justiça gratuita, antecipação de tutela e validação de assunto).</p>
+  as ferramentas servem a esse mesmo propósito, dentro da mesma rotina de
+  trabalho: preencher a Certidão de Triagem, alertar sobre impedimento de
+  magistrado, localizar processos com as mesmas partes, resolver na própria capa
+  dos autos as marcações que a triagem exige (lembretes, localizadores
+  situacionais, justiça gratuita, antecipação de tutela e validação de assunto)
+  e limpar da área de trabalho as certidões de triagem que a automação do eproc
+  criou em duplicidade.</p>
   <p>Ela é distribuída de forma não listada, para a equipe da CPE-TR. Não é
   produto comercial, não tem cadastro, não tem login próprio e não tem plano
   pago.</p>
@@ -162,13 +166,18 @@
     <table>
       <thead><tr><th>Endereço</th><th>Para quê</th></tr></thead>
       <tbody>
-        <tr><td><code>https://eproc1g.tjmg.jus.br</code></td><td>ler a tela aberta, consultar impedimento e mesmas partes, e gravar o que você mandar gravar</td></tr>
+        <tr><td><code>https://eproc1g.tjmg.jus.br</code></td><td>ler a tela aberta, consultar impedimento e mesmas partes, ler a sua lista de minutas e gravar o que você mandar gravar</td></tr>
         <tr><td><code>https://eproc2g.tjmg.jus.br</code></td><td>o mesmo, no segundo grau</td></tr>
         <tr><td><code>https://pjerecursal.tjmg.jus.br</code></td><td>consulta processual <b>pública</b> do PJe-Recursal</td></tr>
         <tr><td><code>http://uailab-1.ad.tjmg.jus.br:3000</code></td><td>painel de impedimento de magistrados, na rede interna do TJMG</td></tr>
       </tbody>
     </table>
   </div>
+  <p>Dentro do eproc, ela só aparece em três telas: a capa dos autos, onde ficam
+  as tarjas e os botões das seções, a tela de minuta, onde fica o painel de
+  triagem, e a Minuta Área de Trabalho, onde fica o botão que analisa minutas
+  duplicadas. Nas demais telas do sistema ela não desenha nada e não consulta
+  nada.</p>
   <p>Em qualquer outro site a extensão não carrega e não faz nada. Ela não pede
   permissão para ler abas, histórico, downloads ou cookies, e por isso não
   enxerga a sua navegação fora desses quatro endereços.</p>
@@ -183,6 +192,9 @@
     <li>representantes: nome do advogado, número da OAB e tipo de atuação;</li>
     <li>nomes de magistrados e dados dos atos que eles praticaram no processo;</li>
     <li>assuntos, localizadores e lembretes que a capa dos autos exibe;</li>
+    <li>a sua lista de minutas na área de trabalho, com número do processo, tipo
+    e código da minuta, data de criação, status e o usuário que criou cada uma,
+    quando você manda analisar minutas duplicadas;</li>
     <li>situação processual e justiça gratuita de cada parte;</li>
     <li>valor da causa e nível de sigilo do processo, que aparecem no formulário
     de Informações Adicionais quando você usa a ferramenta de antecipação de
@@ -258,8 +270,8 @@
     saem da resposta da IA: eles saem das consultas que a própria extensão
     fez.</li>
     <li><b>Gravar, quando você clica.</b> Aplicar na capa o lembrete, o
-    localizador, a justiça gratuita ou a antecipação de tutela, como descrito no
-    item 8.</li>
+    localizador, a justiça gratuita ou a antecipação de tutela, e excluir a
+    minuta duplicada que você confirmar na janela, como descrito no item 8.</li>
   </ul>
   <p>Nada disso alimenta perfil, modelo, estatística ou qualquer uso secundário.
   Terminada a tela, o dado não tem mais para onde ir.</p>
@@ -274,7 +286,7 @@
       <thead><tr><th>Chave</th><th>O que guarda</th><th>Por quanto tempo</th></tr></thead>
       <tbody>
         <tr>
-          <td><code>ept.tool.*</code> (11 chaves)</td>
+          <td><code>ept.tool.*</code> (13 chaves)</td>
           <td>quais ferramentas estão ligadas ou desligadas. Todas nascem
           ligadas, com uma exceção: a Triagem Express, que está em teste, nasce
           desligada e leva junto tudo o que depende dela (o painel do editor,
@@ -387,7 +399,7 @@
   </ul>
 
   <h2 id="escreve">8. O que ela escreve no eproc</h2>
-  <p>Cinco coisas, e todas as cinco a partir de um clique seu, nunca sozinha:</p>
+  <p>Seis coisas, e todas as seis a partir de um clique seu, nunca sozinha:</p>
   <div class="rolagem">
     <table>
       <thead><tr><th>Ferramenta</th><th>O que grava</th><th>Cuidado que ela toma</th></tr></thead>
@@ -417,14 +429,56 @@
           <td>nada por conta própria</td>
           <td>aciona a função do próprio eproc que dispensa a sugestão de assunto, em vez de montar requisição</td>
         </tr>
+        <tr>
+          <td>Minutas duplicadas</td>
+          <td><b>exclui</b> a minuta repetida que a automação de localizadores do eproc criou no mesmo processo</td>
+          <td>é a única ferramenta que apaga alguma coisa, e por isso é a mais travada. Veja o item 8.1</td>
+        </tr>
       </tbody>
     </table>
   </div>
   <p>Fora isso, a extensão nunca insere o modelo da certidão, nunca desmarca o
   que você marcou à mão, nunca escreve a nota de triagem na minuta e nunca
   assina nada. A decisão e a assinatura continuam sendo suas. Cada uma dessas
-  cinco ferramentas tem interruptor próprio na página de ferramentas, e desligar
+  seis ferramentas tem interruptor próprio na página de ferramentas, e desligar
   uma não afeta as outras.</p>
+
+  <h2 id="excluir">8.1. A exclusão de minuta duplicada</h2>
+  <p>A automação de localizadores do eproc cria a Certidão de Triagem sozinha.
+  Quando a regra dispara duas vezes no mesmo processo, nasce uma segunda minuta
+  igual. O próprio eproc avisa que já existe uma minuta com o mesmo modelo, mas
+  não impede e não limpa. Essa ferramenta é a limpeza.</p>
+  <p>É a única função da extensão que apaga alguma coisa, e por isso ela é a
+  mais travada de todas:</p>
+  <ul>
+    <li><b>Nada acontece sem dois cliques.</b> O primeiro abre uma janela com a
+    lista do que foi encontrado. O segundo confirma. Fechar a janela no meio não
+    envia nada.</li>
+    <li><b>A janela mostra o que sai e o que fica</b>, minuta por minuta, com
+    data, código, status e quem criou cada uma. Cada cópia tem sua caixa,
+    inclusive a que a regra escolheu para ficar, então você pode inverter a
+    escolha antes de confirmar.</li>
+    <li><b>Duplicidade é mesmo processo e mesmo tipo de minuta.</b> Uma certidão
+    e um despacho no mesmo processo nunca são tratados como cópia um do
+    outro.</li>
+    <li><b>Cópia trabalhada nunca vem pré-marcada.</b> Se a minuta já saiu de
+    Rascunho, ou se foi criada por outra pessoa, ela aparece desmarcada e com o
+    motivo escrito ao lado. Marcar passa a ser decisão sua, tomada vendo o
+    porquê.</li>
+    <li><b>Nenhum processo fica sem minuta.</b> Marcar todas as cópias de um
+    processo pinta o grupo de vermelho e desliga o botão de excluir.</li>
+    <li><b>A exclusão é reversível.</b> No eproc a minuta excluída fica com
+    status Excluída e o próprio sistema oferece o botão Reativar. A extensão
+    escreve isso na tela de confirmação, antes do clique.</li>
+    <li><b>Uma de cada vez.</b> As exclusões saem em fila, com pausa entre elas,
+    e param no primeiro erro. No fim, a extensão relê a lista inteira no
+    servidor e informa quantas realmente ficaram como excluídas, em vez de
+    confiar na resposta da requisição.</li>
+  </ul>
+  <p>Para ler a lista completa de minutas, e não só os 25 registros que a tela
+  mostra, a extensão repete a mesma consulta paginada que as setas da tela fazem,
+  com os mesmos filtros que você escolheu. Ela não altera a sua tela, não muda o
+  seu filtro e não guarda nada dessa leitura.</p>
 
   <h2 id="seguranca">9. Segurança</h2>
   <ul>
@@ -497,7 +551,7 @@
         </tr>
         <tr>
           <td><code>host_permissions</code> dos dois endereços do eproc</td>
-          <td>é onde a extensão trabalha: ler a tela aberta, desenhar as tarjas e o painel, consultar e gravar. Sem eles a extensão não tem função nenhuma</td>
+          <td>é onde a extensão trabalha: ler a tela aberta, desenhar as tarjas e o painel, consultar, gravar e, quando você confirma, excluir a minuta duplicada. Sem eles a extensão não tem função nenhuma</td>
         </tr>
         <tr>
           <td><code>host_permissions</code> do PJe-Recursal</td>
