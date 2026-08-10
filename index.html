@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade — TR Ágil</title>
+<meta name="description" content="Política de privacidade da extensão TR Ágil, ferramentas da CPE para as Turmas Recursais no eproc do TJMG.">
+<style>
+  /* Só <style>, nunca <script> nem recurso externo: a mesma página é servida
+     pelo GitHub Pages e de dentro do pacote, onde o Manifest V3 barra os dois. */
+  :root {
+    --navy: #14395e;
+    --navy-deep: #0e2a46;
+    --papel: #f7f9fb;
+    --tinta: #1b1f23;
+    --cinza: #5c6875;
+    --vermelho: #d31f2b;
+    --borda: #dde2e8;
+    --filete: #eef1f4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --papel: #12161b;
+      --tinta: #e7ecf2;
+      --cinza: #9aa7b4;
+      --borda: #2a333d;
+      --filete: #1b2129;
+      --navy: #9dc2ea;
+      --navy-deep: #c3dcf5;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--papel);
+    color: var(--tinta);
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  .faixa { background: var(--navy-deep); color: #fff; padding: 32px 0 26px; }
+  @media (prefers-color-scheme: dark) { .faixa { background: #0b1016; } }
+  .caixa { max-width: 820px; margin: 0 auto; padding: 0 22px; }
+  .faixa h1 { margin: 0 0 6px; font-size: 27px; letter-spacing: -0.01em; }
+  .faixa p { margin: 0; color: #b9cbdd; font-size: 15px; }
+  @media (prefers-color-scheme: dark) { .faixa p { color: #7f93a6; } }
+  .faixa .risco {
+    width: 46px; height: 4px; background: var(--vermelho);
+    border-radius: 2px; margin-bottom: 16px;
+  }
+  main { padding: 34px 0 60px; }
+  h2 {
+    font-size: 19px; margin: 36px 0 10px; color: var(--navy);
+    border-bottom: 1px solid var(--borda); padding-bottom: 6px;
+  }
+  h2:first-of-type { margin-top: 0; }
+  h3 { font-size: 16px; margin: 22px 0 6px; }
+  p, li { color: var(--tinta); }
+  ul { padding-left: 20px; }
+  li { margin: 5px 0; }
+  code {
+    background: var(--filete); border: 1px solid var(--borda);
+    border-radius: 3px; padding: 1px 5px; font-size: 13px;
+    font-family: ui-monospace, Consolas, "Courier New", monospace;
+    overflow-wrap: anywhere;
+  }
+  .resumo {
+    background: var(--filete); border-left: 4px solid var(--vermelho);
+    padding: 15px 18px; border-radius: 0 6px 6px 0; margin-bottom: 8px;
+  }
+  .resumo p { margin: 0; }
+  .rolagem { overflow-x: auto; margin: 14px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+  th, td {
+    border: 1px solid var(--borda); padding: 8px 11px;
+    text-align: left; vertical-align: top;
+  }
+  th { background: var(--filete); font-weight: 600; }
+  .meta { color: var(--cinza); font-size: 14px; }
+  .indice {
+    background: var(--filete); border: 1px solid var(--borda);
+    border-radius: 8px; padding: 14px 18px; margin: 22px 0 4px;
+  }
+  .indice p { margin: 0 0 8px; font-weight: 600; font-size: 14px; color: var(--cinza); }
+  .indice ol { margin: 0; padding-left: 20px; font-size: 14.5px; columns: 2; column-gap: 26px; }
+  .indice li { margin: 3px 0; break-inside: avoid; }
+  .indice a { color: var(--navy); }
+  @media (max-width: 620px) { .indice ol { columns: 1; } }
+  footer {
+    border-top: 1px solid var(--borda); margin-top: 42px;
+    padding-top: 18px; color: var(--cinza); font-size: 14px;
+  }
+  footer a { color: var(--navy); }
+  a { color: var(--navy); }
+</style>
+</head>
+<body>
+
+<div class="faixa">
+  <div class="caixa">
+    <div class="risco"></div>
+    <h1>Política de Privacidade — TR Ágil</h1>
+    <p>Ferramentas da CPE para as Turmas Recursais · eproc TJMG</p>
+  </div>
+</div>
+
+<main class="caixa">
+
+  <p class="meta">
+    <b>Extensão:</b> TR Ágil, ferramentas da CPE para as Turmas Recursais (eproc TJMG)<br>
+    <b>Versão a que este texto corresponde:</b> 1.8.0<br>
+    <b>Responsável pelo tratamento:</b> João Lucas Bernardes, servidor lotado na CPE das Turmas Recursais do TJMG<br>
+    <b>Contato:</b> <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
+    <b>Última atualização:</b> 5 de agosto de 2026
+  </p>
+
+  <h2 id="frase">Em uma frase</h2>
+  <div class="resumo">
+    <p>A extensão lê a página do processo que já está aberta na tela de quem a
+    usa, consulta três sistemas do próprio TJMG e, quando você pede, transcreve
+    para texto os documentos que você marcar. Tudo na sua máquina, com o
+    resultado mostrado ali mesmo.
+    Não existe servidor desta extensão, nada é enviado ao desenvolvedor, nada é
+    vendido ou cedido a terceiros e não há publicidade nem telemetria de espécie
+    alguma.</p>
+  </div>
+
+  <div class="indice">
+    <p>O que este documento cobre</p>
+    <ol>
+      <li><a href="#serve">Para que a extensão serve</a></li>
+      <li><a href="#onde">Onde ela funciona</a></li>
+      <li><a href="#coleta">Que dados ela lê</a>
+        <ul><li><a href="#dossie">O Dossiê para a IA, que lê o conteúdo das peças</a></li></ul>
+      </li>
+      <li><a href="#uso">Como ela usa esses dados</a></li>
+      <li><a href="#guarda">O que fica guardado no seu computador</a></li>
+      <li><a href="#partilha">Com quem os dados são compartilhados</a></li>
+      <li><a href="#gemini">O passo do Gemini, que é seu e não da extensão</a></li>
+      <li><a href="#escreve">O que ela escreve no eproc</a></li>
+      <li><a href="#seguranca">Segurança</a></li>
+      <li><a href="#retencao">Retenção, acesso e exclusão</a></li>
+      <li><a href="#limitado">Uso limitado</a></li>
+      <li><a href="#permissoes">Cada permissão, e por quê</a></li>
+      <li><a href="#alteracoes">Alterações e contato</a></li>
+    </ol>
+  </div>
+
+  <h2 id="serve">1. Para que a extensão serve</h2>
+  <p>Apoiar a triagem de processos das Turmas Recursais no eproc do TJMG. Todas
+  as ferramentas servem a esse mesmo propósito, dentro da mesma tela de trabalho:
+  preencher a Certidão de Triagem, alertar sobre impedimento de magistrado,
+  localizar processos com as mesmas partes e resolver na própria capa dos autos
+  as marcações que a triagem exige (lembretes, localizadores situacionais,
+  justiça gratuita, antecipação de tutela e validação de assunto).</p>
+  <p>Ela é distribuída de forma não listada, para a equipe da CPE-TR. Não é
+  produto comercial, não tem cadastro, não tem login próprio e não tem plano
+  pago.</p>
+
+  <h2 id="onde">2. Onde ela funciona</h2>
+  <p>A extensão só é ativada em quatro endereços, todos declarados no
+  <code>manifest.json</code> e todos do Tribunal de Justiça de Minas Gerais:</p>
+  <div class="rolagem">
+    <table>
+      <thead><tr><th>Endereço</th><th>Para quê</th></tr></thead>
+      <tbody>
+        <tr><td><code>https://eproc1g.tjmg.jus.br</code></td><td>ler a tela aberta, consultar impedimento e mesmas partes, e gravar o que você mandar gravar</td></tr>
+        <tr><td><code>https://eproc2g.tjmg.jus.br</code></td><td>o mesmo, no segundo grau</td></tr>
+        <tr><td><code>https://pjerecursal.tjmg.jus.br</code></td><td>consulta processual <b>pública</b> do PJe-Recursal</td></tr>
+        <tr><td><code>http://uailab-1.ad.tjmg.jus.br:3000</code></td><td>painel de impedimento de magistrados, na rede interna do TJMG</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Em qualquer outro site a extensão não carrega e não faz nada. Ela não pede
+  permissão para ler abas, histórico, downloads ou cookies, e por isso não
+  enxerga a sua navegação fora desses quatro endereços.</p>
+
+  <h2 id="coleta">3. Que dados ela lê</h2>
+  <p>Os dados são os do processo que você já tem aberto e já está autorizado a
+  ver, dentro da sua sessão no eproc. A extensão não cria dado novo sobre você e
+  não pede que você digite dado pessoal nenhum. O que ela lê da tela:</p>
+  <ul>
+    <li>número do processo (CNJ), classe, competência e órgão julgador;</li>
+    <li>nomes das partes e, quando a página os exibe, CPF ou CNPJ;</li>
+    <li>representantes: nome do advogado, número da OAB e tipo de atuação;</li>
+    <li>nomes de magistrados e dados dos atos que eles praticaram no processo;</li>
+    <li>assuntos, localizadores e lembretes que a capa dos autos exibe;</li>
+    <li>situação processual e justiça gratuita de cada parte;</li>
+    <li>valor da causa e nível de sigilo do processo, que aparecem no formulário
+    de Informações Adicionais quando você usa a ferramenta de antecipação de
+    tutela;</li>
+    <li>o texto que você cola no painel de triagem, que é a resposta do Gemini e
+    costuma repetir os dados acima;</li>
+    <li><b>o conteúdo integral dos documentos que você marcar</b>, quando usar o
+    Dossiê para a IA. Isso inclui o texto de PDF, que a extensão transcreve na
+    sua máquina. Veja o item 3.1, logo abaixo, porque este é o dado mais
+    sensível que ela toca.</li>
+  </ul>
+
+  <h2 id="dossie">3.1. O Dossiê para a IA, que lê o conteúdo das peças</h2>
+  <p>Esta é a única ferramenta que abre os documentos dos autos, e ela merece um
+  item próprio.</p>
+  <p><b>Por que ela existe.</b> O Gemini do Chrome responde sobre a página
+  aberta e não abre PDF. Como o recurso, as contrarrazões, a guia de custas, o
+  comprovante de pagamento e as procurações são PDF, ele decidia os itens 1 a 4
+  da certidão sem ter visto nenhuma dessas peças. O dossiê transcreve esses
+  documentos para texto, para que a análise seja feita sobre o que está nos
+  autos.</p>
+  <p><b>Como ela funciona.</b> A tarja no alto da capa lista todos os documentos
+  do processo e já marca os que a triagem costuma usar. Nada é lido antes de
+  você conferir a marcação e clicar. Os documentos marcados são buscados no
+  eproc pela sua própria sessão, dois de cada vez, exatamente como se você os
+  abrisse à mão. A leitura do PDF acontece dentro do navegador, por uma cópia
+  local da biblioteca <b>pdf.js</b>, da Mozilla, que vai embutida no pacote da
+  extensão. Essa parte da extensão não tem acesso à rede: ela recebe o arquivo e
+  devolve o texto.</p>
+  <p><b>Para onde vai.</b> Para lugar nenhum por conta da extensão. O texto é
+  oferecido a você de quatro formas, e todas as quatro terminam na sua
+  máquina:</p>
+  <ul>
+    <li><b>Em segundo plano.</b> A transcrição entra na própria página do
+    processo, num bloco posicionado fora da área visível. A página do eproc
+    continua na tela, inteira: nada dela é escondido, removido ou reordenado. O
+    bloco existe para que um assistente de IA que leia a aba encontre os autos,
+    e ele nunca é secreto: enquanto estiver lá, a tarja mostra um aviso com o
+    tamanho do que foi posto na página e o botão de desligar ao lado. Recarregar
+    a página também o desfaz.</li>
+    <li><b>Numa aba nova.</b> A transcrição vai para uma página da própria
+    extensão, aberta ao lado. Para chegar até ela, o texto passa pelo
+    <code>chrome.storage.local</code>, que é armazenamento da sua máquina, e
+    fica guardado ali até a montagem seguinte, para a aba sobreviver a um
+    F5.</li>
+    <li><b>Copiada</b> para a área de transferência, junto com o prompt.</li>
+    <li><b>Salva</b> num arquivo <code>.txt</code>, para você anexar onde
+    quiser.</li>
+  </ul>
+  <p>Levar esse texto ao Gemini continua sendo um ato seu, e vale para ele tudo
+  o que está no item 7.</p>
+  <p class="warn">Ao usar o Gemini com o dossiê, o volume de dado que você
+  entrega ao Google é maior do que numa pergunta sobre a tela: passa a incluir o
+  <b>texto integral das peças</b>, com o que elas contiverem. Documento sob
+  sigilo merece decisão consciente, e a extensão não decide isso por você.</p>
+  <p>A extensão <b>não</b> faz reconhecimento de imagem. Um PDF digitalizado não
+  tem camada de texto e sai vazio; nesse caso ela nomeia o documento, em
+  vermelho, na tarja e dentro da própria transcrição, para que ninguém certifique
+  sobre uma peça que não foi lida.</p>
+  <p>A extensão <b>não</b> lê senha, não lê token de autenticação, não lê cookie
+  de outro site e não coleta nada sobre o seu uso da ferramenta: não há
+  contador, não há registro de clique, não há identificador de instalação e não
+  há relatório de erro enviado para lugar algum.</p>
+
+  <h2 id="uso">4. Como ela usa esses dados</h2>
+  <p>Todo o processamento acontece na sua máquina, dentro da aba que você já tem
+  aberta, e serve para três coisas:</p>
+  <ul>
+    <li><b>Mostrar.</b> Desenhar as tarjas na capa dos autos e o painel na tela
+    de minuta, com o que foi lido e com o que as consultas responderam.</li>
+    <li><b>Preencher.</b> Marcar a Certidão de Triagem no editor de minuta, a
+    partir da resposta que você colou e conferiu na prévia. Os itens 5 e 6 não
+    saem da resposta da IA: eles saem das consultas que a própria extensão
+    fez.</li>
+    <li><b>Gravar, quando você clica.</b> Aplicar na capa o lembrete, o
+    localizador, a justiça gratuita ou a antecipação de tutela, como descrito no
+    item 8.</li>
+  </ul>
+  <p>Nada disso alimenta perfil, modelo, estatística ou qualquer uso secundário.
+  Terminada a tela, o dado não tem mais para onde ir.</p>
+
+  <h2 id="guarda">5. O que fica guardado no seu computador</h2>
+  <p>Somente em <code>chrome.storage.local</code>, que fica na máquina. A
+  extensão <b>não usa <code>chrome.storage.sync</code></b>, então nada é
+  sincronizado com a sua conta Google nem sai do computador por essa via. Esta é
+  a lista completa:</p>
+  <div class="rolagem">
+    <table>
+      <thead><tr><th>Chave</th><th>O que guarda</th><th>Por quanto tempo</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>ept.tool.*</code> (11 chaves)</td>
+          <td>quais ferramentas estão ligadas ou desligadas. Todas nascem
+          ligadas, com uma exceção: a Triagem Express, que está em teste, nasce
+          desligada e leva junto tudo o que depende dela (o painel do editor,
+          os botões da barra e o Dossiê para a IA)</td>
+          <td>até você mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.tool.triagem.destravada</code></td>
+          <td>se você já digitou a senha que libera o interruptor da Triagem
+          Express na página de ferramentas. Guarda só um sim ou não, nunca a
+          senha</td>
+          <td>até você mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.dossie.aba</code></td>
+          <td>a transcrição dos autos, quando você a abre em aba nova. É a mesma
+          máquina e o mesmo navegador: o texto só passa por aqui porque um
+          endereço não carrega cem mil caracteres</td>
+          <td>até a próxima montagem de dossiê</td>
+        </tr>
+        <tr>
+          <td><code>ept.prompt</code></td>
+          <td>o texto do prompt mestre, se você o editou</td>
+          <td>até você mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.resposta</code></td>
+          <td>o último texto colado no painel de triagem, junto do número do processo a que ele pertence. Existe para o texto sobreviver a um F5 ou a um passeio entre telas do mesmo processo. Em outro processo o painel nasce vazio</td>
+          <td>até você colar outro texto ou limpar o campo</td>
+        </tr>
+        <tr>
+          <td><code>ept.panel.pos</code></td>
+          <td>a posição em que você arrastou o painel</td>
+          <td>até você mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.lembretesTarja.aberta</code>, <code>ept.localizadoresTarja.aberta</code>, <code>ept.dossieTarja.aberta</code></td>
+          <td>se aquelas tarjas ficam abertas ou recolhidas</td>
+          <td>até você mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.partes.*</code>, <code>ept.partesEproc.*</code>, <code>ept.imped.*</code>, <code>ept.capa.*</code>, <code>ept.lembrete.*</code>, <code>ept.localizador.*</code></td>
+          <td>o resultado das consultas por processo: mesmas partes no PJe, mesmas partes no eproc, impedimento, dados da capa, e os endereços das seções Lembretes e Localizadores</td>
+          <td><b>4 horas</b>, e o conjunto inteiro é descartado a cada versão nova da extensão</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>O cache de 4 horas existe para não repetir a mesma consulta quando os mesmos
+  autos são reabertos no mesmo turno de trabalho. Ele poupa o sistema do
+  Tribunal, não o desenvolvedor: essas consultas nunca passam por nós.</p>
+
+  <h2 id="partilha">6. Com quem os dados são compartilhados</h2>
+  <p>Com ninguém além dos sistemas do próprio TJMG listados abaixo, e sempre para
+  responder a uma pergunta que você fez ali na hora. <b>Não existe servidor,
+  banco de dados, API ou serviço em nuvem desta extensão.</b> Nenhum dado chega
+  ao desenvolvedor, a nenhuma empresa e a nenhum terceiro.</p>
+  <div class="rolagem">
+    <table>
+      <thead><tr><th>Destino</th><th>O que sai daqui</th><th>Por quê</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>eproc</b> (1º e 2º graus)</td>
+          <td>as mesmas requisições que o seu navegador já faria: páginas e fragmentos de tela, e os formulários que você manda gravar</td>
+          <td>é o sistema onde você está trabalhando. Vai com a sessão que você já tem aberta, e o eproc só entrega o que o seu perfil pode ver</td>
+        </tr>
+        <tr>
+          <td><b>PJe-Recursal</b>, consulta pública</td>
+          <td>nome ou documento da parte, para a pesquisa, e o endereço de detalhe do processo encontrado</td>
+          <td>localizar processos com as mesmas partes, que é o item 5 da certidão. É a mesma consulta pública que qualquer cidadão faz pelo site, sem login</td>
+        </tr>
+        <tr>
+          <td><b>Painel de impedimentos</b> do TJMG (rede interna)</td>
+          <td>o número do processo e o nome do magistrado</td>
+          <td>saber se há declaração de impedimento ou suspeição, que é o item 6 da certidão</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Sobre o terceiro endereço, duas informações que a revisão costuma pedir: ele
+  é <code>http</code> e não <code>https</code> porque é um serviço publicado
+  apenas na rede administrativa do Tribunal, que a política de certificados do
+  TJMG não alcança; e ele não tem rota pela internet pública, de modo que, fora da
+  rede do Tribunal, a consulta simplesmente falha e a extensão informa que não
+  conseguiu consultar, nunca um resultado negativo inventado.</p>
+
+  <h2 id="gemini">7. O passo do Gemini, que é seu e não da extensão</h2>
+  <p>A ferramenta de triagem trabalha em cima de uma resposta gerada pelo Gemini,
+  e por isso este item existe. Ele é o mais importante deste documento.</p>
+  <p><b>A extensão não conversa com o Gemini.</b> Ela não tem chave de API do
+  Google, não pede permissão para nenhum domínio do Google e não faz requisição
+  alguma para fora dos endereços do TJMG listados no item 6. O que ela faz é
+  copiar para a área de transferência um texto de instrução, sempre o mesmo, que
+  não contém dado de processo nenhum.</p>
+  <p><b>Quem usa o Gemini é você.</b> Você abre o assistente do Chrome, cola a
+  instrução, deixa que ele leia a página dos autos que está na sua tela e traz a
+  resposta de volta colando no painel da extensão. Nesse trecho do caminho, os
+  dados do processo passam a ser tratados pelo Google, segundo a política de
+  privacidade e os termos do Gemini, e não segundo esta política, que não alcança
+  o que acontece dentro de outro produto.</p>
+  <p>Registramos isso aqui porque é um compartilhamento de dados real, ainda que
+  praticado por você e não pela extensão. Três consequências práticas:</p>
+  <ul>
+    <li>a certidão pode ser preenchida sem o Gemini, marcando as opções à mão. As
+    demais ferramentas não dependem dele em nada;</li>
+    <li>se a sua unidade não autoriza o uso de IA generativa sobre dados de
+    processo, basta não executar esse passo;</li>
+    <li>o texto que você cola de volta fica guardado na sua máquina, em
+    <code>ept.resposta</code>, como explicado no item 5.</li>
+  </ul>
+
+  <h2 id="escreve">8. O que ela escreve no eproc</h2>
+  <p>Cinco coisas, e todas as cinco a partir de um clique seu, nunca sozinha:</p>
+  <div class="rolagem">
+    <table>
+      <thead><tr><th>Ferramenta</th><th>O que grava</th><th>Cuidado que ela toma</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Lembretes na capa</td>
+          <td>um lembrete na seção Lembretes dos autos</td>
+          <td>só diz "criado" depois de encontrar o lembrete na lista que o eproc devolve, e oferece o Desativar em seguida</td>
+        </tr>
+        <tr>
+          <td>Localizadores na capa</td>
+          <td>um localizador situacional</td>
+          <td>o eproc substitui a lista inteira nessa operação, então a extensão relê a capa imediatamente antes de gravar e monta a lista nova sobre o que o servidor acabou de responder, para não apagar o que outra pessoa pôs no processo</td>
+        </tr>
+        <tr>
+          <td>Justiça gratuita</td>
+          <td>a justiça gratuita de uma parte</td>
+          <td>devolve ao eproc o mesmo formulário que recebeu, com um único campo trocado, e confere relendo a tela</td>
+        </tr>
+        <tr>
+          <td>Antecipação de tutela</td>
+          <td>o campo de antecipação de tutela nas Informações Adicionais</td>
+          <td>mesmo cuidado do anterior. Esse formulário carrega junto o valor da causa e o nível de sigilo, que são devolvidos exatamente como vieram</td>
+        </tr>
+        <tr>
+          <td>Validação de assunto</td>
+          <td>nada por conta própria</td>
+          <td>aciona a função do próprio eproc que dispensa a sugestão de assunto, em vez de montar requisição</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Fora isso, a extensão nunca insere o modelo da certidão, nunca desmarca o
+  que você marcou à mão, nunca escreve a nota de triagem na minuta e nunca
+  assina nada. A decisão e a assinatura continuam sendo suas. Cada uma dessas
+  cinco ferramentas tem interruptor próprio na página de ferramentas, e desligar
+  uma não afeta as outras.</p>
+
+  <h2 id="seguranca">9. Segurança</h2>
+  <ul>
+    <li>A única biblioteca de terceiros é o <b>pdf.js</b>, da Mozilla, sob
+    licença Apache 2.0, usado para transcrever os PDFs dos autos. Ele vai
+    embutido no pacote, em versão não minificada, e roda sem acesso à rede,
+    sem desenhar o documento e sem executar JavaScript que esteja dentro
+    dele.</li>
+    <li>Todo o código JavaScript vem dentro do pacote. Não há <code>eval</code>,
+    não há <code>new Function</code>, não há script apontando para fora e não há
+    folha de estilo ou fonte carregada de CDN. A extensão não executa código
+    remoto, e portanto não pode ser alterada sem uma atualização revisada pela
+    Chrome Web Store.</li>
+    <li>As requisições ao eproc usam a sessão que você já tem aberta. A extensão
+    não guarda, não copia e não lê credenciais.</li>
+    <li>Os endereços que a extensão recebe da página e transforma em requisição
+    são conferidos antes: um endereço de outra origem é recusado sem ser
+    acessado.</li>
+    <li>O que fica na sua máquina fica sob a proteção do perfil do Chrome, na
+    área isolada da extensão, que outras extensões e outros sites não leem.</li>
+  </ul>
+
+  <h2 id="retencao">10. Retenção, acesso e exclusão</h2>
+  <p>Os prazos estão na tabela do item 5: 4 horas para o resultado das consultas,
+  e até você mudar para as preferências. Nada tem prazo indeterminado no
+  servidor, porque não há servidor.</p>
+  <p>Como nenhum dado sai da sua máquina para nós, não há o que solicitar,
+  corrigir ou excluir junto ao desenvolvedor. Para apagar o que a extensão
+  guardou você tem dois caminhos:</p>
+  <ul>
+    <li>desinstalar a extensão em <code>chrome://extensions</code>, o que apaga
+    tudo de uma vez;</li>
+    <li>ou, sem desinstalar, remover os dados do site em
+    <code>chrome://settings/content/all</code>, procurando pela extensão.</li>
+  </ul>
+  <p>Os dados dos processos em si continuam sob a guarda e as regras do Tribunal
+  de Justiça de Minas Gerais, nos sistemas eproc e PJe. Esta extensão apenas
+  exibe, para a pessoa autorizada, o que ela já poderia ver navegando à mão. Para
+  exercer direitos sobre esses dados (Lei 13.709/2018), o caminho é o Tribunal,
+  não o desenvolvedor.</p>
+
+  <h2 id="limitado">11. Uso limitado</h2>
+  <p>Em conformidade com a política de Uso Limitado da Chrome Web Store,
+  declaramos que os dados tratados por esta extensão:</p>
+  <ul>
+    <li>são usados <b>apenas</b> para o propósito único descrito no item 1;</li>
+    <li><b>não são vendidos</b> nem cedidos a terceiros;</li>
+    <li><b>não são usados</b> para publicidade, remarketing ou perfil de
+    interesse;</li>
+    <li><b>não são usados</b> para avaliação de crédito ou empréstimo;</li>
+    <li><b>não são lidos por pessoa alguma</b> do lado do desenvolvedor. Não há
+    acesso humano porque não há servidor onde esses dados pudessem chegar. A
+    única exceção prevista pela política, o acesso mediante consentimento
+    expresso para suporte, também não se aplica: não existe canal por onde esses
+    dados pudessem nos ser enviados.</li>
+  </ul>
+
+  <h2 id="permissoes">12. Cada permissão, e por quê</h2>
+  <div class="rolagem">
+    <table>
+      <thead><tr><th>Permissão</th><th>Por que ela é necessária</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>storage</code></td>
+          <td>guardar, na sua máquina, as preferências e o cache descritos no item 5. Sem ela você reconfiguraria a extensão a cada aba, e cada reabertura dos autos custaria uma consulta nova ao Tribunal</td>
+        </tr>
+        <tr>
+          <td><code>clipboardWrite</code></td>
+          <td>os botões que copiam textos padronizados para você colar no eproc (nomes de localizadores e lembretes, número do processo, órgão julgador) e o botão que copia o prompt. A cópia principal usa <code>navigator.clipboard</code>; esta permissão sustenta o caminho de reserva, usado quando a página do eproc está sem foco</td>
+        </tr>
+        <tr>
+          <td><code>host_permissions</code> dos dois endereços do eproc</td>
+          <td>é onde a extensão trabalha: ler a tela aberta, desenhar as tarjas e o painel, consultar e gravar. Sem eles a extensão não tem função nenhuma</td>
+        </tr>
+        <tr>
+          <td><code>host_permissions</code> do PJe-Recursal</td>
+          <td>a consulta pública que procura processos com as mesmas partes. Ela sai do service worker porque o CORS do PJe barraria uma chamada feita a partir da página do eproc</td>
+        </tr>
+        <tr>
+          <td><code>host_permissions</code> do painel de impedimentos</td>
+          <td>a consulta de impedimento e suspeição. Também sai do service worker, porque um <code>fetch</code> em <code>http</code> a partir de uma página <code>https</code> seria barrado como conteúdo misto</td>
+        </tr>
+        <tr>
+          <td>Atalhos <code>Ctrl+Shift+Y</code> e <code>Ctrl+Shift+U</code></td>
+          <td>copiar o prompt e mostrar ou ocultar o painel sem tirar as mãos do teclado. Os atalhos apenas enviam um aviso para a aba ativa; se ela não for do eproc, nada acontece</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A extensão <b>não</b> pede <code>tabs</code>, <code>cookies</code>,
+  <code>history</code>, <code>webRequest</code>, <code>downloads</code> nem
+  <code>identity</code>.</p>
+
+  <h2 id="alteracoes">13. Alterações e contato</h2>
+  <p>Mudanças nesta política serão publicadas nesta mesma página, com a data de
+  atualização no topo, e a mesma página viaja dentro do pacote da extensão, na
+  página de ferramentas. Alteração relevante acompanha uma versão nova.</p>
+  <p>
+    João Lucas Bernardes, <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
+    CPE das Turmas Recursais, Tribunal de Justiça de Minas Gerais
+  </p>
+
+  <footer>
+    TR Ágil · Política de privacidade publicada para a Chrome Web Store e
+    distribuída dentro da própria extensão.
+  </footer>
+
+</main>
+</body>
+</html>
