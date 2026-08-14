@@ -41,8 +41,8 @@ O texto explica, em linguagem direta:
 * o papel do Gemini na triagem, já que a nota vem de um texto colado pelo próprio
   usuário.
 
-O texto que está publicado corresponde à versão 1.8.0 da extensão e foi
-atualizado em 5 de agosto de 2026.
+O texto que está publicado corresponde à versão 1.10.7 da extensão e foi
+atualizado em 14 de agosto de 2026.
 
 ## De onde vem o texto
 

@@ -106,10 +106,10 @@
 
   <p class="meta">
     <b>Extensão:</b> TR Ágil, ferramentas da CPE para as Turmas Recursais (eproc TJMG)<br>
-    <b>Versão a que este texto corresponde:</b> 1.9.1<br>
+    <b>Versão a que este texto corresponde:</b> 1.10.7<br>
     <b>Responsável pelo tratamento:</b> João Lucas Bernardes, servidor lotado na CPE das Turmas Recursais do TJMG<br>
     <b>Contato:</b> <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
-    <b>Última atualização:</b> 10 de agosto de 2026
+    <b>Última atualização:</b> 14 de agosto de 2026
   </p>
 
   <h2 id="frase">Em uma frase</h2>
@@ -194,7 +194,10 @@
     <li>assuntos, localizadores e lembretes que a capa dos autos exibe;</li>
     <li>a sua lista de minutas na área de trabalho, com número do processo, tipo
     e código da minuta, data de criação, status e o usuário que criou cada uma,
-    quando você manda analisar minutas duplicadas;</li>
+    quando você manda analisar minutas duplicadas ou conferir quem está sem
+    certidão de triagem;</li>
+    <li>a lista de processos de um localizador, com o número de cada um, quando
+    você manda conferir quem está sem certidão de triagem;</li>
     <li>situação processual e justiça gratuita de cada parte;</li>
     <li>valor da causa e nível de sigilo do processo, que aparecem no formulário
     de Informações Adicionais quando você usa a ferramenta de antecipação de
@@ -286,7 +289,7 @@
       <thead><tr><th>Chave</th><th>O que guarda</th><th>Por quanto tempo</th></tr></thead>
       <tbody>
         <tr>
-          <td><code>ept.tool.*</code> (13 chaves)</td>
+          <td><code>ept.tool.*</code> (14 chaves)</td>
           <td>quais ferramentas estão ligadas ou desligadas. Todas nascem
           ligadas, com uma exceção: a Triagem Express, que está em teste, nasce
           desligada e leva junto tudo o que depende dela (o painel do editor,
@@ -332,12 +335,19 @@
           <td>o resultado das consultas por processo: mesmas partes no PJe, mesmas partes no eproc, impedimento, dados da capa, e os endereços das seções Lembretes e Localizadores</td>
           <td><b>4 horas</b>, e o conjunto inteiro é descartado a cada versão nova da extensão</td>
         </tr>
+        <tr>
+          <td><code>ept.sem-minuta.*</code></td>
+          <td>por localizador, a lista dos números de processo que estão nele sem certidão de triagem. Guarda números de processo, e nada mais: nem nome, nem CPF, nem conteúdo de peça</td>
+          <td><b>30 minutos</b>, e também é descartado a cada versão nova da extensão</td>
+        </tr>
       </tbody>
     </table>
   </div>
   <p>O cache de 4 horas existe para não repetir a mesma consulta quando os mesmos
   autos são reabertos no mesmo turno de trabalho. Ele poupa o sistema do
-  Tribunal, não o desenvolvedor: essas consultas nunca passam por nós.</p>
+  Tribunal, não o desenvolvedor: essas consultas nunca passam por nós. A lista de
+  quem está sem certidão de triagem vale meia hora, e não quatro, porque rascunho
+  de minuta é criado e apagado o tempo todo.</p>
 
   <h2 id="partilha">6. Com quem os dados são compartilhados</h2>
   <p>Com ninguém além dos sistemas do próprio TJMG listados abaixo, e sempre para
