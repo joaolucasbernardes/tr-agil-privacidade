@@ -106,7 +106,7 @@
 
   <p class="meta">
     <b>Extensão:</b> TR Ágil, ferramentas da CPE para as Turmas Recursais (EPROC TJMG)<br>
-    <b>Versão a que este texto corresponde:</b> 1.12.0<br>
+    <b>Versão a que este texto corresponde:</b> 1.12.1<br>
     <b>Responsável pelo tratamento:</b> João Lucas Bernardes, servidor lotado na CPE das Turmas Recursais do TJMG<br>
     <b>Contato:</b> <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
     <b>Última atualização:</b> 19 de agosto de 2026
@@ -292,7 +292,7 @@
       <thead><tr><th>Chave</th><th>O que guarda</th><th>Por quanto tempo</th></tr></thead>
       <tbody>
         <tr>
-          <td><code>ept.tool.*</code> (17 chaves)</td>
+          <td><code>ept.tool.*</code> (18 chaves)</td>
           <td>quais ferramentas estão ligadas ou desligadas. Todas nascem
           ligadas, com uma exceção: a Triagem Express, que está em teste, nasce
           desligada e leva junto tudo o que depende dela (o painel do editor,
@@ -338,6 +338,21 @@
           <td><code>ept.tempoParado.estilo</code></td>
           <td>qual dos dois desenhos de tarja você escolheu para essa marca.
           Guarda uma palavra, <code>chapado</code> ou <code>tarja</code></td>
+          <td>até você mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.perfis.catalogo</code></td>
+          <td>a lista de Turmas Recursais que o próprio EPROC oferece no seletor
+          de perfis do alto da página, para a página de ferramentas poder
+          mostrá-la. Guarda o nome e o código de cada lotação, um por linha,
+          separados por endereço do sistema. Não guarda processo, parte nem
+          documento, e é regravada a cada vez que você abre uma tela do EPROC</td>
+          <td>até a próxima visita ao EPROC</td>
+        </tr>
+        <tr>
+          <td><code>ept.perfis.favoritas</code></td>
+          <td>quais daquelas turmas você marcou como suas. Guarda só os códigos
+          das lotações marcadas</td>
           <td>até você mudar</td>
         </tr>
         <tr>
