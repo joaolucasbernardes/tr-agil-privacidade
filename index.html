@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Política de Privacidade — TR Ágil</title>
-<meta name="description" content="Política de privacidade da extensão TR Ágil, ferramentas da CPE para as Turmas Recursais no eproc do TJMG.">
+<meta name="description" content="Política de privacidade da extensão TR Ágil, ferramentas da CPE para as Turmas Recursais no EPROC do TJMG.">
 <style>
   /* Só <style>, nunca <script> nem recurso externo: a mesma página é servida
      pelo GitHub Pages e de dentro do pacote, onde o Manifest V3 barra os dois. */
@@ -98,18 +98,18 @@
   <div class="caixa">
     <div class="risco"></div>
     <h1>Política de Privacidade — TR Ágil</h1>
-    <p>Ferramentas da CPE para as Turmas Recursais · eproc TJMG</p>
+    <p>Ferramentas da CPE para as Turmas Recursais · EPROC TJMG</p>
   </div>
 </div>
 
 <main class="caixa">
 
   <p class="meta">
-    <b>Extensão:</b> TR Ágil, ferramentas da CPE para as Turmas Recursais (eproc TJMG)<br>
-    <b>Versão a que este texto corresponde:</b> 1.10.7<br>
+    <b>Extensão:</b> TR Ágil, ferramentas da CPE para as Turmas Recursais (EPROC TJMG)<br>
+    <b>Versão a que este texto corresponde:</b> 1.12.0<br>
     <b>Responsável pelo tratamento:</b> João Lucas Bernardes, servidor lotado na CPE das Turmas Recursais do TJMG<br>
     <b>Contato:</b> <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
-    <b>Última atualização:</b> 14 de agosto de 2026
+    <b>Última atualização:</b> 19 de agosto de 2026
   </p>
 
   <h2 id="frase">Em uma frase</h2>
@@ -135,7 +135,7 @@
       <li><a href="#guarda">O que fica guardado no seu computador</a></li>
       <li><a href="#partilha">Com quem os dados são compartilhados</a></li>
       <li><a href="#gemini">O passo do Gemini, que é seu e não da extensão</a></li>
-      <li><a href="#escreve">O que ela escreve no eproc</a>
+      <li><a href="#escreve">O que ela escreve no EPROC</a>
         <ul><li><a href="#excluir">A exclusão de minuta duplicada</a></li></ul>
       </li>
       <li><a href="#seguranca">Segurança</a></li>
@@ -147,13 +147,14 @@
   </div>
 
   <h2 id="serve">1. Para que a extensão serve</h2>
-  <p>Apoiar a triagem de processos das Turmas Recursais no eproc do TJMG. Todas
+  <p>Apoiar a triagem de processos das Turmas Recursais no EPROC do TJMG. Todas
   as ferramentas servem a esse mesmo propósito, dentro da mesma rotina de
   trabalho: preencher a Certidão de Triagem, alertar sobre impedimento de
   magistrado, localizar processos com as mesmas partes, resolver na própria capa
   dos autos as marcações que a triagem exige (lembretes, localizadores
-  situacionais, justiça gratuita, antecipação de tutela e validação de assunto)
-  e limpar da área de trabalho as certidões de triagem que a automação do eproc
+  situacionais, justiça gratuita, antecipação de tutela, advogados das partes
+  e validação de assunto)
+  e limpar da área de trabalho as certidões de triagem que a automação do EPROC
   criou em duplicidade.</p>
   <p>Ela é distribuída de forma não listada, para a equipe da CPE-TR. Não é
   produto comercial, não tem cadastro, não tem login próprio e não tem plano
@@ -173,7 +174,7 @@
       </tbody>
     </table>
   </div>
-  <p>Dentro do eproc, ela só aparece em três telas: a capa dos autos, onde ficam
+  <p>Dentro do EPROC, ela só aparece em três telas: a capa dos autos, onde ficam
   as tarjas e os botões das seções, a tela de minuta, onde fica o painel de
   triagem, e a Minuta Área de Trabalho, onde fica o botão que analisa minutas
   duplicadas. Nas demais telas do sistema ela não desenha nada e não consulta
@@ -184,7 +185,7 @@
 
   <h2 id="coleta">3. Que dados ela lê</h2>
   <p>Os dados são os do processo que você já tem aberto e já está autorizado a
-  ver, dentro da sua sessão no eproc. A extensão não cria dado novo sobre você e
+  ver, dentro da sua sessão no EPROC. A extensão não cria dado novo sobre você e
   não pede que você digite dado pessoal nenhum. O que ela lê da tela:</p>
   <ul>
     <li>número do processo (CNJ), classe, competência e órgão julgador;</li>
@@ -222,7 +223,7 @@
   <p><b>Como ela funciona.</b> A tarja no alto da capa lista todos os documentos
   do processo e já marca os que a triagem costuma usar. Nada é lido antes de
   você conferir a marcação e clicar. Os documentos marcados são buscados no
-  eproc pela sua própria sessão, dois de cada vez, exatamente como se você os
+  EPROC pela sua própria sessão, dois de cada vez, exatamente como se você os
   abrisse à mão. A leitura do PDF acontece dentro do navegador, por uma cópia
   local da biblioteca <b>pdf.js</b>, da Mozilla, que vai embutida no pacote da
   extensão. Essa parte da extensão não tem acesso à rede: ela recebe o arquivo e
@@ -232,7 +233,7 @@
   máquina:</p>
   <ul>
     <li><b>Em segundo plano.</b> A transcrição entra na própria página do
-    processo, num bloco posicionado fora da área visível. A página do eproc
+    processo, num bloco posicionado fora da área visível. A página do EPROC
     continua na tela, inteira: nada dela é escondido, removido ou reordenado. O
     bloco existe para que um assistente de IA que leia a aba encontre os autos,
     e ele nunca é secreto: enquanto estiver lá, a tarja mostra um aviso com o
@@ -273,14 +274,16 @@
     saem da resposta da IA: eles saem das consultas que a própria extensão
     fez.</li>
     <li><b>Gravar, quando você clica.</b> Aplicar na capa o lembrete, o
-    localizador, a justiça gratuita ou a antecipação de tutela, e excluir a
-    minuta duplicada que você confirmar na janela, como descrito no item 8.</li>
+    localizador, a justiça gratuita, a antecipação de tutela ou o advogado da
+    parte, e excluir a minuta duplicada que você confirmar na janela, como
+    descrito no item 8.</li>
   </ul>
   <p>Nada disso alimenta perfil, modelo, estatística ou qualquer uso secundário.
   Terminada a tela, o dado não tem mais para onde ir.</p>
 
   <h2 id="guarda">5. O que fica guardado no seu computador</h2>
-  <p>Somente em <code>chrome.storage.local</code>, que fica na máquina. A
+  <p>Quase tudo em <code>chrome.storage.local</code>, que fica na máquina, e duas
+  chaves em <code>sessionStorage</code>, descritas logo depois da tabela. A
   extensão <b>não usa <code>chrome.storage.sync</code></b>, então nada é
   sincronizado com a sua conta Google nem sai do computador por essa via. Esta é
   a lista completa:</p>
@@ -289,7 +292,7 @@
       <thead><tr><th>Chave</th><th>O que guarda</th><th>Por quanto tempo</th></tr></thead>
       <tbody>
         <tr>
-          <td><code>ept.tool.*</code> (14 chaves)</td>
+          <td><code>ept.tool.*</code> (17 chaves)</td>
           <td>quais ferramentas estão ligadas ou desligadas. Todas nascem
           ligadas, com uma exceção: a Triagem Express, que está em teste, nasce
           desligada e leva junto tudo o que depende dela (o painel do editor,
@@ -326,13 +329,30 @@
           <td>até você mudar</td>
         </tr>
         <tr>
+          <td><code>ept.tempoParado.limites</code></td>
+          <td>os três números de dias a partir dos quais a marca de tempo parado
+          muda de cor nas listas do EPROC. Guarda três números, e nada mais</td>
+          <td>até você mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.tempoParado.estilo</code></td>
+          <td>qual dos dois desenhos de tarja você escolheu para essa marca.
+          Guarda uma palavra, <code>chapado</code> ou <code>tarja</code></td>
+          <td>até você mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.options.tema</code></td>
+          <td>se a página de ferramentas abre no tema claro ou no escuro</td>
+          <td>até você mudar</td>
+        </tr>
+        <tr>
           <td><code>ept.lembretesTarja.aberta</code>, <code>ept.localizadoresTarja.aberta</code>, <code>ept.dossieTarja.aberta</code></td>
           <td>se aquelas tarjas ficam abertas ou recolhidas</td>
           <td>até você mudar</td>
         </tr>
         <tr>
           <td><code>ept.partes.*</code>, <code>ept.partesEproc.*</code>, <code>ept.imped.*</code>, <code>ept.capa.*</code>, <code>ept.lembrete.*</code>, <code>ept.localizador.*</code></td>
-          <td>o resultado das consultas por processo: mesmas partes no PJe, mesmas partes no eproc, impedimento, dados da capa, e os endereços das seções Lembretes e Localizadores</td>
+          <td>o resultado das consultas por processo: mesmas partes no PJe, mesmas partes no EPROC, impedimento, dados da capa, e os endereços das seções Lembretes e Localizadores</td>
           <td><b>4 horas</b>, e o conjunto inteiro é descartado a cada versão nova da extensão</td>
         </tr>
         <tr>
@@ -343,6 +363,20 @@
       </tbody>
     </table>
   </div>
+  <p>Fora dessa lista existem duas chaves em <code>sessionStorage</code>, que
+  vivem só naquela aba e morrem quando ela fecha.</p>
+
+  <p><code>ept.proc.voltarParaPartes</code>: quando você grava um advogado pela
+  capa e o EPROC demora a mostrar a mudança, a página é recarregada; essa chave
+  guarda o número do processo e o instante, só para a página voltar à seção
+  Partes e Representantes em vez de abrir no topo. Vale uma vez e é apagada no
+  uso.</p>
+
+  <p><code>ept.tempoParado.ordenou.&lt;tela&gt;</code>: guarda apenas um sim,
+  dizendo que aquela lista já foi ordenada da mais antiga para a mais nova
+  naquela aba. É o que faz a ordenação acontecer uma vez só, em vez de desfazer
+  a cada carregamento a coluna que você escolheu.</p>
+
   <p>O cache de 4 horas existe para não repetir a mesma consulta quando os mesmos
   autos são reabertos no mesmo turno de trabalho. Ele poupa o sistema do
   Tribunal, não o desenvolvedor: essas consultas nunca passam por nós. A lista de
@@ -359,9 +393,9 @@
       <thead><tr><th>Destino</th><th>O que sai daqui</th><th>Por quê</th></tr></thead>
       <tbody>
         <tr>
-          <td><b>eproc</b> (1º e 2º graus)</td>
+          <td><b>EPROC</b> (1º e 2º graus)</td>
           <td>as mesmas requisições que o seu navegador já faria: páginas e fragmentos de tela, e os formulários que você manda gravar</td>
-          <td>é o sistema onde você está trabalhando. Vai com a sessão que você já tem aberta, e o eproc só entrega o que o seu perfil pode ver</td>
+          <td>é o sistema onde você está trabalhando. Vai com a sessão que você já tem aberta, e o EPROC só entrega o que o seu perfil pode ver</td>
         </tr>
         <tr>
           <td><b>PJe-Recursal</b>, consulta pública</td>
@@ -408,7 +442,7 @@
     <code>ept.resposta</code>, como explicado no item 5.</li>
   </ul>
 
-  <h2 id="escreve">8. O que ela escreve no eproc</h2>
+  <h2 id="escreve">8. O que ela escreve no EPROC</h2>
   <p>Seis coisas, e todas as seis a partir de um clique seu, nunca sozinha:</p>
   <div class="rolagem">
     <table>
@@ -417,17 +451,17 @@
         <tr>
           <td>Lembretes na capa</td>
           <td>um lembrete na seção Lembretes dos autos</td>
-          <td>só diz "criado" depois de encontrar o lembrete na lista que o eproc devolve, e oferece o Desativar em seguida</td>
+          <td>só diz "criado" depois de encontrar o lembrete na lista que o EPROC devolve, e oferece o Desativar em seguida</td>
         </tr>
         <tr>
           <td>Localizadores na capa</td>
           <td>um localizador situacional</td>
-          <td>o eproc substitui a lista inteira nessa operação, então a extensão relê a capa imediatamente antes de gravar e monta a lista nova sobre o que o servidor acabou de responder, para não apagar o que outra pessoa pôs no processo</td>
+          <td>o EPROC substitui a lista inteira nessa operação, então a extensão relê a capa imediatamente antes de gravar e monta a lista nova sobre o que o servidor acabou de responder, para não apagar o que outra pessoa pôs no processo</td>
         </tr>
         <tr>
           <td>Justiça gratuita</td>
           <td>a justiça gratuita de uma parte</td>
-          <td>devolve ao eproc o mesmo formulário que recebeu, com um único campo trocado, e confere relendo a tela</td>
+          <td>devolve ao EPROC o mesmo formulário que recebeu, com um único campo trocado, e confere relendo a tela</td>
         </tr>
         <tr>
           <td>Antecipação de tutela</td>
@@ -435,13 +469,18 @@
           <td>mesmo cuidado do anterior. Esse formulário carrega junto o valor da causa e o nível de sigilo, que são devolvidos exatamente como vieram</td>
         </tr>
         <tr>
+          <td>Advogados e procuradores</td>
+          <td>a associação e a remoção de advogado de uma parte</td>
+          <td>lê a tela de procuradores do processo, devolve ao EPROC o mesmo formulário que recebeu com os campos da inclusão preenchidos, e confere na resposta se o advogado passou a constar da parte. Nada é escrito antes de você ver o resumo do que será feito e clicar em Aplicar</td>
+        </tr>
+        <tr>
           <td>Validação de assunto</td>
           <td>nada por conta própria</td>
-          <td>aciona a função do próprio eproc que dispensa a sugestão de assunto, em vez de montar requisição</td>
+          <td>aciona a função do próprio EPROC que dispensa a sugestão de assunto, em vez de montar requisição</td>
         </tr>
         <tr>
           <td>Minutas duplicadas</td>
-          <td><b>exclui</b> a minuta repetida que a automação de localizadores do eproc criou no mesmo processo</td>
+          <td><b>exclui</b> a minuta repetida que a automação de localizadores do EPROC criou no mesmo processo</td>
           <td>é a única ferramenta que apaga alguma coisa, e por isso é a mais travada. Veja o item 8.1</td>
         </tr>
       </tbody>
@@ -454,9 +493,9 @@
   uma não afeta as outras.</p>
 
   <h2 id="excluir">8.1. A exclusão de minuta duplicada</h2>
-  <p>A automação de localizadores do eproc cria a Certidão de Triagem sozinha.
+  <p>A automação de localizadores do EPROC cria a Certidão de Triagem sozinha.
   Quando a regra dispara duas vezes no mesmo processo, nasce uma segunda minuta
-  igual. O próprio eproc avisa que já existe uma minuta com o mesmo modelo, mas
+  igual. O próprio EPROC avisa que já existe uma minuta com o mesmo modelo, mas
   não impede e não limpa. Essa ferramenta é a limpeza.</p>
   <p>É a única função da extensão que apaga alguma coisa, e por isso ela é a
   mais travada de todas:</p>
@@ -477,7 +516,7 @@
     porquê.</li>
     <li><b>Nenhum processo fica sem minuta.</b> Marcar todas as cópias de um
     processo pinta o grupo de vermelho e desliga o botão de excluir.</li>
-    <li><b>A exclusão é reversível.</b> No eproc a minuta excluída fica com
+    <li><b>A exclusão é reversível.</b> No EPROC a minuta excluída fica com
     status Excluída e o próprio sistema oferece o botão Reativar. A extensão
     escreve isso na tela de confirmação, antes do clique.</li>
     <li><b>Uma de cada vez.</b> As exclusões saem em fila, com pausa entre elas,
@@ -502,7 +541,7 @@
     folha de estilo ou fonte carregada de CDN. A extensão não executa código
     remoto, e portanto não pode ser alterada sem uma atualização revisada pela
     Chrome Web Store.</li>
-    <li>As requisições ao eproc usam a sessão que você já tem aberta. A extensão
+    <li>As requisições ao EPROC usam a sessão que você já tem aberta. A extensão
     não guarda, não copia e não lê credenciais.</li>
     <li>Os endereços que a extensão recebe da página e transforma em requisição
     são conferidos antes: um endereço de outra origem é recusado sem ser
@@ -525,7 +564,7 @@
     <code>chrome://settings/content/all</code>, procurando pela extensão.</li>
   </ul>
   <p>Os dados dos processos em si continuam sob a guarda e as regras do Tribunal
-  de Justiça de Minas Gerais, nos sistemas eproc e PJe. Esta extensão apenas
+  de Justiça de Minas Gerais, nos sistemas EPROC e PJe. Esta extensão apenas
   exibe, para a pessoa autorizada, o que ela já poderia ver navegando à mão. Para
   exercer direitos sobre esses dados (Lei 13.709/2018), o caminho é o Tribunal,
   não o desenvolvedor.</p>
@@ -557,15 +596,15 @@
         </tr>
         <tr>
           <td><code>clipboardWrite</code></td>
-          <td>os botões que copiam textos padronizados para você colar no eproc (nomes de localizadores e lembretes, número do processo, órgão julgador) e o botão que copia o prompt. A cópia principal usa <code>navigator.clipboard</code>; esta permissão sustenta o caminho de reserva, usado quando a página do eproc está sem foco</td>
+          <td>os botões que copiam textos padronizados para você colar no EPROC (nomes de localizadores e lembretes, número do processo, órgão julgador) e o botão que copia o prompt. A cópia principal usa <code>navigator.clipboard</code>; esta permissão sustenta o caminho de reserva, usado quando a página do EPROC está sem foco</td>
         </tr>
         <tr>
-          <td><code>host_permissions</code> dos dois endereços do eproc</td>
+          <td><code>host_permissions</code> dos dois endereços do EPROC</td>
           <td>é onde a extensão trabalha: ler a tela aberta, desenhar as tarjas e o painel, consultar, gravar e, quando você confirma, excluir a minuta duplicada. Sem eles a extensão não tem função nenhuma</td>
         </tr>
         <tr>
           <td><code>host_permissions</code> do PJe-Recursal</td>
-          <td>a consulta pública que procura processos com as mesmas partes. Ela sai do service worker porque o CORS do PJe barraria uma chamada feita a partir da página do eproc</td>
+          <td>a consulta pública que procura processos com as mesmas partes. Ela sai do service worker porque o CORS do PJe barraria uma chamada feita a partir da página do EPROC</td>
         </tr>
         <tr>
           <td><code>host_permissions</code> do painel de impedimentos</td>
@@ -573,7 +612,7 @@
         </tr>
         <tr>
           <td>Atalhos <code>Ctrl+Shift+Y</code> e <code>Ctrl+Shift+U</code></td>
-          <td>copiar o prompt e mostrar ou ocultar o painel sem tirar as mãos do teclado. Os atalhos apenas enviam um aviso para a aba ativa; se ela não for do eproc, nada acontece</td>
+          <td>copiar o prompt e mostrar ou ocultar o painel sem tirar as mãos do teclado. Os atalhos apenas enviam um aviso para a aba ativa; se ela não for do EPROC, nada acontece</td>
         </tr>
       </tbody>
     </table>
