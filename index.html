@@ -106,10 +106,10 @@
 
   <p class="meta">
     <b>Extensão:</b> TR Ágil, ferramentas da CPE para as Turmas Recursais (EPROC TJMG)<br>
-    <b>Versão a que este texto corresponde:</b> 1.12.1<br>
+    <b>Versão a que este texto corresponde:</b> 1.13.3<br>
     <b>Responsável pelo tratamento:</b> João Lucas Bernardes, servidor lotado na CPE das Turmas Recursais do TJMG<br>
     <b>Contato:</b> <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
-    <b>Última atualização:</b> 19 de agosto de 2026
+    <b>Última atualização:</b> 21 de agosto de 2026
   </p>
 
   <h2 id="frase">Em uma frase</h2>
@@ -174,11 +174,21 @@
       </tbody>
     </table>
   </div>
-  <p>Dentro do EPROC, ela só aparece em três telas: a capa dos autos, onde ficam
-  as tarjas e os botões das seções, a tela de minuta, onde fica o painel de
-  triagem, e a Minuta Área de Trabalho, onde fica o botão que analisa minutas
-  duplicadas. Nas demais telas do sistema ela não desenha nada e não consulta
-  nada.</p>
+  <p>Dentro do EPROC, cada ferramenta aparece na tela a que ela serve:</p>
+  <ul>
+    <li>a <b>capa dos autos</b>, onde ficam as tarjas do topo e os botões das
+    seções;</li>
+    <li>a <b>tela de minuta</b>, onde ficam o painel de triagem e os botões da
+    barra do editor;</li>
+    <li>a <b>Minuta Área de Trabalho</b>, onde ficam o botão que analisa minutas
+    duplicadas e o destaque de tempo;</li>
+    <li>a <b>Lista de Processos por Localizador</b>, onde ficam a conferência de
+    quem está sem certidão e o destaque de tempo;</li>
+    <li><b>qualquer tela do sistema</b>, para duas ferramentas: o seletor de
+    turmas, que fica na barra do alto, e o modo escuro, que veste a tela.</li>
+  </ul>
+  <p>Onde uma ferramenta não tem o que fazer, ela não desenha nada e não
+  consulta nada.</p>
   <p>Em qualquer outro site a extensão não carrega e não faz nada. Ela não pede
   permissão para ler abas, histórico, downloads ou cookies, e por isso não
   enxerga a sua navegação fora desses quatro endereços.</p>
@@ -270,7 +280,7 @@
     <li><b>Mostrar.</b> Desenhar as tarjas na capa dos autos e o painel na tela
     de minuta, com o que foi lido e com o que as consultas responderam.</li>
     <li><b>Preencher.</b> Marcar a Certidão de Triagem no editor de minuta, a
-    partir da resposta que você colou e conferiu na prévia. Os itens 5 e 6 não
+    partir da resposta que você colou e conferiu na prévia. Os itens 3 e 4 não
     saem da resposta da IA: eles saem das consultas que a própria extensão
     fez.</li>
     <li><b>Gravar, quando você clica.</b> Aplicar na capa o lembrete, o
@@ -292,11 +302,14 @@
       <thead><tr><th>Chave</th><th>O que guarda</th><th>Por quanto tempo</th></tr></thead>
       <tbody>
         <tr>
-          <td><code>ept.tool.*</code> (18 chaves)</td>
-          <td>quais ferramentas estão ligadas ou desligadas. Todas nascem
-          ligadas, com uma exceção: a Triagem Express, que está em teste, nasce
-          desligada e leva junto tudo o que depende dela (o painel do editor,
-          os botões da barra e o Dossiê para a IA)</td>
+          <td><code>ept.tool.*</code> (19 chaves)</td>
+          <td>quais ferramentas estão ligadas ou desligadas. Nascem ligadas,
+          com duas exceções: a Triagem Express, que está em teste e leva junto
+          tudo o que depende dela (o painel do editor, os botões da barra e o
+          Dossiê para a IA), e o modo escuro, que muda a aparência do sistema
+          inteiro e por isso só liga se você pedir. São 19 chaves para 18
+          ferramentas na tela: a décima nona é de uma que está recolhida nesta
+          versão, e a chave dela fica guardada para o dia em que ela voltar</td>
           <td>até você mudar</td>
         </tr>
         <tr>
@@ -378,8 +391,20 @@
       </tbody>
     </table>
   </div>
-  <p>Fora dessa lista existem duas chaves em <code>sessionStorage</code>, que
-  vivem só naquela aba e morrem quando ela fecha.</p>
+  <p>Fora dessa lista existe uma marca no <code>localStorage</code> do próprio
+  EPROC e existem duas chaves em <code>sessionStorage</code>, que vivem só
+  naquela aba e morrem quando ela fecha.</p>
+
+  <p><code>ept.tema</code>, no <code>localStorage</code> de
+  <code>eproc1g</code> e <code>eproc2g</code>: guarda um caractere,
+  <code>1</code> ou <code>0</code>, dizendo se o modo escuro está ligado. É o
+  único lugar em que a extensão escreve fora do <code>chrome.storage</code>, e
+  existe por um motivo prático: o EPROC recarrega a página inteira a cada
+  clique, e ler o interruptor no <code>chrome.storage</code> é assíncrono, o que
+  faria a tela piscar branca antes de escurecer, uma vez a cada clique. Essa
+  marca é lida antes de a página pintar. Ela não guarda nada do processo nem
+  sobre você, e é regravada a cada carregamento pelo que o interruptor
+  responder.</p>
 
   <p><code>ept.proc.voltarParaPartes</code>: quando você grava um advogado pela
   capa e o EPROC demora a mostrar a mudança, a página é recarregada; essa chave
@@ -415,12 +440,12 @@
         <tr>
           <td><b>PJe-Recursal</b>, consulta pública</td>
           <td>nome ou documento da parte, para a pesquisa, e o endereço de detalhe do processo encontrado</td>
-          <td>localizar processos com as mesmas partes, que é o item 5 da certidão. É a mesma consulta pública que qualquer cidadão faz pelo site, sem login</td>
+          <td>localizar processos com as mesmas partes, que é o item 3 da certidão. É a mesma consulta pública que qualquer cidadão faz pelo site, sem login</td>
         </tr>
         <tr>
           <td><b>Painel de impedimentos</b> do TJMG (rede interna)</td>
           <td>o número do processo e o nome do magistrado</td>
-          <td>saber se há declaração de impedimento ou suspeição, que é o item 6 da certidão</td>
+          <td>saber se há declaração de impedimento ou suspeição, que é o item 4 da certidão</td>
         </tr>
       </tbody>
     </table>
@@ -458,7 +483,7 @@
   </ul>
 
   <h2 id="escreve">8. O que ela escreve no EPROC</h2>
-  <p>Seis coisas, e todas as seis a partir de um clique seu, nunca sozinha:</p>
+  <p>Sete coisas, e todas as sete a partir de um clique seu, nunca sozinha:</p>
   <div class="rolagem">
     <table>
       <thead><tr><th>Ferramenta</th><th>O que grava</th><th>Cuidado que ela toma</th></tr></thead>
@@ -501,11 +526,18 @@
       </tbody>
     </table>
   </div>
-  <p>Fora isso, a extensão nunca insere o modelo da certidão, nunca desmarca o
-  que você marcou à mão, nunca escreve a nota de triagem na minuta e nunca
-  assina nada. A decisão e a assinatura continuam sendo suas. Cada uma dessas
-  seis ferramentas tem interruptor próprio na página de ferramentas, e desligar
-  uma não afeta as outras.</p>
+  <p>Fora isso, a extensão nunca desmarca o que você marcou à mão e nunca assina
+  nada. A decisão e a assinatura continuam sendo suas. Cada uma dessas sete
+  ferramentas tem interruptor próprio na página de ferramentas, e desligar uma
+  não afeta as outras.</p>
+  <p>Os botões da barra do editor de minuta são um caso à parte, e vale dizer
+  com todas as letras o que eles fazem. Ao seu clique, eles escrevem <b>no
+  editor aberto</b>: marcam os itens 3 e 4 da certidão e trocam o modelo da
+  certidão pelo de dois ou mais recorrentes. Um terceiro botão, que apaga da
+  certidão as marcas de texto padrão do modelo criminal, está recolhido nesta
+  versão, porque o modelo em vigor não traz mais nenhuma; ele volta se elas
+  voltarem, e escreve no editor aberto do mesmo jeito. Nada disso chega ao
+  processo antes de você mesmo salvar a minuta no EPROC, e nenhum deles assina.</p>
 
   <h2 id="excluir">8.1. A exclusão de minuta duplicada</h2>
   <p>A automação de localizadores do EPROC cria a Certidão de Triagem sozinha.
