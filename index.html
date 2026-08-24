@@ -106,7 +106,7 @@
 
   <p class="meta">
     <b>Extensão:</b> TR Ágil, ferramentas da CPE para as Turmas Recursais (EPROC TJMG)<br>
-    <b>Versão a que este texto corresponde:</b> 1.13.4<br>
+    <b>Versão a que este texto corresponde:</b> 1.13.5<br>
     <b>Responsável pelo tratamento:</b> João Lucas Bernardes, servidor lotado na CPE das Turmas Recursais do TJMG<br>
     <b>Contato:</b> <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
     <b>Última atualização:</b> 21 de agosto de 2026
@@ -203,6 +203,10 @@
     <li>representantes: nome do advogado, número da OAB e tipo de atuação;</li>
     <li>nomes de magistrados e dados dos atos que eles praticaram no processo;</li>
     <li>assuntos, localizadores e lembretes que a capa dos autos exibe;</li>
+    <li>a tabela de eventos da capa: número e data de cada evento, o tipo de
+    cada documento e a inscrição de quem protocolou. É de onde sai a contagem de
+    recorrentes, que aponta qual das duas redações da certidão de triagem
+    usar;</li>
     <li>a sua lista de minutas na área de trabalho, com número do processo, tipo
     e código da minuta, data de criação, status e o usuário que criou cada uma,
     quando você manda analisar minutas duplicadas ou conferir quem está sem
@@ -220,6 +224,16 @@
     sua máquina. Veja o item 3.1, logo abaixo, porque este é o dado mais
     sensível que ela toca.</li>
   </ul>
+
+  <p><b>Um clique que ela dá por você.</b> Quando o polo tem mais de uma parte,
+  a capa do EPROC esconde as demais atrás de um "e outros", e é preciso clicar
+  para vê-las. Com a Triagem Express ligada, a extensão dá esse clique sozinha
+  ao abrir a capa. Quem carrega as partes é a própria página do EPROC, com a sua
+  sessão, e o que aparece é exatamente o que apareceria se você clicasse: nada
+  de novo é buscado, nada é escondido, e nada é gravado. Ela faz isso porque
+  parte que a página não desenhou também não entra nas contagens dela, e uma
+  contagem a menos sem aviso é pior que contagem nenhuma. Com a Triagem Express
+  desligada, a capa fica como o EPROC a entregou.</p>
 
   <h2 id="dossie">3.1. O Dossiê para a IA, que lê o conteúdo das peças</h2>
   <p>Esta é a única ferramenta que abre os documentos dos autos, e ela merece um
@@ -382,6 +396,16 @@
           <td><code>ept.partes.*</code>, <code>ept.partesEproc.*</code>, <code>ept.imped.*</code>, <code>ept.capa.*</code>, <code>ept.lembrete.*</code>, <code>ept.localizador.*</code></td>
           <td>o resultado das consultas por processo: mesmas partes no PJe, mesmas partes no EPROC, impedimento, dados da capa, e os endereços das seções Lembretes e Localizadores</td>
           <td><b>4 horas</b>, e o conjunto inteiro é descartado a cada versão nova da extensão</td>
+        </tr>
+        <tr>
+          <td><code>ept.polos.*</code></td>
+          <td>por processo, o resultado da contagem de recorrentes que a capa
+          alimenta: o nome de cada parte, o nome e a inscrição dos advogados de
+          cada uma, e o número do evento de cada recurso. Sai da tela que você
+          já tem aberta, e não de consulta nova; existe para que o painel da
+          Triagem Express, que roda no editor da minuta, saiba o que só a capa
+          mostra</td>
+          <td><b>4 horas</b>, e também é descartado a cada versão nova da extensão</td>
         </tr>
         <tr>
           <td><code>ept.sem-minuta.*</code></td>
