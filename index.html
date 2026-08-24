@@ -106,7 +106,7 @@
 
   <p class="meta">
     <b>Extensão:</b> TR Ágil, ferramentas da CPE para as Turmas Recursais (EPROC TJMG)<br>
-    <b>Versão a que este texto corresponde:</b> 1.13.5<br>
+    <b>Versão a que este texto corresponde:</b> 1.14.0<br>
     <b>Responsável pelo tratamento:</b> João Lucas Bernardes, servidor lotado na CPE das Turmas Recursais do TJMG<br>
     <b>Contato:</b> <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
     <b>Última atualização:</b> 21 de agosto de 2026
@@ -217,6 +217,12 @@
     <li>valor da causa e nível de sigilo do processo, que aparecem no formulário
     de Informações Adicionais quando você usa a ferramenta de antecipação de
     tutela;</li>
+    <li>do mesmo formulário de Informações Adicionais, o campo <b>Processo
+    Migrado</b> e o <b>nível de sigilo</b>, quando a ferramenta de prevenção do
+    órgão julgador confere se o processo já esteve em outra Turma Recursal. O
+    sigilo é lido por um motivo só: a consulta pública do PJe não lista processo
+    sigiloso, e sem saber disso um resultado vazio seria lido como ausência de
+    prevenção;</li>
     <li>o texto que você cola no painel de triagem, que é a resposta do Gemini e
     costuma repetir os dados acima;</li>
     <li><b>o conteúdo integral dos documentos que você marcar</b>, quando usar o
@@ -388,6 +394,14 @@
           <td>até você mudar</td>
         </tr>
         <tr>
+          <td><code>ept.novidades</code></td>
+          <td>a data em que você abriu a página de ferramentas pela primeira vez
+          depois de cada ferramenta nova, para o selo "novo" ao lado do nome
+          dela sumir três dias depois. Guarda o apelido interno da ferramenta e
+          uma data, e nada mais</td>
+          <td>até a próxima versão com ferramenta nova</td>
+        </tr>
+        <tr>
           <td><code>ept.lembretesTarja.aberta</code>, <code>ept.localizadoresTarja.aberta</code>, <code>ept.dossieTarja.aberta</code></td>
           <td>se aquelas tarjas ficam abertas ou recolhidas</td>
           <td>até você mudar</td>
@@ -405,6 +419,17 @@
           já tem aberta, e não de consulta nova; existe para que o painel da
           Triagem Express, que roda no editor da minuta, saiba o que só a capa
           mostra</td>
+          <td><b>4 horas</b>, e também é descartado a cada versão nova da extensão</td>
+        </tr>
+        <tr>
+          <td><code>ept.prevencao.*</code></td>
+          <td>por processo, o resultado da conferência de prevenção do órgão
+          julgador: os nomes do órgão colegiado e do órgão julgador que constam
+          na capa do EPROC, os mesmos dois que a consulta pública do PJe
+          informou, a data em que o PJe distribuiu o processo, a classe da ação
+          e a movimentação de julgamento encontrada. Guarda nomes de órgão,
+          datas e o número do processo, e nada mais: nem nome de parte, nem CPF,
+          nem conteúdo de peça</td>
           <td><b>4 horas</b>, e também é descartado a cada versão nova da extensão</td>
         </tr>
         <tr>
@@ -463,8 +488,8 @@
         </tr>
         <tr>
           <td><b>PJe-Recursal</b>, consulta pública</td>
-          <td>nome ou documento da parte, para a pesquisa, e o endereço de detalhe do processo encontrado</td>
-          <td>localizar processos com as mesmas partes, que é o item 3 da certidão. É a mesma consulta pública que qualquer cidadão faz pelo site, sem login</td>
+          <td>nome ou documento da parte, ou o número do processo, para a pesquisa, e o endereço de detalhe do processo encontrado</td>
+          <td>duas coisas, na mesma consulta pública que qualquer cidadão faz pelo site, sem login: localizar processos com as mesmas partes, que é o item 3 da certidão, e descobrir se o processo aberto já esteve numa Turma Recursal antes de ser migrado para o EPROC, caso em que a busca é pelo número dele</td>
         </tr>
         <tr>
           <td><b>Painel de impedimentos</b> do TJMG (rede interna)</td>
@@ -675,7 +700,7 @@
         </tr>
         <tr>
           <td><code>host_permissions</code> do PJe-Recursal</td>
-          <td>a consulta pública que procura processos com as mesmas partes. Ela sai do service worker porque o CORS do PJe barraria uma chamada feita a partir da página do EPROC</td>
+          <td>a consulta pública que procura processos com as mesmas partes e a que procura o processo aberto pelo número, para a prevenção do órgão julgador. Ela sai do service worker porque o CORS do PJe barraria uma chamada feita a partir da página do EPROC</td>
         </tr>
         <tr>
           <td><code>host_permissions</code> do painel de impedimentos</td>
