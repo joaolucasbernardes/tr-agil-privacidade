@@ -322,13 +322,13 @@
       <thead><tr><th>Chave</th><th>O que guarda</th><th>Por quanto tempo</th></tr></thead>
       <tbody>
         <tr>
-          <td><code>ept.tool.*</code> (19 chaves)</td>
+          <td><code>ept.tool.*</code> (20 chaves)</td>
           <td>quais ferramentas estão ligadas ou desligadas. Nascem ligadas,
           com duas exceções: a Triagem Express, que está em teste e leva junto
           tudo o que depende dela (o painel do editor, os botões da barra e o
           Dossiê para a IA), e o modo escuro, que muda a aparência do sistema
-          inteiro e por isso só liga se você pedir. São 19 chaves para 18
-          ferramentas na tela: a décima nona é de uma que está recolhida nesta
+          inteiro e por isso só liga se você pedir. São 20 chaves para 19
+          ferramentas na tela: a vigésima é de uma que está recolhida nesta
           versão, e a chave dela fica guardada para o dia em que ela voltar</td>
           <td>até você mudar</td>
         </tr>
@@ -409,7 +409,10 @@
         <tr>
           <td><code>ept.partes.*</code>, <code>ept.partesEproc.*</code>, <code>ept.imped.*</code>, <code>ept.capa.*</code>, <code>ept.lembrete.*</code>, <code>ept.localizador.*</code></td>
           <td>o resultado das consultas por processo: mesmas partes no PJe, mesmas partes no EPROC, impedimento, dados da capa, e os endereços das seções Lembretes e Localizadores</td>
-          <td><b>4 horas</b>, e o conjunto inteiro é descartado a cada versão nova da extensão</td>
+          <td><b>4 horas</b>, com uma exceção: o registro de impedimento que
+          já apontou magistrado impedido e já trouxe os atos dele vale
+          <b>8 horas</b>. O conjunto inteiro é descartado a cada versão nova da
+          extensão</td>
         </tr>
         <tr>
           <td><code>ept.polos.*</code></td>
@@ -470,7 +473,10 @@
   autos são reabertos no mesmo turno de trabalho. Ele poupa o sistema do
   Tribunal, não o desenvolvedor: essas consultas nunca passam por nós. A lista de
   quem está sem certidão de triagem vale meia hora, e não quatro, porque rascunho
-  de minuta é criado e apagado o tempo todo.</p>
+  de minuta é criado e apagado o tempo todo. Na outra ponta, o resultado de
+  impedimento que já veio completo vale oito horas: refazê-lo custa de 22 a 59
+  segundos por magistrado, e o painel do Tribunal responde sempre com o dado do
+  dia anterior.</p>
 
   <h2 id="partilha">6. Com quem os dados são compartilhados</h2>
   <p>Com ninguém além dos sistemas do próprio TJMG listados abaixo, e sempre para
@@ -648,8 +654,8 @@
 
   <h2 id="retencao">10. Retenção, acesso e exclusão</h2>
   <p>Os prazos estão na tabela do item 5: 4 horas para o resultado das consultas,
-  e até você mudar para as preferências. Nada tem prazo indeterminado no
-  servidor, porque não há servidor.</p>
+  com as duas exceções anotadas lá, e até você mudar para as preferências. Nada
+  tem prazo indeterminado no servidor, porque não há servidor.</p>
   <p>Como nenhum dado sai da sua máquina para nós, não há o que solicitar,
   corrigir ou excluir junto ao desenvolvedor. Para apagar o que a extensão
   guardou você tem dois caminhos:</p>
