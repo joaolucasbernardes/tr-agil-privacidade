@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Política de Privacidade · TR Ágil</title>
-<meta name="description" content="Política de privacidade da extensão TR Ágil, ferramentas da CPE para as Turmas Recursais no EPROC do TJMG.">
+<meta name="description" content="Política de privacidade da TR Ágil, extensão usada pela CPE nas Turmas Recursais do TJMG que trabalham no EPROC.">
 <style>
-  /* Só <style>, nunca <script> nem recurso externo: a mesma página é servida
-     pelo GitHub Pages e de dentro do pacote, onde o Manifest V3 barra os dois. */
+  /* A página usa apenas <style>, sem <script> ou recurso externo. O mesmo arquivo
+     funciona no GitHub Pages e dentro do pacote, onde o Manifest V3 impediria
+     esses carregamentos. */
   :root {
     --navy: #14395e;
     --navy-deep: #0e2a46;
@@ -112,31 +113,30 @@
     <b>Última atualização:</b> 2 de setembro de 2026
   </p>
 
-  <h2 id="frase">Em uma frase</h2>
+  <h2 id="frase">Em resumo</h2>
   <div class="resumo">
-    <p>A extensão lê a página do processo que já está aberta na tela de quem a
-    usa, consulta três sistemas do próprio TJMG e, quando você pede, transcreve
-    para texto os documentos que você marcar. Tudo na sua máquina, com o
-    resultado mostrado ali mesmo.
-    Não existe servidor desta extensão, nada é enviado ao desenvolvedor, nada é
-    vendido ou cedido a terceiros e não há publicidade nem telemetria de espécie
-    alguma.</p>
+    <p>A extensão trabalha com a página do processo já aberta por você, faz
+    consultas em três sistemas mantidos pelo TJMG e, mediante sua solicitação,
+    transforma em texto os documentos escolhidos. O processamento ocorre na sua
+    máquina e o resultado aparece no próprio navegador. A extensão não possui
+    servidor, não encaminha dados ao desenvolvedor, não vende nem repassa
+    informações e não utiliza publicidade ou telemetria.</p>
   </div>
 
   <div class="indice">
-    <p>O que este documento cobre</p>
+    <p>Assuntos tratados nesta política</p>
     <ol>
       <li><a href="#serve">Para que a extensão serve</a></li>
       <li><a href="#onde">Onde ela funciona</a></li>
       <li><a href="#coleta">Que dados ela lê</a>
-        <ul><li><a href="#dossie">O Dossiê para a IA, que lê o conteúdo das peças</a></li></ul>
+        <ul><li><a href="#dossie">Dossiê para a IA e leitura do conteúdo das peças</a></li></ul>
       </li>
       <li><a href="#uso">Como ela usa esses dados</a></li>
-      <li><a href="#guarda">O que fica guardado no seu computador</a></li>
-      <li><a href="#partilha">Com quem os dados são compartilhados</a></li>
-      <li><a href="#gemini">O passo do Gemini, que é seu e não da extensão</a></li>
+      <li><a href="#guarda">Informações mantidas no seu computador</a></li>
+      <li><a href="#partilha">Destinatários das informações consultadas</a></li>
+      <li><a href="#gemini">Uso do Gemini realizado pelo usuário</a></li>
       <li><a href="#escreve">O que ela escreve no EPROC</a>
-        <ul><li><a href="#excluir">A exclusão de minuta duplicada</a></li></ul>
+        <ul><li><a href="#excluir">Exclusão de minutas duplicadas</a></li></ul>
       </li>
       <li><a href="#seguranca">Segurança</a></li>
       <li><a href="#retencao">Retenção, acesso e exclusão</a></li>
@@ -146,575 +146,556 @@
     </ol>
   </div>
 
-  <h2 id="serve">1. Para que a extensão serve</h2>
-  <p>Apoiar a triagem de processos das Turmas Recursais no EPROC do TJMG. Todas
-  as ferramentas servem a esse mesmo propósito, dentro da mesma rotina de
-  trabalho: preencher a Certidão de Triagem, alertar sobre impedimento de
-  magistrado, localizar processos com as mesmas partes, resolver na própria capa
-  dos autos as marcações que a triagem exige (lembretes, localizadores
-  situacionais, justiça gratuita, antecipação de tutela, advogados das partes
-  e validação de assunto)
-  e limpar da área de trabalho as certidões de triagem que a automação do EPROC
-  criou em duplicidade.</p>
-  <p>Ela é distribuída de forma não listada, para a equipe da CPE-TR. Não é
-  produto comercial, não tem cadastro, não tem login próprio e não tem plano
-  pago.</p>
+  <h2 id="serve">1. Finalidade da extensão</h2>
+  <p>A TR Ágil auxilia a triagem dos processos das Turmas Recursais no EPROC do
+  TJMG. Todas as ferramentas atendem a essa rotina: preencher a Certidão de
+  Triagem; avisar sobre impedimentos de magistrados; encontrar processos entre
+  as mesmas partes; resolver, na capa dos autos, as marcações exigidas pela
+  triagem — lembretes, localizadores situacionais, justiça gratuita, antecipação
+  de tutela, advogados das partes e validação de assunto —; e retirar da área de
+  trabalho certidões que a automação do EPROC criou em duplicidade.</p>
+  <p>A distribuição é não listada e destinada à equipe da CPE-TR. Não se trata
+  de produto comercial: não há cadastro, login próprio ou plano pago.</p>
 
-  <h2 id="onde">2. Onde ela funciona</h2>
-  <p>A extensão só é ativada em quatro endereços, todos declarados no
-  <code>manifest.json</code> e todos do Tribunal de Justiça de Minas Gerais:</p>
+  <h2 id="onde">2. Endereços em que funciona</h2>
+  <p>A extensão é ativada exclusivamente nos quatro endereços abaixo, todos
+  pertencentes ao Tribunal de Justiça de Minas Gerais e declarados no
+  <code>manifest.json</code>:</p>
   <div class="rolagem">
     <table>
       <thead><tr><th>Endereço</th><th>Para quê</th></tr></thead>
       <tbody>
-        <tr><td><code>https://eproc1g.tjmg.jus.br</code></td><td>ler a tela aberta, consultar impedimento e mesmas partes, ler a sua lista de minutas e gravar o que você mandar gravar</td></tr>
+        <tr><td><code>https://eproc1g.tjmg.jus.br</code></td><td>ler a página aberta, consultar impedimentos e mesmas partes, examinar sua lista de minutas e gravar apenas o que você solicitar</td></tr>
         <tr><td><code>https://eproc2g.tjmg.jus.br</code></td><td>o mesmo, no segundo grau</td></tr>
-        <tr><td><code>https://pjerecursal.tjmg.jus.br</code></td><td>consulta processual <b>pública</b> do PJe-Recursal</td></tr>
-        <tr><td><code>http://uailab-1.ad.tjmg.jus.br:3000</code></td><td>painel de impedimento de magistrados, na rede interna do TJMG</td></tr>
+        <tr><td><code>https://pjerecursal.tjmg.jus.br</code></td><td>realizar a consulta processual <b>pública</b> oferecida pelo PJe-Recursal</td></tr>
+        <tr><td><code>http://uailab-1.ad.tjmg.jus.br:3000</code></td><td>consultar o painel de impedimentos disponível na rede interna do TJMG</td></tr>
       </tbody>
     </table>
   </div>
-  <p>Dentro do EPROC, cada ferramenta aparece na tela a que ela serve:</p>
+  <p>No EPROC, cada ferramenta é exibida somente na tela em que pode atuar:</p>
   <ul>
     <li>a <b>capa dos autos</b>, onde ficam as tarjas do topo e os botões das
     seções;</li>
-    <li>a <b>tela de minuta</b>, onde ficam o painel de triagem e os botões da
+    <li>na <b>tela de minuta</b> aparecem o painel de triagem e os comandos da
     barra do editor;</li>
-    <li>a <b>Minuta Área de Trabalho</b>, onde ficam o botão que analisa minutas
-    duplicadas e o destaque de tempo;</li>
-    <li>a <b>Lista de Processos por Localizador</b>, onde ficam a conferência de
-    quem está sem certidão e o destaque de tempo;</li>
-    <li><b>qualquer tela do sistema</b>, para duas ferramentas: o seletor de
-    turmas, que fica na barra do alto, e o modo escuro, que veste a tela.</li>
+    <li>em <b>Minuta Área de Trabalho</b> ficam a análise de duplicidades e o
+    destaque do tempo decorrido;</li>
+    <li>na <b>Lista de Processos por Localizador</b> estão a conferência de
+    processos sem certidão e o destaque de tempo;</li>
+    <li>em <b>qualquer tela do sistema</b> podem atuar o seletor de turmas, no
+    alto da página, e o modo escuro.</li>
   </ul>
-  <p>Onde uma ferramenta não tem o que fazer, ela não desenha nada e não
-  consulta nada.</p>
-  <p>Em qualquer outro site a extensão não carrega e não faz nada. Ela não pede
-  permissão para ler abas, histórico, downloads ou cookies, e por isso não
-  enxerga a sua navegação fora desses quatro endereços.</p>
+  <p>Quando uma ferramenta não se aplica à tela aberta, ela não exibe elementos
+  e não realiza consultas.</p>
+  <p>A extensão não é carregada em outros sites. Como não solicita acesso a
+  abas, histórico, downloads ou cookies, também não consegue acompanhar sua
+  navegação fora desses quatro endereços.</p>
 
-  <h2 id="coleta">3. Que dados ela lê</h2>
-  <p>Os dados são os do processo que você já tem aberto e já está autorizado a
-  ver, dentro da sua sessão no EPROC. A extensão não cria dado novo sobre você e
-  não pede que você digite dado pessoal nenhum. O que ela lê da tela:</p>
+  <h2 id="coleta">3. Dados lidos pela extensão</h2>
+  <p>A leitura se limita ao processo que você abriu e que sua sessão do EPROC já
+  permite consultar. A extensão não cria informações a seu respeito nem pede o
+  preenchimento de dados pessoais. Da tela, ela pode obter:</p>
   <ul>
-    <li>número do processo (CNJ), classe, competência e órgão julgador;</li>
-    <li>nomes das partes e, quando a página os exibe, CPF ou CNPJ;</li>
-    <li>representantes: nome do advogado, número da OAB e tipo de atuação;</li>
-    <li>nomes de magistrados e dados dos atos que eles praticaram no processo;</li>
-    <li>assuntos, localizadores e lembretes que a capa dos autos exibe;</li>
-    <li>a tabela de eventos da capa: número e data de cada evento, o tipo de
-    cada documento e a inscrição de quem protocolou. É de onde sai a contagem de
-    recorrentes, que aponta qual das duas redações da certidão de triagem
-    usar;</li>
-    <li>a sua lista de minutas na área de trabalho, com número do processo, tipo
-    e código da minuta, data de criação, status e o usuário que criou cada uma,
-    quando você manda analisar minutas duplicadas ou conferir quem está sem
-    certidão de triagem;</li>
-    <li>a lista de processos de um localizador, com o número de cada um, quando
-    você manda conferir quem está sem certidão de triagem;</li>
-    <li>situação processual e justiça gratuita de cada parte;</li>
-    <li>valor da causa e nível de sigilo do processo, que aparecem no formulário
-    de Informações Adicionais quando você usa a ferramenta de antecipação de
-    tutela;</li>
-    <li>do mesmo formulário de Informações Adicionais, o campo <b>Processo
-    Migrado</b> e o <b>nível de sigilo</b>, quando a ferramenta de prevenção do
-    órgão julgador confere se o processo já esteve em outra Turma Recursal. O
-    sigilo é lido por um motivo só: a consulta pública do PJe não lista processo
-    sigiloso, e sem saber disso um resultado vazio seria lido como ausência de
-    prevenção;</li>
-    <li>o texto que você cola no painel de triagem, que é a resposta do Gemini e
-    costuma repetir os dados acima;</li>
-    <li><b>o conteúdo integral dos documentos que você marcar</b>, quando usar o
-    Dossiê para a IA. Isso inclui o texto de PDF, que a extensão transcreve na
-    sua máquina. Veja o item 3.1, logo abaixo, porque este é o dado mais
-    sensível que ela toca.</li>
+    <li>número CNJ do processo, classe, competência e órgão julgador;</li>
+    <li>nomes das partes e, quando visíveis na página, seus CPF ou CNPJ;</li>
+    <li>dados dos representantes, como nome, número da OAB e tipo de atuação;</li>
+    <li>nomes dos magistrados e informações sobre os atos praticados no processo;</li>
+    <li>assuntos, localizadores e lembretes apresentados na capa dos autos;</li>
+    <li>da tabela de eventos da capa, o número e a data de cada evento, o tipo do
+    documento e a inscrição de quem o protocolou. Esses dados permitem contar os
+    recorrentes e escolher entre as duas redações da certidão de triagem;</li>
+    <li>quando você solicita a análise de duplicidades ou a conferência de
+    processos sem certidão, sua lista de minutas na área de trabalho, incluindo
+    número do processo, tipo e código da minuta, data de criação, status e
+    usuário responsável;</li>
+    <li>ao conferir processos sem certidão, a relação de números existentes no
+    localizador escolhido;</li>
+    <li>situação no processo e estado de justiça gratuita atribuído a cada parte;</li>
+    <li>ao usar a antecipação de tutela, o valor da causa e o nível de sigilo
+    presentes no formulário de Informações Adicionais;</li>
+    <li>nesse mesmo formulário, <b>Processo Migrado</b> e o <b>nível de
+    sigilo</b>, quando a prevenção do órgão julgador verifica uma passagem
+    anterior por outra Turma Recursal. O sigilo é necessário porque processos
+    sigilosos não aparecem na consulta pública do PJe; sem essa informação, uma
+    busca vazia poderia ser confundida com ausência de prevenção;</li>
+    <li>a resposta do Gemini colada por você no painel de triagem, que pode
+    repetir informações já relacionadas acima;</li>
+    <li>ao usar o Dossiê para a IA, <b>todo o conteúdo dos documentos que você
+    selecionar</b>, inclusive o texto de PDFs transcritos localmente. Por ser o
+    dado mais sensível tratado pela extensão, esse recurso é detalhado no item
+    3.1.</li>
   </ul>
 
-  <p><b>Um clique que ela dá por você.</b> Quando o polo tem mais de uma parte,
-  a capa do EPROC esconde as demais atrás de um "e outros", e é preciso clicar
-  para vê-las. Com a Triagem Express ligada, a extensão dá esse clique sozinha
-  ao abrir a capa. Quem carrega as partes é a própria página do EPROC, com a sua
-  sessão, e o que aparece é exatamente o que apareceria se você clicasse: nada
-  de novo é buscado, nada é escondido, e nada é gravado. Ela faz isso porque
-  parte que a página não desenhou também não entra nas contagens dela, e uma
-  contagem a menos sem aviso é pior que contagem nenhuma. Com a Triagem Express
-  desligada, a capa fica como o EPROC a entregou.</p>
+  <p><b>Abertura automática das partes ocultas.</b> Quando há mais de uma parte
+  no polo, o EPROC mostra a primeira e recolhe as demais em "e outros". Com a
+  Triagem Express ativa, a extensão aciona esse link ao abrir a capa. A própria
+  página do EPROC carrega os nomes usando sua sessão, exatamente como ocorreria
+  num clique manual; nenhuma informação adicional é pesquisada, ocultada ou
+  gravada. A abertura é necessária para que todas as partes entrem nas contagens.
+  Se a Triagem Express estiver desligada, a capa permanece como foi entregue
+  pelo sistema.</p>
 
-  <h2 id="dossie">3.1. O Dossiê para a IA, que lê o conteúdo das peças</h2>
-  <p>Esta é a única ferramenta que abre os documentos dos autos, e ela merece um
-  item próprio.</p>
-  <p><b>Por que ela existe.</b> O Gemini do Chrome responde sobre a página
-  aberta e não abre PDF. Como o recurso, as contrarrazões, a guia de custas, o
-  comprovante de pagamento e as procurações são PDF, ele decidia os itens 1 a 4
-  da certidão sem ter visto nenhuma dessas peças. O dossiê transcreve esses
-  documentos para texto, para que a análise seja feita sobre o que está nos
-  autos.</p>
-  <p><b>Como ela funciona.</b> A tarja no alto da capa lista todos os documentos
-  do processo e já marca os que a triagem costuma usar. Nada é lido antes de
-  você conferir a marcação e clicar. Os documentos marcados são buscados no
-  EPROC pela sua própria sessão, dois de cada vez, exatamente como se você os
-  abrisse à mão. A leitura do PDF acontece dentro do navegador, por uma cópia
-  local da biblioteca <b>pdf.js</b>, da Mozilla, que vai embutida no pacote da
-  extensão. Essa parte da extensão não tem acesso à rede: ela recebe o arquivo e
-  devolve o texto.</p>
-  <p><b>Para onde vai.</b> Para lugar nenhum por conta da extensão. O texto é
-  oferecido a você de quatro formas, e todas as quatro terminam na sua
-  máquina:</p>
+  <h2 id="dossie">3.1. Dossiê para a IA e leitura das peças</h2>
+  <p>Somente esta ferramenta abre o conteúdo dos documentos existentes nos
+  autos, razão pela qual recebe uma explicação específica.</p>
+  <p><b>Motivo de existir.</b> O Gemini do Chrome analisa a página aberta, mas
+  não abre arquivos PDF. Recurso, contrarrazões, guia de custas, comprovante de
+  pagamento e procurações costumam estar nesse formato; sem o dossiê, os itens 1
+  a 4 da certidão seriam decididos sem a leitura dessas peças. A ferramenta as
+  converte em texto para que a análise considere o conteúdo dos autos.</p>
+  <p><b>Funcionamento.</b> A tarja superior relaciona todos os documentos do
+  processo e deixa selecionados aqueles normalmente usados na triagem. A leitura
+  só começa depois que você revisa essa marcação e clica. Usando sua própria
+  sessão, a extensão busca dois documentos por vez no EPROC, da mesma forma que
+  uma abertura manual. Os PDFs são processados no navegador por uma cópia local
+  da biblioteca <b>pdf.js</b>, da Mozilla, incluída no pacote. O componente recebe
+  o arquivo e entrega o texto, sem acesso à rede.</p>
+  <p><b>Destino do texto.</b> A extensão não o envia a nenhum lugar. As quatro
+  formas de entrega abaixo permanecem na sua máquina:</p>
   <ul>
-    <li><b>Em segundo plano.</b> A transcrição entra na própria página do
-    processo, num bloco posicionado fora da área visível. A página do EPROC
-    continua na tela, inteira: nada dela é escondido, removido ou reordenado. O
-    bloco existe para que um assistente de IA que leia a aba encontre os autos,
-    e ele nunca é secreto: enquanto estiver lá, a tarja mostra um aviso com o
-    tamanho do que foi posto na página e o botão de desligar ao lado. Recarregar
-    a página também o desfaz.</li>
-    <li><b>Numa aba nova.</b> A transcrição vai para uma página da própria
-    extensão, aberta ao lado. Para chegar até ela, o texto passa pelo
-    <code>chrome.storage.local</code>, que é armazenamento da sua máquina, e
-    fica guardado ali até a montagem seguinte, para a aba sobreviver a um
-    F5.</li>
-    <li><b>Copiada</b> para a área de transferência, junto com o prompt.</li>
+    <li><b>Em segundo plano.</b> A transcrição é colocada na página do processo,
+    fora da área visível. O EPROC continua aparecendo por inteiro, sem elementos
+    escondidos, removidos ou reorganizados. Esse bloco permite que um assistente
+    de IA com acesso à aba encontre o texto. Sua presença é sempre informada na
+    tarja, que mostra o volume inserido e oferece um botão para removê-lo; um
+    novo carregamento da página também faz a remoção.</li>
+    <li><b>Em nova aba.</b> O texto é apresentado numa página da própria
+    extensão. Para que a aba resista a um F5, a transcrição passa pelo
+    <code>chrome.storage.local</code>, armazenado na sua máquina, e permanece ali
+    até a montagem seguinte.</li>
+    <li><b>Copiada</b> para a área de transferência, acompanhada do prompt.</li>
     <li><b>Salva</b> num arquivo <code>.txt</code>, para você anexar onde
     quiser.</li>
   </ul>
-  <p>Levar esse texto ao Gemini continua sendo um ato seu, e vale para ele tudo
-  o que está no item 7.</p>
-  <p class="warn">Ao usar o Gemini com o dossiê, o volume de dado que você
-  entrega ao Google é maior do que numa pergunta sobre a tela: passa a incluir o
-  <b>texto integral das peças</b>, com o que elas contiverem. Documento sob
-  sigilo merece decisão consciente, e a extensão não decide isso por você.</p>
-  <p>A extensão <b>não</b> faz reconhecimento de imagem. Um PDF digitalizado não
-  tem camada de texto e sai vazio; nesse caso ela nomeia o documento, em
-  vermelho, na tarja e dentro da própria transcrição, para que ninguém certifique
-  sobre uma peça que não foi lida.</p>
-  <p>A extensão <b>não</b> lê senha, não lê token de autenticação, não lê cookie
-  de outro site e não coleta nada sobre o seu uso da ferramenta: não há
-  contador, não há registro de clique, não há identificador de instalação e não
-  há relatório de erro enviado para lugar algum.</p>
+  <p>A decisão de levar esse conteúdo ao Gemini é exclusivamente sua. Nessa
+  hipótese, aplicam-se todas as informações do item 7.</p>
+  <p class="warn">Usar o dossiê no Gemini aumenta o volume de informações
+  entregues ao Google: além do que aparece na tela, passa a seguir o <b>conteúdo
+  integral das peças</b>. O envio de documentos sigilosos exige uma decisão
+  consciente, que a extensão não toma em seu lugar.</p>
+  <p>A extensão <b>não</b> executa reconhecimento de imagem. Como um PDF digitalizado
+  pode não conter camada textual, sua extração resulta vazia. Nessa situação, o
+  documento é indicado em vermelho tanto na tarja quanto na transcrição, evitando
+  que uma peça não lida passe despercebida.</p>
+  <p>A extensão <b>não</b> acessa senhas, tokens de autenticação ou cookies de outros
+  sites. Também não registra o uso da ferramenta: não há contadores, histórico
+  de cliques, identificador de instalação nem envio de relatórios de erro.</p>
 
-  <h2 id="uso">4. Como ela usa esses dados</h2>
-  <p>Todo o processamento acontece na sua máquina, dentro da aba que você já tem
-  aberta, e serve para três coisas:</p>
+  <h2 id="uso">4. Uso dessas informações</h2>
+  <p>O processamento é feito na sua máquina e na aba que já está aberta. Os
+  dados têm somente três finalidades:</p>
   <ul>
-    <li><b>Mostrar.</b> Desenhar as tarjas na capa dos autos e o painel na tela
-    de minuta, com o que foi lido e com o que as consultas responderam.</li>
-    <li><b>Preencher.</b> Marcar a Certidão de Triagem no editor de minuta, a
-    partir da resposta que você colou e conferiu na prévia. Os itens 5 e 6 não
-    saem da resposta da IA: eles saem das consultas que a própria extensão
-    fez.</li>
-    <li><b>Gravar, quando você clica.</b> Aplicar na capa o lembrete, o
-    localizador, a justiça gratuita, a antecipação de tutela ou o advogado da
-    parte, e excluir a minuta duplicada que você confirmar na janela, como
-    descrito no item 8.</li>
+    <li><b>Exibir.</b> Montar as tarjas da capa e o painel da minuta com as
+    informações lidas e os resultados das consultas.</li>
+    <li><b>Preencher.</b> Marcar a Certidão de Triagem no editor a partir da
+    resposta colada por você e revisada na prévia. Os itens 5 e 6 vêm das
+    consultas realizadas pela própria extensão, não da resposta da IA.</li>
+    <li><b>Gravar após seu clique.</b> Aplicar na capa lembrete, localizador,
+    justiça gratuita, antecipação de tutela ou advogado da parte, além de excluir
+    a minuta duplicada confirmada na janela, conforme o item 8.</li>
   </ul>
-  <p>Nada disso alimenta perfil, modelo, estatística ou qualquer uso secundário.
-  Terminada a tela, o dado não tem mais para onde ir.</p>
+  <p>Essas informações não alimentam perfis, modelos, estatísticas nem qualquer
+  finalidade secundária. Fora da operação exibida na tela, não existe outro
+  destino para os dados.</p>
 
-  <h2 id="guarda">5. O que fica guardado no seu computador</h2>
-  <p>Quase tudo em <code>chrome.storage.local</code>, que fica na máquina, e duas
-  chaves em <code>sessionStorage</code>, descritas logo depois da tabela. A
-  extensão <b>não usa <code>chrome.storage.sync</code></b>, então nada é
-  sincronizado com a sua conta Google nem sai do computador por essa via. Esta é
-  a lista completa:</p>
+  <h2 id="guarda">5. Informações mantidas no computador</h2>
+  <p>A maior parte fica no <code>chrome.storage.local</code> da sua máquina. Duas
+  chaves adicionais usam o <code>sessionStorage</code> e são explicadas após a
+  tabela. Como a extensão <b>não utiliza <code>chrome.storage.sync</code></b>,
+  nenhum desses dados é sincronizado com sua conta Google ou deixa o computador
+  por esse recurso. A relação completa está abaixo:</p>
   <div class="rolagem">
     <table>
       <thead><tr><th>Chave</th><th>O que guarda</th><th>Por quanto tempo</th></tr></thead>
       <tbody>
         <tr>
           <td><code>ept.tool.*</code> (20 chaves)</td>
-          <td>quais ferramentas estão ligadas ou desligadas. Nascem ligadas,
-          com duas exceções: a Triagem Express, que está em teste e leva junto
-          tudo o que depende dela (o painel do editor, os botões da barra e o
-          Dossiê para a IA), e o modo escuro, que muda a aparência do sistema
-          inteiro e por isso só liga se você pedir. São 20 chaves para 19
-          ferramentas na tela: a vigésima é de uma que está recolhida nesta
-          versão, e a chave dela fica guardada para o dia em que ela voltar</td>
+          <td>o estado ligado ou desligado de cada ferramenta. Quase todas
+          começam ativas. As exceções são a Triagem Express, ainda em teste e
+          responsável também pelo painel do editor, pelos botões da barra e pelo
+          Dossiê para a IA, e o modo escuro, que só muda toda a aparência do
+          sistema quando você escolhe ativá-lo. Existem 20 chaves e 19
+          ferramentas visíveis; a última pertence a uma ferramenta recolhida
+          nesta versão e é preservada para quando ela retornar</td>
           <td>até você mudar</td>
         </tr>
         <tr>
           <td><code>ept.tool.triagem.destravada</code></td>
-          <td>se você já digitou a senha que libera o interruptor da Triagem
-          Express na página de ferramentas. Guarda só um sim ou não, nunca a
-          senha</td>
+          <td>se a senha de liberação da Triagem Express já foi informada na
+          página de ferramentas. O valor armazenado é apenas sim ou não; a senha
+          nunca é guardada</td>
           <td>até você mudar</td>
         </tr>
         <tr>
           <td><code>ept.dossie.aba</code></td>
-          <td>a transcrição dos autos, quando você a abre em aba nova. É a mesma
-          máquina e o mesmo navegador: o texto só passa por aqui porque um
-          endereço não carrega cem mil caracteres</td>
-          <td>até a próxima montagem de dossiê</td>
+          <td>a transcrição dos autos usada na abertura em nova aba. O conteúdo
+          continua no mesmo navegador e computador; ele passa por esse espaço
+          porque um endereço não comporta cem mil caracteres</td>
+          <td>permanece até que outro dossiê seja montado</td>
         </tr>
         <tr>
           <td><code>ept.prompt</code></td>
-          <td>o texto do prompt mestre, se você o editou</td>
+          <td>a versão do prompt mestre modificada por você</td>
           <td>até você mudar</td>
         </tr>
         <tr>
           <td><code>ept.resposta</code></td>
-          <td>o último texto colado no painel de triagem, junto do número do processo a que ele pertence. Existe para o texto sobreviver a um F5 ou a um passeio entre telas do mesmo processo. Em outro processo o painel nasce vazio</td>
-          <td>até você colar outro texto ou limpar o campo</td>
+          <td>a resposta mais recente colada no painel de triagem e o número do processo correspondente. Isso mantém o conteúdo após um F5 ou durante a navegação entre telas do mesmo processo. Ao abrir outro processo, o painel começa vazio</td>
+          <td>permanece até outro texto ser colado ou o campo ser limpo</td>
         </tr>
         <tr>
           <td><code>ept.panel.pos</code></td>
-          <td>a posição em que você arrastou o painel</td>
+          <td>as coordenadas da posição escolhida ao arrastar o painel</td>
           <td>até você mudar</td>
         </tr>
         <tr>
           <td><code>ept.tempoParado.limites</code></td>
-          <td>os três números de dias a partir dos quais a marca de tempo parado
-          muda de cor nas listas do EPROC. Guarda três números, e nada mais</td>
+          <td>os três limites de dias que determinam a mudança de cor do tempo
+          parado nas listas do EPROC. Somente esses três números são armazenados</td>
           <td>até você mudar</td>
         </tr>
         <tr>
           <td><code>ept.tempoParado.estilo</code></td>
-          <td>qual dos dois desenhos de tarja você escolheu para essa marca.
-          Guarda uma palavra, <code>chapado</code> ou <code>tarja</code></td>
+          <td>qual dos dois estilos foi escolhido para a indicação de tempo. O
+          valor é uma única palavra: <code>chapado</code> ou <code>tarja</code></td>
           <td>até você mudar</td>
         </tr>
         <tr>
           <td><code>ept.perfis.catalogo</code></td>
-          <td>a lista de Turmas Recursais que o próprio EPROC oferece no seletor
-          de perfis do alto da página, para a página de ferramentas poder
-          mostrá-la. Guarda o nome e o código de cada lotação, um por linha,
-          separados por endereço do sistema. Não guarda processo, parte nem
-          documento, e é regravada a cada vez que você abre uma tela do EPROC</td>
-          <td>até a próxima visita ao EPROC</td>
+          <td>a relação de Turmas Recursais oferecida pelo EPROC no seletor de
+          perfis, para que ela também possa ser exibida na página de ferramentas.
+          São guardados o nome e o código de cada lotação, separados por endereço
+          do sistema. Não entram processos, partes ou documentos. A lista é
+          atualizada toda vez que uma página do EPROC é aberta</td>
+          <td>permanece somente até a visita seguinte ao EPROC</td>
         </tr>
         <tr>
           <td><code>ept.perfis.favoritas</code></td>
-          <td>quais daquelas turmas você marcou como suas. Guarda só os códigos
-          das lotações marcadas</td>
+          <td>as turmas que você escolheu como favoritas. Apenas os códigos das
+          lotações selecionadas ficam armazenados</td>
           <td>até você mudar</td>
         </tr>
         <tr>
           <td><code>ept.options.tema</code></td>
-          <td>se a página de ferramentas abre no tema claro ou no escuro</td>
+          <td>a preferência de tema claro ou escuro para a página de ferramentas</td>
           <td>até você mudar</td>
         </tr>
         <tr>
           <td><code>ept.novidades</code></td>
-          <td>a data em que você abriu a página de ferramentas pela primeira vez
-          depois de cada ferramenta nova, para o selo "novo" ao lado do nome
-          dela sumir três dias depois. Guarda o apelido interno da ferramenta e
-          uma data, e nada mais</td>
-          <td>até a próxima versão com ferramenta nova</td>
+          <td>a data da primeira abertura da página após a chegada de cada
+          ferramenta, usada para retirar o selo "novo" três dias depois. O
+          registro contém somente o identificador interno e uma data</td>
+          <td>permanece até a chegada de outra versão com ferramenta nova</td>
         </tr>
         <tr>
           <td><code>ept.lembretesTarja.aberta</code>, <code>ept.localizadoresTarja.aberta</code>, <code>ept.dossieTarja.aberta</code></td>
-          <td>se aquelas tarjas ficam abertas ou recolhidas</td>
+          <td>a preferência de manter cada uma dessas tarjas aberta ou recolhida</td>
           <td>até você mudar</td>
         </tr>
         <tr>
           <td><code>ept.partes.*</code>, <code>ept.partesEproc.*</code>, <code>ept.imped.*</code>, <code>ept.capa.*</code>, <code>ept.lembrete.*</code>, <code>ept.localizador.*</code></td>
-          <td>o resultado das consultas por processo: mesmas partes no PJe, mesmas partes no EPROC, impedimento, dados da capa, e os endereços das seções Lembretes e Localizadores</td>
-          <td><b>4 horas</b>, com uma exceção: o registro de impedimento que
-          já apontou magistrado impedido e já trouxe os atos dele vale
-          <b>8 horas</b>. O conjunto inteiro é descartado a cada versão nova da
-          extensão</td>
+          <td>os resultados associados a cada processo: mesmas partes no PJe e no EPROC, impedimentos, dados da capa e endereços das seções Lembretes e Localizadores</td>
+          <td><b>4 horas</b>. A exceção é o impedimento já confirmado com os atos
+          do magistrado, que permanece válido por <b>8 horas</b>. Todos os
+          registros são descartados quando muda a versão da extensão</td>
         </tr>
         <tr>
           <td><code>ept.polos.*</code></td>
-          <td>por processo, o resultado da contagem de recorrentes que a capa
-          alimenta: o nome de cada parte, o nome e a inscrição dos advogados de
-          cada uma, e o número do evento de cada recurso. Sai da tela que você
-          já tem aberta, e não de consulta nova; existe para que o painel da
-          Triagem Express, que roda no editor da minuta, saiba o que só a capa
-          mostra</td>
-          <td><b>4 horas</b>, e também é descartado a cada versão nova da extensão</td>
+          <td>para cada processo, os dados usados na contagem de recorrentes:
+          nome das partes, nome e inscrição de seus advogados e número do evento
+          de cada recurso. Tudo vem da capa já aberta, sem nova consulta. O
+          registro permite que a Triagem Express, executada no editor da minuta,
+          utilize informações disponíveis apenas na capa</td>
+          <td><b>4 horas</b>, com descarte antecipado sempre que muda a versão da extensão</td>
         </tr>
         <tr>
           <td><code>ept.prevencao.*</code></td>
-          <td>por processo, o resultado da conferência de prevenção do órgão
-          julgador: os nomes do órgão colegiado e do órgão julgador que constam
-          na capa do EPROC, os mesmos dois que a consulta pública do PJe
-          informou, a data em que o PJe distribuiu o processo, a classe da ação
-          e a movimentação de julgamento encontrada. Guarda nomes de órgão,
-          datas e o número do processo, e nada mais: nem nome de parte, nem CPF,
-          nem conteúdo de peça</td>
-          <td><b>4 horas</b>, e também é descartado a cada versão nova da extensão</td>
+          <td>o resultado da análise de prevenção para cada processo: órgão
+          colegiado e órgão julgador exibidos na capa do EPROC, os dois nomes
+          devolvidos pela consulta pública do PJe, data de distribuição no PJe,
+          classe da ação e movimentação de julgamento localizada. São mantidos
+          somente nomes de órgãos, datas e o número do processo; não há nome de
+          parte, CPF ou conteúdo de peça</td>
+          <td><b>4 horas</b>, com descarte antecipado sempre que muda a versão da extensão</td>
         </tr>
         <tr>
           <td><code>ept.sem-minuta.*</code></td>
-          <td>por localizador, a lista dos números de processo que estão nele sem certidão de triagem. Guarda números de processo, e nada mais: nem nome, nem CPF, nem conteúdo de peça</td>
-          <td><b>30 minutos</b>, e também é descartado a cada versão nova da extensão</td>
+          <td>em cada localizador, os números dos processos ainda sem certidão de triagem. Nenhum nome, CPF ou conteúdo de documento é guardado</td>
+          <td><b>30 minutos</b>, com descarte antecipado sempre que muda a versão da extensão</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <p>Fora dessa lista existe uma marca no <code>localStorage</code> do próprio
-  EPROC e existem duas chaves em <code>sessionStorage</code>, que vivem só
-  naquela aba e morrem quando ela fecha.</p>
+  <p>Além dos itens da tabela, há uma marca no <code>localStorage</code> do EPROC
+  e duas chaves no <code>sessionStorage</code>. Estas últimas existem apenas na
+  aba atual e desaparecem quando ela é fechada.</p>
 
-  <p><code>ept.tema</code>, no <code>localStorage</code> de
-  <code>eproc1g</code> e <code>eproc2g</code>: guarda um caractere,
-  <code>1</code> ou <code>0</code>, dizendo se o modo escuro está ligado. É o
-  único lugar em que a extensão escreve fora do <code>chrome.storage</code>, e
-  existe por um motivo prático: o EPROC recarrega a página inteira a cada
-  clique, e ler o interruptor no <code>chrome.storage</code> é assíncrono, o que
-  faria a tela piscar branca antes de escurecer, uma vez a cada clique. Essa
-  marca é lida antes de a página pintar. Ela não guarda nada do processo nem
-  sobre você, e é regravada a cada carregamento pelo que o interruptor
-  responder.</p>
+  <p><code>ept.tema</code> fica no <code>localStorage</code> de
+  <code>eproc1g</code> e <code>eproc2g</code>. Seu conteúdo é um único caractere,
+  <code>1</code> ou <code>0</code>, que indica se o modo escuro está ativo. Esse é
+  o único dado escrito fora do <code>chrome.storage</code>. Como o EPROC recarrega
+  a página inteira a cada clique, esperar pela leitura assíncrona do interruptor
+  no <code>chrome.storage</code>
+  produziria um clarão antes da aplicação do tema. A marca pode ser lida antes
+  da pintura da página e é atualizada em todo carregamento. Ela não contém
+  informações do processo ou do usuário.</p>
 
-  <p><code>ept.proc.voltarParaPartes</code>: quando você grava um advogado pela
-  capa e o EPROC demora a mostrar a mudança, a página é recarregada; essa chave
-  guarda o número do processo e o instante, só para a página voltar à seção
-  Partes e Representantes em vez de abrir no topo. Vale uma vez e é apagada no
-  uso.</p>
+  <p><code>ept.proc.voltarParaPartes</code> é usada quando um advogado é gravado
+  pela capa e o EPROC demora a refletir a alteração. Nesse caso, a página é
+  recarregada e a chave conserva o número do processo e o instante apenas para
+  retornar à seção Partes e Representantes, em vez de abrir no topo. Ela vale
+  uma única vez e é apagada no uso.</p>
 
-  <p><code>ept.tempoParado.ordenou.&lt;tela&gt;</code>: guarda apenas um sim,
-  dizendo que aquela lista já foi ordenada da mais antiga para a mais nova
-  naquela aba. É o que faz a ordenação acontecer uma vez só, em vez de desfazer
-  a cada carregamento a coluna que você escolheu.</p>
+  <p><code>ept.tempoParado.ordenou.&lt;tela&gt;</code> guarda somente a indicação de
+  que a lista daquela aba já foi ordenada da data mais antiga para a mais nova.
+  Assim, a ordenação automática acontece uma vez e não substitui, a cada
+  carregamento, a coluna que você escolheu depois.</p>
 
-  <p>O cache de 4 horas existe para não repetir a mesma consulta quando os mesmos
-  autos são reabertos no mesmo turno de trabalho. Ele poupa o sistema do
-  Tribunal, não o desenvolvedor: essas consultas nunca passam por nós. A lista de
-  quem está sem certidão de triagem vale meia hora, e não quatro, porque rascunho
-  de minuta é criado e apagado o tempo todo. Na outra ponta, o resultado de
-  impedimento que já veio completo vale oito horas: refazê-lo custa de 22 a 59
-  segundos por magistrado, e o painel do Tribunal responde sempre com o dado do
-  dia anterior.</p>
+  <p>A validade de 4 horas evita repetir consultas quando os mesmos autos são
+  reabertos durante um turno. O benefício é para os sistemas do Tribunal, pois
+  nenhuma dessas requisições passa pelo desenvolvedor. A lista de processos sem
+  certidão dura apenas 30 minutos, já que rascunhos são criados e removidos com
+  frequência. Em sentido oposto, um resultado completo de impedimento vale 8
+  horas: uma nova consulta leva de 22 a 59 segundos por magistrado, e o painel do
+  Tribunal trabalha sempre com os dados do dia anterior.</p>
 
-  <h2 id="partilha">6. Com quem os dados são compartilhados</h2>
-  <p>Com ninguém além dos sistemas do próprio TJMG listados abaixo, e sempre para
-  responder a uma pergunta que você fez ali na hora. <b>Não existe servidor,
-  banco de dados, API ou serviço em nuvem desta extensão.</b> Nenhum dado chega
-  ao desenvolvedor, a nenhuma empresa e a nenhum terceiro.</p>
+  <h2 id="partilha">6. Destinatários das informações</h2>
+  <p>Os dados seguem apenas para os sistemas do TJMG relacionados abaixo e
+  somente para atender à consulta feita por você naquele momento. <b>A extensão
+  não possui servidor, banco de dados, API própria ou serviço em nuvem.</b>
+  Nenhuma informação é recebida pelo desenvolvedor, por empresas ou por outros
+  terceiros.</p>
   <div class="rolagem">
     <table>
       <thead><tr><th>Destino</th><th>O que sai daqui</th><th>Por quê</th></tr></thead>
       <tbody>
         <tr>
           <td><b>EPROC</b> (1º e 2º graus)</td>
-          <td>as mesmas requisições que o seu navegador já faria: páginas e fragmentos de tela, e os formulários que você manda gravar</td>
-          <td>é o sistema onde você está trabalhando. Vai com a sessão que você já tem aberta, e o EPROC só entrega o que o seu perfil pode ver</td>
+          <td>as requisições que o navegador já faria, como páginas, trechos de tela e formulários cuja gravação foi solicitada por você</td>
+          <td>é o ambiente em que o trabalho acontece. As chamadas usam sua sessão aberta, e o EPROC só responde com o conteúdo permitido ao seu perfil</td>
         </tr>
         <tr>
           <td><b>PJe-Recursal</b>, consulta pública</td>
-          <td>nome ou documento da parte, ou o número do processo, para a pesquisa, e o endereço de detalhe do processo encontrado</td>
-          <td>duas coisas, na mesma consulta pública que qualquer cidadão faz pelo site, sem login: localizar processos com as mesmas partes, que é o item 5 da certidão, e descobrir se o processo aberto já esteve numa Turma Recursal antes de ser migrado para o EPROC, caso em que a busca é pelo número dele</td>
+          <td>nome ou documento da parte, ou número do processo, conforme a pesquisa, além do endereço de detalhes do resultado encontrado</td>
+          <td>na mesma consulta pública disponível a qualquer cidadão e sem login, localizar processos entre as mesmas partes para o item 5 da certidão e verificar, pelo número, se o processo aberto passou por uma Turma Recursal antes da migração para o EPROC</td>
         </tr>
         <tr>
           <td><b>Painel de impedimentos</b> do TJMG (rede interna)</td>
-          <td>o número do processo e o nome do magistrado</td>
-          <td>saber se há declaração de impedimento ou suspeição, que é o item 6 da certidão</td>
+          <td>número do processo consultado e nome do respectivo magistrado</td>
+          <td>verificar a existência de declaração de impedimento ou suspeição para o item 6 da certidão</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <p>Sobre o terceiro endereço, duas informações que a revisão costuma pedir: ele
-  é <code>http</code> e não <code>https</code> porque é um serviço publicado
-  apenas na rede administrativa do Tribunal, que a política de certificados do
-  TJMG não alcança; e ele não tem rota pela internet pública, de modo que, fora da
-  rede do Tribunal, a consulta simplesmente falha e a extensão informa que não
-  conseguiu consultar, nunca um resultado negativo inventado.</p>
+  <p>O terceiro endereço usa <code>http</code>, e não <code>https</code>, porque o
+  serviço existe somente na rede administrativa do Tribunal, fora do alcance da
+  política de certificados do TJMG. Também não há rota pela internet pública.
+  Portanto, quando o computador está fora da rede do Tribunal, a consulta falha
+  e a extensão informa a indisponibilidade; ela não transforma a falha em um
+  resultado negativo.</p>
 
-  <h2 id="gemini">7. O passo do Gemini, que é seu e não da extensão</h2>
-  <p>A ferramenta de triagem trabalha em cima de uma resposta gerada pelo Gemini,
-  e por isso este item existe. Ele é o mais importante deste documento.</p>
-  <p><b>A extensão não conversa com o Gemini.</b> Ela não tem chave de API do
-  Google, não pede permissão para nenhum domínio do Google e não faz requisição
-  alguma para fora dos endereços do TJMG listados no item 6. O que ela faz é
-  copiar para a área de transferência um texto de instrução, sempre o mesmo, que
-  não contém dado de processo nenhum.</p>
-  <p><b>Quem usa o Gemini é você.</b> Você abre o assistente do Chrome, cola a
-  instrução, deixa que ele leia a página dos autos que está na sua tela e traz a
-  resposta de volta colando no painel da extensão. Nesse trecho do caminho, os
-  dados do processo passam a ser tratados pelo Google, segundo a política de
-  privacidade e os termos do Gemini, e não segundo esta política, que não alcança
-  o que acontece dentro de outro produto.</p>
-  <p>Registramos isso aqui porque é um compartilhamento de dados real, ainda que
-  praticado por você e não pela extensão. Três consequências práticas:</p>
+  <h2 id="gemini">7. Uso do Gemini pelo usuário</h2>
+  <p>A triagem utiliza uma resposta produzida no Gemini. Esta seção esclarece a
+  separação entre o que a extensão faz e o uso desse outro produto.</p>
+  <p><b>A extensão não se comunica com o Gemini.</b> Ela não possui chave de API
+  do Google, não solicita acesso a domínios da empresa e não envia requisições
+  para fora dos endereços do TJMG indicados no item 6. Sua única ação nesse passo
+  é copiar para a área de transferência uma instrução padronizada, sem qualquer
+  dado de processo.</p>
+  <p><b>O acesso ao Gemini é feito por você.</b> Cabe ao usuário abrir o
+  assistente do Chrome, colar a instrução, permitir a leitura da página dos autos
+  exibida na tela e depois colar a resposta no painel da extensão. Durante esse
+  percurso, o Google passa a tratar os dados conforme a política de privacidade
+  e os termos do Gemini. Esta política não rege o funcionamento de outro
+  produto.</p>
+  <p>Embora esse compartilhamento seja iniciado pelo usuário, ele é real e deve
+  ficar expresso. Na prática:</p>
   <ul>
-    <li>a certidão pode ser preenchida sem o Gemini, marcando as opções à mão. As
-    demais ferramentas não dependem dele em nada;</li>
-    <li>se a sua unidade não autoriza o uso de IA generativa sobre dados de
-    processo, basta não executar esse passo;</li>
-    <li>o texto que você cola de volta fica guardado na sua máquina, em
-    <code>ept.resposta</code>, como explicado no item 5.</li>
+    <li>é possível preencher a certidão manualmente, sem utilizar o Gemini. As
+    outras ferramentas funcionam de forma independente;</li>
+    <li>se a unidade não permitir IA generativa para dados processuais, esse passo
+    simplesmente não deve ser realizado;</li>
+    <li>a resposta colada no painel permanece na sua máquina, sob a chave
+    <code>ept.resposta</code>, conforme descrito no item 5.</li>
   </ul>
 
-  <h2 id="escreve">8. O que ela escreve no EPROC</h2>
-  <p>Sete coisas, e todas as sete a partir de um clique seu, nunca sozinha:</p>
+  <h2 id="escreve">8. Gravações feitas no EPROC</h2>
+  <p>São sete possibilidades, todas iniciadas por um clique seu e nunca de forma
+  autônoma:</p>
   <div class="rolagem">
     <table>
       <thead><tr><th>Ferramenta</th><th>O que grava</th><th>Cuidado que ela toma</th></tr></thead>
       <tbody>
         <tr>
           <td>Lembretes na capa</td>
-          <td>um lembrete na seção Lembretes dos autos</td>
-          <td>só diz "criado" depois de encontrar o lembrete na lista que o EPROC devolve, e oferece o Desativar em seguida</td>
+          <td>novo lembrete dentro da seção Lembretes dos autos</td>
+          <td>a mensagem "criado" só aparece depois que o lembrete é encontrado na lista devolvida pelo EPROC; em seguida, fica disponível a opção Desativar</td>
         </tr>
         <tr>
           <td>Localizadores na capa</td>
           <td>um localizador situacional</td>
-          <td>o EPROC substitui a lista inteira nessa operação, então a extensão relê a capa imediatamente antes de gravar e monta a lista nova sobre o que o servidor acabou de responder, para não apagar o que outra pessoa pôs no processo</td>
+          <td>como essa operação substitui toda a lista no EPROC, a extensão relê a capa antes da gravação e monta o novo conjunto a partir da resposta mais recente do servidor, preservando o que outra pessoa tenha incluído</td>
         </tr>
         <tr>
           <td>Justiça gratuita</td>
-          <td>a justiça gratuita de uma parte</td>
-          <td>devolve ao EPROC o mesmo formulário que recebeu, com um único campo trocado, e confere relendo a tela</td>
+          <td>o estado de justiça gratuita atribuído à parte selecionada</td>
+          <td>reenvia ao EPROC o formulário recebido com apenas um campo alterado e confirma o resultado por uma nova leitura da tela</td>
         </tr>
         <tr>
           <td>Antecipação de tutela</td>
-          <td>o campo de antecipação de tutela nas Informações Adicionais</td>
-          <td>mesmo cuidado do anterior. Esse formulário carrega junto o valor da causa e o nível de sigilo, que são devolvidos exatamente como vieram</td>
+          <td>o valor de antecipação de tutela existente em Informações Adicionais</td>
+          <td>adota o mesmo cuidado do item anterior. Como o formulário também contém valor da causa e nível de sigilo, esses dados retornam sem alteração</td>
         </tr>
         <tr>
           <td>Advogados e procuradores</td>
-          <td>a associação e a remoção de advogado de uma parte</td>
-          <td>lê a tela de procuradores do processo, devolve ao EPROC o mesmo formulário que recebeu com os campos da inclusão preenchidos, e confere na resposta se o advogado passou a constar da parte. Nada é escrito antes de você ver o resumo do que será feito e clicar em Aplicar</td>
+          <td>inclusões e remoções de advogados vinculados a uma parte</td>
+          <td>lê a tela de procuradores, preenche no formulário recebido somente os campos da nova associação e verifica na resposta se o advogado passou a integrar a parte. A gravação começa apenas depois que você revisa o resumo e clica em Aplicar</td>
         </tr>
         <tr>
           <td>Validação de assunto</td>
           <td>nada por conta própria</td>
-          <td>aciona a função do próprio EPROC que dispensa a sugestão de assunto, em vez de montar requisição</td>
+          <td>usa a função já oferecida pelo EPROC para dispensar a sugestão de assunto, sem construir uma requisição própria</td>
         </tr>
         <tr>
           <td>Minutas duplicadas</td>
-          <td><b>exclui</b> a minuta repetida que a automação de localizadores do EPROC criou no mesmo processo</td>
-          <td>é a única ferramenta que apaga alguma coisa, e por isso é a mais travada. Veja o item 8.1</td>
+          <td><b>exclui</b> a cópia de uma minuta criada pela automação de localizadores no mesmo processo</td>
+          <td>por ser a única ferramenta capaz de apagar algo, possui as travas adicionais explicadas no item 8.1</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <p>Fora isso, a extensão nunca desmarca o que você marcou à mão e nunca assina
-  nada. A decisão e a assinatura continuam sendo suas. Cada uma dessas sete
-  ferramentas tem interruptor próprio na página de ferramentas, e desligar uma
-  não afeta as outras.</p>
-  <p>Os botões da barra do editor de minuta são um caso à parte, e vale dizer
-  com todas as letras o que eles fazem. Ao seu clique, eles escrevem <b>no
-  editor aberto</b>: marcam os itens 5 e 6 da certidão e trocam o modelo da
-  certidão pelo de dois ou mais recorrentes. Um terceiro botão, que apaga da
-  certidão as marcas de texto padrão do modelo criminal, está recolhido nesta
-  versão, porque o modelo em vigor não traz mais nenhuma; ele volta se elas
-  voltarem, e escreve no editor aberto do mesmo jeito. Nada disso chega ao
-  processo antes de você mesmo salvar a minuta no EPROC, e nenhum deles assina.</p>
+  <p>Além dessas operações, a extensão não desfaz marcações manuais nem realiza
+  assinaturas. As decisões e a assinatura continuam sob seu controle. Cada uma
+  das sete ferramentas tem um interruptor próprio, e o estado de uma não interfere
+  nas demais.</p>
+  <p>Os comandos da barra do editor atuam diretamente <b>na minuta aberta</b>
+  após seu clique. Eles podem marcar os itens 5 e 6 ou substituir o corpo da
+  certidão pelo modelo destinado a dois ou mais recorrentes. Há ainda um terceiro
+  botão, recolhido nesta versão, que remove as marcas de texto padrão do modelo
+  criminal; ele não está visível porque o modelo atual deixou de trazer essas
+  marcas e poderá retornar se elas voltarem. Nenhuma dessas mudanças chega aos
+  autos antes que você salve a minuta no EPROC, e nenhum comando assina o
+  documento.</p>
 
-  <h2 id="excluir">8.1. A exclusão de minuta duplicada</h2>
-  <p>A automação de localizadores do EPROC cria a Certidão de Triagem sozinha.
-  Quando a regra dispara duas vezes no mesmo processo, nasce uma segunda minuta
-  igual. O próprio EPROC avisa que já existe uma minuta com o mesmo modelo, mas
-  não impede e não limpa. Essa ferramenta é a limpeza.</p>
-  <p>É a única função da extensão que apaga alguma coisa, e por isso ela é a
-  mais travada de todas:</p>
+  <h2 id="excluir">8.1. Exclusão de minutas duplicadas</h2>
+  <p>A automação de localizadores do EPROC cria a Certidão de Triagem. Quando a
+  mesma regra é acionada duas vezes no processo, pode surgir uma segunda minuta
+  idêntica. O sistema avisa sobre a existência de outro documento do mesmo
+  modelo, mas não impede nem remove a cópia. Esta ferramenta faz essa limpeza.</p>
+  <p>Como é a única função capaz de apagar um item, ela reúne mais proteções do
+  que qualquer outra:</p>
   <ul>
-    <li><b>Nada acontece sem dois cliques.</b> O primeiro abre uma janela com a
-    lista do que foi encontrado. O segundo confirma. Fechar a janela no meio não
-    envia nada.</li>
-    <li><b>A janela mostra o que sai e o que fica</b>, minuta por minuta, com
-    data, código, status e quem criou cada uma. Cada cópia tem sua caixa,
-    inclusive a que a regra escolheu para ficar, então você pode inverter a
-    escolha antes de confirmar.</li>
-    <li><b>Duplicidade é mesmo processo e mesmo tipo de minuta.</b> Uma certidão
-    e um despacho no mesmo processo nunca são tratados como cópia um do
-    outro.</li>
-    <li><b>Cópia trabalhada nunca vem pré-marcada.</b> Se a minuta já saiu de
-    Rascunho, ou se foi criada por outra pessoa, ela aparece desmarcada e com o
-    motivo escrito ao lado. Marcar passa a ser decisão sua, tomada vendo o
-    porquê.</li>
-    <li><b>Nenhum processo fica sem minuta.</b> Marcar todas as cópias de um
-    processo pinta o grupo de vermelho e desliga o botão de excluir.</li>
-    <li><b>A exclusão é reversível.</b> No EPROC a minuta excluída fica com
-    status Excluída e o próprio sistema oferece o botão Reativar. A extensão
-    escreve isso na tela de confirmação, antes do clique.</li>
-    <li><b>Uma de cada vez.</b> As exclusões saem em fila, com pausa entre elas,
-    e param no primeiro erro. No fim, a extensão relê a lista inteira no
-    servidor e informa quantas realmente ficaram como excluídas, em vez de
-    confiar na resposta da requisição.</li>
+    <li><b>São necessários dois cliques.</b> O primeiro apresenta uma janela com
+    os resultados; o segundo confirma a operação. Fechar a janela antes disso
+    não envia qualquer pedido.</li>
+    <li><b>A janela separa o que fica do que sai.</b> Cada minuta é exibida com
+    data, código, status e responsável pela criação. Todas as cópias têm sua
+    própria caixa de seleção, inclusive a escolhida inicialmente para permanecer,
+    permitindo inverter a decisão antes de confirmar.</li>
+    <li><b>Uma duplicidade exige o mesmo processo e o mesmo tipo de minuta.</b>
+    Uma certidão nunca é considerada cópia de um despacho, ainda que ambos
+    pertençam ao mesmo processo.</li>
+    <li><b>Minuta já trabalhada não começa selecionada.</b> Se deixou o status
+    Rascunho ou foi criada por outra pessoa, ela aparece desmarcada e acompanhada
+    do motivo. Incluí-la na exclusão passa a ser uma escolha consciente do
+    usuário.</li>
+    <li><b>O processo sempre conserva uma minuta.</b> Se todas as cópias forem
+    marcadas, o grupo fica vermelho e o botão de exclusão é desabilitado.</li>
+    <li><b>É possível reverter a exclusão.</b> O EPROC mantém a minuta com status
+    Excluída e oferece o comando Reativar. Essa informação aparece na confirmação
+    antes do clique definitivo.</li>
+    <li><b>As exclusões são sequenciais.</b> A fila processa uma minuta por vez,
+    com intervalo entre elas, e para ao primeiro erro. No encerramento, a extensão
+    relê no servidor toda a lista e informa quantas realmente ficaram excluídas,
+    sem depender apenas da resposta de cada requisição.</li>
   </ul>
-  <p>Para ler a lista completa de minutas, e não só os 25 registros que a tela
-  mostra, a extensão repete a mesma consulta paginada que as setas da tela fazem,
-  com os mesmos filtros que você escolheu. Ela não altera a sua tela, não muda o
-  seu filtro e não guarda nada dessa leitura.</p>
+  <p>Para alcançar todas as minutas, e não somente os 25 registros visíveis, a
+  extensão repete a consulta paginada usada pelas setas da página e mantém os
+  filtros escolhidos por você. Essa leitura não modifica a tela, não troca os
+  filtros e não é armazenada.</p>
 
   <h2 id="seguranca">9. Segurança</h2>
   <ul>
-    <li>A única biblioteca de terceiros é o <b>pdf.js</b>, da Mozilla, sob
-    licença Apache 2.0, usado para transcrever os PDFs dos autos. Ele vai
-    embutido no pacote, em versão não minificada, e roda sem acesso à rede,
-    sem desenhar o documento e sem executar JavaScript que esteja dentro
-    dele.</li>
-    <li>Todo o código JavaScript vem dentro do pacote. Não há <code>eval</code>,
-    não há <code>new Function</code>, não há script apontando para fora e não há
-    folha de estilo ou fonte carregada de CDN. A extensão não executa código
-    remoto, e portanto não pode ser alterada sem uma atualização revisada pela
-    Chrome Web Store.</li>
-    <li>As requisições ao EPROC usam a sessão que você já tem aberta. A extensão
-    não guarda, não copia e não lê credenciais.</li>
-    <li>Os endereços que a extensão recebe da página e transforma em requisição
-    são conferidos antes: um endereço de outra origem é recusado sem ser
-    acessado.</li>
-    <li>O que fica na sua máquina fica sob a proteção do perfil do Chrome, na
-    área isolada da extensão, que outras extensões e outros sites não leem.</li>
+    <li>A única dependência de terceiros é o <b>pdf.js</b>, da Mozilla, licenciado
+    sob Apache 2.0 e utilizado para transcrever PDFs dos autos. A biblioteca é
+    incluída no pacote em versão não minificada e funciona sem acesso à rede,
+    sem desenhar o documento e sem executar JavaScript eventualmente contido
+    nele.</li>
+    <li>Todo o JavaScript acompanha o pacote. Não são usados <code>eval</code>,
+    <code>new Function</code>, scripts externos, folhas de estilo remotas ou
+    fontes de CDN. Como não há execução de código remoto, qualquer alteração
+    depende de uma nova versão analisada pela Chrome Web Store.</li>
+    <li>As consultas ao EPROC utilizam a sessão que você mantém aberta. Nenhuma
+    credencial é lida, copiada ou armazenada pela extensão.</li>
+    <li>Todo endereço recebido da página é validado antes de virar uma requisição.
+    Se pertencer a outra origem, o acesso é recusado.</li>
+    <li>Os dados locais ficam na área isolada da extensão, protegida pelo perfil
+    do Chrome e inacessível a sites ou a outras extensões.</li>
   </ul>
 
-  <h2 id="retencao">10. Retenção, acesso e exclusão</h2>
-  <p>Os prazos estão na tabela do item 5: 4 horas para o resultado das consultas,
-  com as duas exceções anotadas lá, e até você mudar para as preferências. Nada
-  tem prazo indeterminado no servidor, porque não há servidor.</p>
-  <p>Como nenhum dado sai da sua máquina para nós, não há o que solicitar,
-  corrigir ou excluir junto ao desenvolvedor. Para apagar o que a extensão
-  guardou você tem dois caminhos:</p>
+  <h2 id="retencao">10. Retenção, consulta e remoção</h2>
+  <p>Os períodos de conservação constam na tabela do item 5: em regra, 4 horas
+  para resultados de consultas, com as duas exceções ali indicadas, e até nova
+  escolha do usuário para preferências. Nada permanece indefinidamente em
+  servidor, pois a extensão não possui um.</p>
+  <p>Como os dados não são enviados ao desenvolvedor, não há informação a
+  solicitar, retificar ou excluir junto a ele. O conteúdo guardado pela extensão
+  pode ser apagado de duas formas:</p>
   <ul>
     <li>desinstalar a extensão em <code>chrome://extensions</code>, o que apaga
     tudo de uma vez;</li>
     <li>ou, sem desinstalar, remover os dados do site em
     <code>chrome://settings/content/all</code>, procurando pela extensão.</li>
   </ul>
-  <p>Os dados dos processos em si continuam sob a guarda e as regras do Tribunal
-  de Justiça de Minas Gerais, nos sistemas EPROC e PJe. Esta extensão apenas
-  exibe, para a pessoa autorizada, o que ela já poderia ver navegando à mão. Para
-  exercer direitos sobre esses dados (Lei 13.709/2018), o caminho é o Tribunal,
-  não o desenvolvedor.</p>
+  <p>Os dados processuais permanecem sob a guarda e as normas do Tribunal de
+  Justiça de Minas Gerais nos sistemas EPROC e PJe. A extensão apenas apresenta
+  à pessoa autorizada aquilo que ela já poderia consultar manualmente. O exercício
+  dos direitos previstos na Lei 13.709/2018 sobre esses dados deve ser dirigido
+  ao Tribunal, e não ao desenvolvedor.</p>
 
   <h2 id="limitado">11. Uso limitado</h2>
-  <p>Em conformidade com a política de Uso Limitado da Chrome Web Store,
-  declaramos que os dados tratados por esta extensão:</p>
+  <p>De acordo com a política de Uso Limitado da Chrome Web Store, os dados
+  tratados pela extensão:</p>
   <ul>
-    <li>são usados <b>apenas</b> para o propósito único descrito no item 1;</li>
+    <li>servem <b>exclusivamente</b> à finalidade apresentada no item 1;</li>
     <li><b>não são vendidos</b> nem cedidos a terceiros;</li>
     <li><b>não são usados</b> para publicidade, remarketing ou perfil de
     interesse;</li>
-    <li><b>não são usados</b> para avaliação de crédito ou empréstimo;</li>
-    <li><b>não são lidos por pessoa alguma</b> do lado do desenvolvedor. Não há
-    acesso humano porque não há servidor onde esses dados pudessem chegar. A
-    única exceção prevista pela política, o acesso mediante consentimento
-    expresso para suporte, também não se aplica: não existe canal por onde esses
-    dados pudessem nos ser enviados.</li>
+    <li><b>não participam</b> de avaliação de crédito ou concessão de empréstimo;</li>
+    <li><b>não podem ser consultados por pessoas</b> ligadas ao desenvolvedor.
+    Não existe acesso humano porque não há servidor que receba os dados. Nem
+    mesmo a exceção de suporte mediante consentimento expresso se aplica, pois a
+    extensão não oferece canal para o envio dessas informações.</li>
   </ul>
 
-  <h2 id="permissoes">12. Cada permissão, e por quê</h2>
+  <h2 id="permissoes">12. Permissões solicitadas e suas finalidades</h2>
   <div class="rolagem">
     <table>
       <thead><tr><th>Permissão</th><th>Por que ela é necessária</th></tr></thead>
       <tbody>
         <tr>
           <td><code>storage</code></td>
-          <td>guardar, na sua máquina, as preferências e o cache descritos no item 5. Sem ela você reconfiguraria a extensão a cada aba, e cada reabertura dos autos custaria uma consulta nova ao Tribunal</td>
+          <td>manter na sua máquina as preferências e o cache detalhados no item 5. Sem essa permissão, cada aba exigiria nova configuração e toda reabertura dos autos repetiria consultas ao Tribunal</td>
         </tr>
         <tr>
           <td><code>clipboardWrite</code></td>
-          <td>os botões que copiam textos padronizados para você colar no EPROC (nomes de localizadores e lembretes, número do processo, órgão julgador) e o botão que copia o prompt. A cópia principal usa <code>navigator.clipboard</code>; esta permissão sustenta o caminho de reserva, usado quando a página do EPROC está sem foco</td>
+          <td>permitir que os botões copiem textos padronizados destinados ao EPROC — nomes de localizadores e lembretes, número do processo e órgão julgador —, além do prompt. O caminho principal usa <code>navigator.clipboard</code>; a permissão mantém a alternativa necessária quando a página do EPROC está sem foco</td>
         </tr>
         <tr>
           <td><code>host_permissions</code> dos dois endereços do EPROC</td>
-          <td>é onde a extensão trabalha: ler a tela aberta, desenhar as tarjas e o painel, consultar, gravar e, quando você confirma, excluir a minuta duplicada. Sem eles a extensão não tem função nenhuma</td>
+          <td>autorizar o funcionamento no local de trabalho da extensão: leitura da página, exibição de tarjas e painel, consultas, gravações solicitadas e exclusão confirmada de minuta duplicada. Sem esses endereços, nenhuma ferramenta pode atuar</td>
         </tr>
         <tr>
           <td><code>host_permissions</code> do PJe-Recursal</td>
-          <td>a consulta pública que procura processos com as mesmas partes e a que procura o processo aberto pelo número, para a prevenção do órgão julgador. Ela sai do service worker porque o CORS do PJe barraria uma chamada feita a partir da página do EPROC</td>
+          <td>consultar publicamente processos entre as mesmas partes e pesquisar pelo número o processo aberto para verificar prevenção do órgão julgador. A chamada parte do service worker porque o CORS do PJe bloquearia uma requisição iniciada na página do EPROC</td>
         </tr>
         <tr>
           <td><code>host_permissions</code> do painel de impedimentos</td>
-          <td>a consulta de impedimento e suspeição. Também sai do service worker, porque um <code>fetch</code> em <code>http</code> a partir de uma página <code>https</code> seria barrado como conteúdo misto</td>
+          <td>realizar a pesquisa de impedimento e suspeição. Ela também parte do service worker, pois um <code>fetch</code> para <code>http</code> iniciado em página <code>https</code> seria bloqueado como conteúdo misto</td>
         </tr>
         <tr>
           <td>Atalhos <code>Ctrl+Shift+Y</code> e <code>Ctrl+Shift+U</code></td>
-          <td>copiar o prompt e mostrar ou ocultar o painel sem tirar as mãos do teclado. Os atalhos apenas enviam um aviso para a aba ativa; se ela não for do EPROC, nada acontece</td>
+          <td>copiar o prompt e alternar a visibilidade do painel pelo teclado. Os atalhos apenas avisam a aba ativa e não produzem efeito quando ela não pertence ao EPROC</td>
         </tr>
       </tbody>
     </table>
@@ -724,17 +705,17 @@
   <code>identity</code>.</p>
 
   <h2 id="alteracoes">13. Alterações e contato</h2>
-  <p>Mudanças nesta política serão publicadas nesta mesma página, com a data de
-  atualização no topo, e a mesma página viaja dentro do pacote da extensão, na
-  página de ferramentas. Alteração relevante acompanha uma versão nova.</p>
+  <p>Qualquer mudança será divulgada nesta página, com a nova data indicada no
+  topo. Uma cópia do mesmo conteúdo acompanha o pacote na página de ferramentas
+  da extensão. Alterações relevantes são publicadas junto de uma nova versão.</p>
   <p>
     João Lucas Bernardes, <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
     CPE das Turmas Recursais, Tribunal de Justiça de Minas Gerais
   </p>
 
   <footer>
-    TR Ágil · Política de privacidade publicada para a Chrome Web Store e
-    distribuída dentro da própria extensão.
+    TR Ágil · Política de privacidade disponibilizada à Chrome Web Store e
+    incluída no pacote da extensão.
   </footer>
 
 </main>
