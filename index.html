@@ -107,10 +107,10 @@
 
   <p class="meta">
     <b>Extensão:</b> TR Ágil, ferramentas da CPE para as Turmas Recursais (EPROC TJMG)<br>
-    <b>Versão a que este texto corresponde:</b> 1.14.7<br>
+    <b>Versão a que este texto corresponde:</b> 1.14.8<br>
     <b>Responsável pelo tratamento:</b> João Lucas Bernardes, desenvolvedor da extensão<br>
     <b>Contato:</b> <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
-    <b>Última atualização:</b> 2 de setembro de 2026
+    <b>Última atualização:</b> 9 de setembro de 2026
   </p>
 
   <h2 id="frase">Em resumo</h2>
@@ -309,12 +309,12 @@
       <thead><tr><th>Chave</th><th>O que guarda</th><th>Por quanto tempo</th></tr></thead>
       <tbody>
         <tr>
-          <td><code>ept.tool.*</code> (20 chaves)</td>
+          <td><code>ept.tool.*</code> (21 chaves)</td>
           <td>o estado ligado ou desligado de cada ferramenta. Quase todas
           começam ativas. As exceções são a Triagem Express, ainda em teste e
           responsável também pelo painel do editor, pelos botões da barra e pelo
           Dossiê para a IA, e o modo escuro, que só muda toda a aparência do
-          sistema quando você escolhe ativá-lo. Existem 20 chaves e 19
+          sistema quando você escolhe ativá-lo. Existem 21 chaves e 20
           ferramentas visíveis; a última pertence a uma ferramenta recolhida
           nesta versão e é preservada para quando ela retornar</td>
           <td>até você mudar</td>
@@ -527,13 +527,18 @@
       <thead><tr><th>Ferramenta</th><th>O que grava</th><th>Cuidado que ela toma</th></tr></thead>
       <tbody>
         <tr>
+          <td>Remover PETIÇÃO dos selecionados</td>
+          <td>retira somente o localizador PETIÇÃO dos processos marcados na página atual</td>
+          <td>exige clique, consulta exclusiva de PETIÇÃO e os dois filtros de documentos; relê cada capa, preserva os demais localizadores e confere a resposta. Em falha, interrompe e informa o resultado parcial. A seleção permanece apenas na memória da aba</td>
+        </tr>
+        <tr>
           <td>Lembretes na capa</td>
           <td>novo lembrete dentro da seção Lembretes dos autos</td>
           <td>a mensagem "criado" só aparece depois que o lembrete é encontrado na lista devolvida pelo EPROC; em seguida, fica disponível a opção Desativar</td>
         </tr>
         <tr>
           <td>Localizadores na capa</td>
-          <td>um localizador situacional</td>
+          <td>aplica e retira um localizador situacional ou retira um dos localizadores de erro de automação oferecidos no cabeçalho</td>
           <td>como essa operação substitui toda a lista no EPROC, a extensão relê a capa antes da gravação e monta o novo conjunto a partir da resposta mais recente do servidor, preservando o que outra pessoa tenha incluído</td>
         </tr>
         <tr>
