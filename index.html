@@ -107,20 +107,21 @@
 
   <p class="meta">
     <b>Extensão:</b> TR Ágil, ferramentas da CPE para as Turmas Recursais (EPROC TJMG)<br>
-    <b>Versão a que este texto corresponde:</b> 1.14.8<br>
+    <b>Versão a que este texto corresponde:</b> 1.15.1<br>
     <b>Responsável pelo tratamento:</b> João Lucas Bernardes, desenvolvedor da extensão<br>
     <b>Contato:</b> <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
-    <b>Última atualização:</b> 9 de setembro de 2026
+    <b>Última atualização:</b> 11 de setembro de 2026
   </p>
 
   <h2 id="frase">Em resumo</h2>
   <div class="resumo">
     <p>A extensão trabalha com a página do processo já aberta por você, faz
     consultas em três sistemas mantidos pelo TJMG e, mediante sua solicitação,
-    transforma em texto os documentos escolhidos. O processamento ocorre na sua
-    máquina e o resultado aparece no próprio navegador. A extensão não possui
-    servidor, não encaminha dados ao desenvolvedor, não vende nem repassa
-    informações e não utiliza publicidade ou telemetria.</p>
+    transforma em texto os documentos escolhidos. A leitura de PDFs e as verificações do programa ocorrem no navegador.
+    A Triagem AI, quando configurada e iniciada por você, envia dados dos autos
+    ao provedor escolhido para análise, inclusive no modo Sombra. A extensão
+    não possui servidor próprio, não envia dados ao desenvolvedor e não utiliza
+    publicidade ou telemetria.</p>
   </div>
 
   <div class="indice">
@@ -135,6 +136,7 @@
       <li><a href="#guarda">Informações mantidas no seu computador</a></li>
       <li><a href="#partilha">Destinatários das informações consultadas</a></li>
       <li><a href="#gemini">Uso do Gemini realizado pelo usuário</a></li>
+      <li><a href="#triagem-ai">Triagem AI e envio ao provedor</a></li>
       <li><a href="#escreve">O que ela escreve no EPROC</a>
         <ul><li><a href="#excluir">Exclusão de minutas duplicadas</a></li></ul>
       </li>
@@ -151,14 +153,15 @@
   TJMG. Todas as ferramentas atendem a essa rotina: preencher a Certidão de
   Triagem; avisar sobre impedimentos de magistrados; encontrar processos entre
   as mesmas partes; resolver, na capa dos autos, as marcações exigidas pela
-  triagem — lembretes, localizadores situacionais, justiça gratuita, antecipação
-  de tutela, advogados das partes e validação de assunto —; e retirar da área de
+  triagem , lembretes, localizadores situacionais, justiça gratuita, antecipação
+  de tutela, advogados das partes e validação de assunto ,; e retirar da área de
   trabalho certidões que a automação do EPROC criou em duplicidade.</p>
-  <p>A distribuição é não listada e destinada à equipe da CPE-TR. Não se trata
-  de produto comercial: não há cadastro, login próprio ou plano pago.</p>
+  <p>A distribuição é não listada e destinada à equipe da CPE-TR. A extensão
+  não cobra assinatura nem possui cadastro próprio. O uso de um provedor na
+  Triagem AI pode exigir conta externa e gerar cobrança pelo serviço escolhido.</p>
 
   <h2 id="onde">2. Endereços em que funciona</h2>
-  <p>A extensão é ativada exclusivamente nos quatro endereços abaixo, todos
+  <p>As consultas aos sistemas do Tribunal usam os quatro endereços abaixo, todos
   pertencentes ao Tribunal de Justiça de Minas Gerais e declarados no
   <code>manifest.json</code>:</p>
   <div class="rolagem">
@@ -192,9 +195,9 @@
   navegação fora desses quatro endereços.</p>
 
   <h2 id="coleta">3. Dados lidos pela extensão</h2>
-  <p>A leitura se limita ao processo que você abriu e que sua sessão do EPROC já
-  permite consultar. A extensão não cria informações a seu respeito nem pede o
-  preenchimento de dados pessoais. Da tela, ela pode obter:</p>
+  <p>A leitura usa os processos que sua sessão do EPROC permite consultar:
+  o processo aberto ou os incluídos na rodada que você iniciou. A configuração
+  da Triagem AI solicita uma credencial de serviço. Dos autos, a extensão pode obter:</p>
   <ul>
     <li>número CNJ do processo, classe, competência e órgão julgador;</li>
     <li>nomes das partes e, quando visíveis na página, seus CPF ou CNPJ;</li>
@@ -232,12 +235,12 @@
   página do EPROC carrega os nomes usando sua sessão, exatamente como ocorreria
   num clique manual; nenhuma informação adicional é pesquisada, ocultada ou
   gravada. A abertura é necessária para que todas as partes entrem nas contagens.
-  Se a Triagem Express estiver desligada, a capa permanece como foi entregue
-  pelo sistema.</p>
+  A análise iniciada pela Triagem AI também busca as partes recolhidas para
+  completar a leitura do cadastro.</p>
 
   <h2 id="dossie">3.1. Dossiê para a IA e leitura das peças</h2>
-  <p>Somente esta ferramenta abre o conteúdo dos documentos existentes nos
-  autos, razão pela qual recebe uma explicação específica.</p>
+  <p>O Dossiê para a IA abre e transcreve documentos selecionados nos autos.
+  A Triagem AI também lê peças, pelo fluxo descrito no item 7.1.</p>
   <p><b>Motivo de existir.</b> O Gemini do Chrome analisa a página aberta, mas
   não abre arquivos PDF. Recurso, contrarrazões, guia de custas, comprovante de
   pagamento e procurações costumam estar nesse formato; sem o dossiê, os itens 1
@@ -250,7 +253,7 @@
   uma abertura manual. Os PDFs são processados no navegador por uma cópia local
   da biblioteca <b>pdf.js</b>, da Mozilla, incluída no pacote. O componente recebe
   o arquivo e entrega o texto, sem acesso à rede.</p>
-  <p><b>Destino do texto.</b> A extensão não o envia a nenhum lugar. As quatro
+  <p><b>Destino do texto neste recurso.</b> O Dossiê não faz o envio ao provedor. As quatro
   formas de entrega abaixo permanecem na sua máquina:</p>
   <ul>
     <li><b>Em segundo plano.</b> A transcrição é colocada na página do processo,
@@ -277,31 +280,36 @@
   pode não conter camada textual, sua extração resulta vazia. Nessa situação, o
   documento é indicado em vermelho tanto na tarja quanto na transcrição, evitando
   que uma peça não lida passe despercebida.</p>
-  <p>A extensão <b>não</b> acessa senhas, tokens de autenticação ou cookies de outros
-  sites. Também não registra o uso da ferramenta: não há contadores, histórico
-  de cliques, identificador de instalação nem envio de relatórios de erro.</p>
+  <p>A extensão não recolhe senhas ou cookies de outros sites. A credencial
+  informada nas opções da Triagem AI é armazenada para autenticar as chamadas
+  ao provedor. Essa ferramenta mantém registros locais de análise e aplicação,
+  conforme o item 5; não há envio de telemetria ou relatórios ao desenvolvedor.</p>
 
   <h2 id="uso">4. Uso dessas informações</h2>
-  <p>O processamento é feito na sua máquina e na aba que já está aberta. Os
-  dados têm somente três finalidades:</p>
+  <p>As verificações locais ocorrem no navegador. Na Triagem AI, o provedor
+  configurado também processa os dados enviados para responder às perguntas da
+  triagem. As finalidades são:</p>
   <ul>
     <li><b>Exibir.</b> Montar as tarjas da capa e o painel da minuta com as
     informações lidas e os resultados das consultas.</li>
-    <li><b>Preencher.</b> Marcar a Certidão de Triagem no editor a partir da
-    resposta colada por você e revisada na prévia. Os itens 5 e 6 vêm das
+    <li><b>Preencher.</b> Marcar a Certidão de Triagem a partir da resposta
+    colada na Triagem Express ou do resultado verificado pela Triagem AI.
+    Os itens 5 e 6 vêm das
     consultas realizadas pela própria extensão, não da resposta da IA.</li>
     <li><b>Gravar após seu clique.</b> Aplicar na capa lembrete, localizador,
     justiça gratuita, antecipação de tutela ou advogado da parte, além de excluir
     a minuta duplicada confirmada na janela, conforme o item 8.</li>
   </ul>
-  <p>Essas informações não alimentam perfis, modelos, estatísticas nem qualquer
-  finalidade secundária. Fora da operação exibida na tela, não existe outro
-  destino para os dados.</p>
+  <p>O programa usa essas informações para a triagem, sua conferência e o
+  registro local das operações. Não há uso pelo desenvolvedor para publicidade,
+  formação de perfis ou treinamento de modelos. O tratamento feito pelo provedor
+  externo depende do serviço, da conta e do contrato utilizado, conforme o item 7.1.</p>
 
   <h2 id="guarda">5. Informações mantidas no computador</h2>
-  <p>A maior parte fica no <code>chrome.storage.local</code> da sua máquina. Duas
-  chaves adicionais usam o <code>sessionStorage</code> e são explicadas após a
-  tabela. Como a extensão <b>não utiliza <code>chrome.storage.sync</code></b>,
+  <p>A maior parte fica no <code>chrome.storage.local</code> da sua máquina.
+  A Triagem AI também usa IndexedDB para credenciais e
+  <code>chrome.storage.session</code> para controlar operações entre abas.
+  As marcas guardadas na página do EPROC são explicadas após a tabela. Como a extensão <b>não utiliza <code>chrome.storage.sync</code></b>,
   nenhum desses dados é sincronizado com sua conta Google ou deixa o computador
   por esse recurso. A relação completa está abaixo:</p>
   <div class="rolagem">
@@ -309,12 +317,12 @@
       <thead><tr><th>Chave</th><th>O que guarda</th><th>Por quanto tempo</th></tr></thead>
       <tbody>
         <tr>
-          <td><code>ept.tool.*</code> (21 chaves)</td>
+          <td><code>ept.tool.*</code> (22 chaves)</td>
           <td>o estado ligado ou desligado de cada ferramenta. Quase todas
-          começam ativas. As exceções são a Triagem Express, ainda em teste e
+          começam ativas. As exceções são a Triagem AI, a Triagem Express, ainda em teste e
           responsável também pelo painel do editor, pelos botões da barra e pelo
           Dossiê para a IA, e o modo escuro, que só muda toda a aparência do
-          sistema quando você escolhe ativá-lo. Existem 21 chaves e 20
+          sistema quando você escolhe ativá-lo. Existem 22 chaves e 21
           ferramentas visíveis; a última pertence a uma ferramenta recolhida
           nesta versão e é preservada para quando ela retornar</td>
           <td>até você mudar</td>
@@ -325,6 +333,41 @@
           página de ferramentas. O valor armazenado é apenas sim ou não; a senha
           nunca é guardada</td>
           <td>até você mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.tool.triagemAi.destravada</code></td>
+          <td>liberação do interruptor e da configuração da Triagem AI; guarda apenas o estado da liberação</td>
+          <td>até alteração ou remoção dos dados</td>
+        </tr>
+        <tr>
+          <td><code>tri.config</code></td>
+          <td>provedor, modelos, endereço, modo, limites e indicação de existência de chave; não contém a credencial</td>
+          <td>até alteração ou remoção dos dados</td>
+        </tr>
+        <tr>
+          <td>IndexedDB <code>tri-credenciais</code>, registro <code>config/provedor</code></td>
+          <td>configuração privada, incluindo a chave informada. Configurações antigas com chave em <code>tri.config</code> são migradas para este banco</td>
+          <td>sem vencimento automático; até alteração ou remoção do armazenamento da extensão</td>
+        </tr>
+        <tr>
+          <td><code>tri.trilha</code></td>
+          <td>processo, data, versão, análise, consumo estimado, revisões e operações; pode conter valores anteriores e posteriores e o corpo integral da certidão para desfazer</td>
+          <td>últimos 2.000 registros, sem prazo por data; os anteriores saem quando novas entradas ultrapassam o limite. Há comando para limpar nas opções</td>
+        </tr>
+        <tr>
+          <td><code>tri.veredito.*</code></td>
+          <td>resultado por processo, dados da capa e das partes, respostas, trechos de prova, decisões, avisos e consumo</td>
+          <td>reutilizável por 4 horas na mesma versão; após isso é ignorado, sem exclusão automática apenas pelo vencimento</td>
+        </tr>
+        <tr>
+          <td><code>tri.lote</code></td>
+          <td>fila de processos, progresso, processo em curso, resultados e gasto estimado para acompanhar ou retomar a rodada</td>
+          <td>até substituição por outra rodada ou remoção; não há vencimento automático por data</td>
+        </tr>
+        <tr>
+          <td><code>tri.operacoes</code> em <code>chrome.storage.session</code></td>
+          <td>identificadores de aba, documento e controle para impedir escritas e lotes concorrentes</td>
+          <td>até liberação da operação ou navegação/fechamento da aba; também é removido ao reiniciar o navegador ou recarregar a extensão</td>
         </tr>
         <tr>
           <td><code>ept.dossie.aba</code></td>
@@ -432,8 +475,7 @@
 
   <p><code>ept.tema</code> fica no <code>localStorage</code> de
   <code>eproc1g</code> e <code>eproc2g</code>. Seu conteúdo é um único caractere,
-  <code>1</code> ou <code>0</code>, que indica se o modo escuro está ativo. Esse é
-  o único dado escrito fora do <code>chrome.storage</code>. Como o EPROC recarrega
+  <code>1</code> ou <code>0</code>, que indica se o modo escuro está ativo. Essa marca não contém dados processuais. Como o EPROC recarrega
   a página inteira a cada clique, esperar pela leitura assíncrona do interruptor
   no <code>chrome.storage</code>
   produziria um clarão antes da aplicação do tema. A marca pode ser lida antes
@@ -460,11 +502,10 @@
   Tribunal trabalha sempre com os dados do dia anterior.</p>
 
   <h2 id="partilha">6. Destinatários das informações</h2>
-  <p>Os dados seguem apenas para os sistemas do TJMG relacionados abaixo e
-  somente para atender à consulta feita por você naquele momento. <b>A extensão
-  não possui servidor, banco de dados, API própria ou serviço em nuvem.</b>
-  Nenhuma informação é recebida pelo desenvolvedor, por empresas ou por outros
-  terceiros.</p>
+  <p>As funções de consulta usam os sistemas do TJMG relacionados abaixo.
+  A Triagem AI acrescenta o provedor autorizado nas opções, que recebe dados
+  processuais para realizar a análise. <b>A extensão não possui servidor ou
+  serviço em nuvem próprio.</b> O desenvolvedor não recebe essas informações.</p>
   <div class="rolagem">
     <table>
       <thead><tr><th>Destino</th><th>O que sai daqui</th><th>Por quê</th></tr></thead>
@@ -495,13 +536,12 @@
   resultado negativo.</p>
 
   <h2 id="gemini">7. Uso do Gemini pelo usuário</h2>
-  <p>A triagem utiliza uma resposta produzida no Gemini. Esta seção esclarece a
-  separação entre o que a extensão faz e o uso desse outro produto.</p>
-  <p><b>A extensão não se comunica com o Gemini.</b> Ela não possui chave de API
-  do Google, não solicita acesso a domínios da empresa e não envia requisições
-  para fora dos endereços do TJMG indicados no item 6. Sua única ação nesse passo
-  é copiar para a área de transferência uma instrução padronizada, sem qualquer
-  dado de processo.</p>
+  <p>A Triagem Express utiliza uma resposta obtida por você no Gemini.
+  Esse percurso é diferente das chamadas de API da Triagem AI, explicadas no item 7.1.</p>
+  <p><b>A Triagem Express não chama a API do Gemini.</b> O botão do prompt
+  copia uma instrução para a área de transferência. O Dossiê pode acrescentar
+  o texto dos autos, conforme a opção de entrega escolhida. A Triagem AI, por
+  sua vez, pode usar a API do Google quando esse for o provedor configurado.</p>
   <p><b>O acesso ao Gemini é feito por você.</b> Cabe ao usuário abrir o
   assistente do Chrome, colar a instrução, permitir a leitura da página dos autos
   exibida na tela e depois colar a resposta no painel da extensão. Durante esse
@@ -519,9 +559,51 @@
     <code>ept.resposta</code>, conforme descrito no item 5.</li>
   </ul>
 
+  <h2 id="triagem-ai">7.1. Triagem AI e envio ao provedor</h2>
+  <p>A ferramenta chega desligada e protegida por senha. Para usar, é preciso
+  liberar o interruptor, escolher o provedor, informar a chave e autorizar o
+  acesso ao endereço nas opções. O envio começa quando você inicia a análise
+  individual ou a rodada em lote. <b>O modo Sombra também envia dados ao
+  provedor</b>; sua restrição é não gravar alterações no EPROC.</p>
+  <p>A análise inclui o número do processo, informações da capa, partes e
+  representantes, índice de documentos, texto das peças lidas, perguntas de
+  triagem e resumos de consultas estruturadas. O programa abre as peças
+  essenciais e o modelo pode solicitar outras do índice durante a execução.
+  As mensagens podem incluir nomes, CPF, CNPJ e dados pessoais sensíveis
+  presentes nos autos. <b>Não há anonimização automática antes do envio.</b>
+  PDFs são convertidos em texto no navegador; imagens e OCR não fazem parte
+  deste fluxo.</p>
+  <div class="rolagem">
+    <table>
+      <thead><tr><th>Opção</th><th>Destino autorizado</th></tr></thead>
+      <tbody>
+        <tr><td>Anthropic</td><td><code>https://api.anthropic.com</code></td></tr>
+        <tr><td>Google</td><td><code>https://generativelanguage.googleapis.com</code></td></tr>
+        <tr><td>OpenAI</td><td><code>https://api.openai.com</code></td></tr>
+        <tr><td>OpenRouter</td><td><code>https://openrouter.ai</code>; o serviço encaminha a solicitação ao provedor do modelo escolhido</td></tr>
+        <tr><td>Gateway TJMG</td><td>endereço HTTPS configurado sob <code>.tjmg.jus.br</code>; a opção não comprova que exista serviço institucional disponível ou autorizado</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A chave é enviada ao destino configurado para autenticar a chamada.
+  O provedor recebe o conteúdo para processamento remoto e pode ter regras
+  próprias de retenção, localização dos servidores, acesso e treinamento.
+  Esta extensão não controla essas condições nem garante ausência de retenção
+  ou uso para treinamento pelo serviço contratado. Antes de enviar autos,
+  confirme a autorização da unidade e as condições aplicáveis à conta,
+  especialmente para processos sigilosos ou com dados sensíveis. O botão de
+  permissão do Chrome libera acesso técnico; não substitui essa autorização.</p>
+  <p>O botão <b>Testar</b> faz uma chamada curta com a credencial, sem conteúdo
+  de processo. Desligar a ferramenta impede novas análises, mas não apaga
+  registros locais nem retira dados já recebidos pelo provedor. Retenção e
+  pedidos de exclusão remota devem ser tratados com o serviço e com o
+  responsável institucional pela utilização.</p>
+
   <h2 id="escreve">8. Gravações feitas no EPROC</h2>
-  <p>São sete possibilidades, todas iniciadas por um clique seu e nunca de forma
-  autônoma:</p>
+  <p>As operações dependem de uma ação sua. Na Triagem AI individual, o botão
+  de aprovação inicia a aplicação. No modo de lote com escrita, iniciar a rodada
+  autoriza o processamento sequencial da fila, sem um novo clique por processo.
+  O modo Sombra não grava no EPROC. As demais operações estão na tabela:</p>
   <div class="rolagem">
     <table>
       <thead><tr><th>Ferramenta</th><th>O que grava</th><th>Cuidado que ela toma</th></tr></thead>
@@ -570,9 +652,7 @@
     </table>
   </div>
   <p>Além dessas operações, a extensão não desfaz marcações manuais nem realiza
-  assinaturas. As decisões e a assinatura continuam sob seu controle. Cada uma
-  das sete ferramentas tem um interruptor próprio, e o estado de uma não interfere
-  nas demais.</p>
+  assinaturas. As decisões e a assinatura continuam sob seu controle. As ferramentas têm interruptores próprios na página de opções.</p>
   <p>Os comandos da barra do editor atuam diretamente <b>na minuta aberta</b>
   após seu clique. Eles podem marcar os itens 5 e 6 ou substituir o corpo da
   certidão pelo modelo destinado a dois ou mais recorrentes. Há ainda um terceiro
@@ -581,6 +661,13 @@
   marcas e poderá retornar se elas voltarem. Nenhuma dessas mudanças chega aos
   autos antes que você salve a minuta no EPROC, e nenhum comando assina o
   documento.</p>
+
+  <p>Na Triagem AI, a aplicação pode alterar e salvar a certidão, ajustar
+  gratuidade e tutela na capa, aplicar localizadores e lembretes e encaminhar
+  a minuta para conferência. Não há assinatura automática. Uma falha pode deixar
+  etapas anteriores já gravadas; a interrupção não desfaz essas etapas.
+  A trilha permite conferir a sequência. O recurso de desfazer a certidão não
+  equivale a uma restauração completa das alterações da capa.</p>
 
   <h2 id="excluir">8.1. Exclusão de minutas duplicadas</h2>
   <p>A automação de localizadores do EPROC cria a Certidão de Triagem. Quando a
@@ -630,28 +717,35 @@
     <code>new Function</code>, scripts externos, folhas de estilo remotas ou
     fontes de CDN. Como não há execução de código remoto, qualquer alteração
     depende de uma nova versão analisada pela Chrome Web Store.</li>
-    <li>As consultas ao EPROC utilizam a sessão que você mantém aberta. Nenhuma
-    credencial é lida, copiada ou armazenada pela extensão.</li>
+    <li>As consultas ao EPROC utilizam a sessão que você mantém aberta. A extensão não copia a senha de login do EPROC. A chave do provedor
+    informada nas opções da Triagem AI é armazenada separadamente.</li>
     <li>Todo endereço recebido da página é validado antes de virar uma requisição.
-    Se pertencer a outra origem, o acesso é recusado.</li>
+    As consultas judiciais devem respeitar as origens previstas para cada
+    serviço. As chamadas ao provedor exigem HTTPS e destino autorizado.</li>
     <li>Os dados locais ficam na área isolada da extensão, protegida pelo perfil
     do Chrome e inacessível a sites ou a outras extensões.</li>
   </ul>
 
   <h2 id="retencao">10. Retenção, consulta e remoção</h2>
-  <p>Os períodos de conservação constam na tabela do item 5: em regra, 4 horas
-  para resultados de consultas, com as duas exceções ali indicadas, e até nova
-  escolha do usuário para preferências. Nada permanece indefinidamente em
-  servidor, pois a extensão não possui um.</p>
-  <p>Como os dados não são enviados ao desenvolvedor, não há informação a
-  solicitar, retificar ou excluir junto a ele. O conteúdo guardado pela extensão
-  pode ser apagado de duas formas:</p>
-  <ul>
-    <li>desinstalar a extensão em <code>chrome://extensions</code>, o que apaga
-    tudo de uma vez;</li>
-    <li>ou, sem desinstalar, remover os dados do site em
-    <code>chrome://settings/content/all</code>, procurando pela extensão.</li>
-  </ul>
+  <p>A tabela do item 5 distingue validade de resultados e permanência dos
+  registros. A trilha, a configuração e a fila não vencem por data. O resultado
+  da Triagem AI deixa de ser reutilizado após quatro horas ou mudança de versão,
+  mas isso não elimina fisicamente o registro.</p>
+  <p>Nas opções da Triagem AI, <b>Apagar a trilha</b> remove o histórico local.
+  A chave pode ser apagada no campo de configuração. Nenhuma dessas ações
+  remove resultados guardados ou informações já enviadas ao provedor.
+  Desinstalar a extensão remove o armazenamento pertencente a ela. Arquivos
+  exportados, cópias na área de transferência e marcas do tema no site do EPROC
+  precisam ser tratados separadamente. Limpar apenas o histórico de navegação
+  não apaga o <code>chrome.storage.local</code>.</p>
+  <p>A credencial fica na origem da extensão, acessível pelas opções e pelo
+  worker, sem ser entregue aos scripts que rodam nas páginas do EPROC. Esse
+  isolamento não é criptografia contra quem tem acesso ao perfil do navegador.
+  O comando de copiar a trilha pode levar dados processuais à área de
+  transferência; qualquer cópia feita depois disso fica sob controle do usuário.</p>
+  <p>A extensão não possui servidor do desenvolvedor para receber autos.
+  Os dados enviados ao provedor da Triagem AI seguem as condições do item 7.1;
+  a remoção local não implica exclusão remota.</p>
   <p>Os dados processuais permanecem sob a guarda e as normas do Tribunal de
   Justiça de Minas Gerais nos sistemas EPROC e PJe. A extensão apenas apresenta
   à pessoa autorizada aquilo que ela já poderia consultar manualmente. O exercício
@@ -663,14 +757,15 @@
   tratados pela extensão:</p>
   <ul>
     <li>servem <b>exclusivamente</b> à finalidade apresentada no item 1;</li>
-    <li><b>não são vendidos</b> nem cedidos a terceiros;</li>
+    <li><b>não são vendidos</b>; o envio ao provedor escolhido atende à análise
+    solicitada, conforme o item 7.1;</li>
     <li><b>não são usados</b> para publicidade, remarketing ou perfil de
     interesse;</li>
     <li><b>não participam</b> de avaliação de crédito ou concessão de empréstimo;</li>
-    <li><b>não podem ser consultados por pessoas</b> ligadas ao desenvolvedor.
-    Não existe acesso humano porque não há servidor que receba os dados. Nem
-    mesmo a exceção de suporte mediante consentimento expresso se aplica, pois a
-    extensão não oferece canal para o envio dessas informações.</li>
+    <li><b>não são enviados ao desenvolvedor</b> para consulta ou suporte.
+    A extensão não oferece um canal de envio dos autos a ele. O acesso por
+    pessoas vinculadas ao provedor externo depende das condições desse serviço,
+    conforme o item 7.1.</li>
   </ul>
 
   <h2 id="permissoes">12. Permissões solicitadas e suas finalidades</h2>
@@ -683,8 +778,16 @@
           <td>manter na sua máquina as preferências e o cache detalhados no item 5. Sem essa permissão, cada aba exigiria nova configuração e toda reabertura dos autos repetiria consultas ao Tribunal</td>
         </tr>
         <tr>
+          <td><code>unlimitedStorage</code></td>
+          <td>permitir que os registros locais, incluindo até 2.000 entradas de auditoria com corpos de certidão, ultrapassem a cota padrão de armazenamento. A permissão não cria armazenamento em nuvem</td>
+        </tr>
+        <tr>
+          <td><code>optional_host_permissions</code></td>
+          <td>acessar o provedor escolhido na Triagem AI após autorização nas opções. Os endereços e os dados enviados estão no item 7.1</td>
+        </tr>
+        <tr>
           <td><code>clipboardWrite</code></td>
-          <td>permitir que os botões copiem textos padronizados destinados ao EPROC — nomes de localizadores e lembretes, número do processo e órgão julgador —, além do prompt. O caminho principal usa <code>navigator.clipboard</code>; a permissão mantém a alternativa necessária quando a página do EPROC está sem foco</td>
+          <td>permitir que os botões copiem textos padronizados destinados ao EPROC , nomes de localizadores e lembretes, número do processo e órgão julgador ,, além do prompt. O caminho principal usa <code>navigator.clipboard</code>; a permissão mantém a alternativa necessária quando a página do EPROC está sem foco</td>
         </tr>
         <tr>
           <td><code>host_permissions</code> dos dois endereços do EPROC</td>

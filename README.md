@@ -39,11 +39,13 @@ Em linguagem direta, a página informa:
 * quais endereços recebem consultas, entre eles a consulta pública do PJe e o
   painel de impedimentos da rede interna do TJMG;
 * o que pode ser gravado nos autos, sempre após uma ação de quem usa a extensão;
-* como o Gemini participa da triagem, pois a resposta utilizada é colada pelo
-  próprio usuário.
+* a diferença entre a resposta colada na Triagem Express e o envio ao provedor
+  configurado na Triagem AI, inclusive no modo Sombra;
+* onde ficam a credencial, a auditoria e os resultados, seus limites de guarda
+  e as possibilidades de remoção local.
 
-A política publicada corresponde à versão 1.14.7 da extensão e recebeu sua
-última atualização em 2 de setembro de 2026.
+A política publicada corresponde à versão 1.15.1 da extensão e recebeu sua
+última atualização em 11 de setembro de 2026.
 
 ## De onde vem o texto
 
