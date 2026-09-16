@@ -107,10 +107,10 @@
 
   <p class="meta">
     <b>Extensão:</b> TR Ágil, ferramentas da CPE para as Turmas Recursais (EPROC TJMG)<br>
-    <b>Versão a que este texto corresponde:</b> 1.15.1<br>
+    <b>Versão a que este texto corresponde:</b> 1.16.5<br>
     <b>Responsável pelo tratamento:</b> João Lucas Bernardes, desenvolvedor da extensão<br>
     <b>Contato:</b> <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
-    <b>Última atualização:</b> 11 de setembro de 2026
+    <b>Última atualização:</b> 16 de setembro de 2026
   </p>
 
   <h2 id="frase">Em resumo</h2>
@@ -155,7 +155,9 @@
   as mesmas partes; resolver, na capa dos autos, as marcações exigidas pela
   triagem , lembretes, localizadores situacionais, justiça gratuita, antecipação
   de tutela, advogados das partes e validação de assunto ,; e retirar da área de
-  trabalho certidões que a automação do EPROC criou em duplicidade.</p>
+  trabalho certidões que a automação do EPROC criou em duplicidade. Também
+  organiza o Painel do Servidor, destaca filas zeradas, calcula o tempo da
+  situação, gera relatório da unidade e oferece atalhos de cópia e preenchimento.</p>
   <p>A distribuição é não listada e destinada à equipe da CPE-TR. A extensão
   não cobra assinatura nem possui cadastro próprio. O uso de um provedor na
   Triagem AI pode exigir conta externa e gerar cobrança pelo serviço escolhido.</p>
@@ -185,8 +187,12 @@
     destaque do tempo decorrido;</li>
     <li>na <b>Lista de Processos por Localizador</b> estão a conferência de
     processos sem certidão e o destaque de tempo;</li>
-    <li>em <b>qualquer tela do sistema</b> podem atuar o seletor de turmas, no
-    alto da página, e o modo escuro.</li>
+    <li>no <b>Painel do Servidor</b> ficam a organização dos blocos, o destaque
+    de filas zeradas, a atualização das contagens de minutas e o relatório;</li>
+    <li>em <b>telas que pedem senha</b> pode atuar o preenchimento rápido, quando
+    a ferramenta estiver ligada;</li>
+    <li>em <b>qualquer tela do sistema</b> podem atuar o seletor de turmas, a
+    cópia do número quando o campo estiver presente e o modo escuro.</li>
   </ul>
   <p>Quando uma ferramenta não se aplica à tela aberta, ela não exibe elementos
   e não realiza consultas.</p>
@@ -214,6 +220,11 @@
     <li>ao conferir processos sem certidão, a relação de números existentes no
     localizador escolhido;</li>
     <li>situação no processo e estado de justiça gratuita atribuído a cada parte;</li>
+    <li>o histórico da situação, para calcular desde quando o processo está no
+    estado exibido na capa;</li>
+    <li>no Painel do Servidor, os títulos dos blocos, os totais de cada fila e,
+    quando você gera o relatório, o número dos processos e a data de inclusão
+    nos localizadores escolhidos;</li>
     <li>ao usar a antecipação de tutela, o valor da causa e o nível de sigilo
     presentes no formulário de Informações Adicionais;</li>
     <li>nesse mesmo formulário, <b>Processo Migrado</b> e o <b>nível de
@@ -280,8 +291,10 @@
   pode não conter camada textual, sua extração resulta vazia. Nessa situação, o
   documento é indicado em vermelho tanto na tarja quanto na transcrição, evitando
   que uma peça não lida passe despercebida.</p>
-  <p>A extensão não recolhe senhas ou cookies de outros sites. A credencial
-  informada nas opções da Triagem AI é armazenada para autenticar as chamadas
+  <p>A extensão não recolhe senhas ou cookies de outros sites. Se o preenchimento
+  rápido estiver ligado e você acionar o gatilho, a senha do EPROC é solicitada
+  na própria tela e mantida somente na memória da sessão por até uma hora. A
+  credencial informada nas opções da Triagem AI é armazenada para autenticar as chamadas
   ao provedor. Essa ferramenta mantém registros locais de análise e aplicação,
   conforme o item 5; não há envio de telemetria ou relatórios ao desenvolvedor.</p>
 
@@ -291,7 +304,8 @@
   triagem. As finalidades são:</p>
   <ul>
     <li><b>Exibir.</b> Montar as tarjas da capa e o painel da minuta com as
-    informações lidas e os resultados das consultas.</li>
+    informações lidas e os resultados das consultas, além de organizar o Painel
+    do Servidor e produzir o relatório solicitado.</li>
     <li><b>Preencher.</b> Marcar a Certidão de Triagem a partir da resposta
     colada na Triagem Express ou do resultado verificado pela Triagem AI.
     Os itens 5 e 6 vêm das
@@ -317,27 +331,16 @@
       <thead><tr><th>Chave</th><th>O que guarda</th><th>Por quanto tempo</th></tr></thead>
       <tbody>
         <tr>
-          <td><code>ept.tool.*</code> (22 chaves)</td>
+          <td><code>ept.tool.*</code> (29 chaves)</td>
           <td>o estado ligado ou desligado de cada ferramenta. Quase todas
           começam ativas. As exceções são a Triagem AI, a Triagem Express, ainda em teste e
           responsável também pelo painel do editor, pelos botões da barra e pelo
           Dossiê para a IA, e o modo escuro, que só muda toda a aparência do
-          sistema quando você escolhe ativá-lo. Existem 22 chaves e 21
+          sistema quando você escolhe ativá-lo, e o preenchimento de senha.
+          Existem 29 chaves e 28
           ferramentas visíveis; a última pertence a uma ferramenta recolhida
           nesta versão e é preservada para quando ela retornar</td>
           <td>até você mudar</td>
-        </tr>
-        <tr>
-          <td><code>ept.tool.triagem.destravada</code></td>
-          <td>se a senha de liberação da Triagem Express já foi informada na
-          página de ferramentas. O valor armazenado é apenas sim ou não; a senha
-          nunca é guardada</td>
-          <td>até você mudar</td>
-        </tr>
-        <tr>
-          <td><code>ept.tool.triagemAi.destravada</code></td>
-          <td>liberação do interruptor e da configuração da Triagem AI; guarda apenas o estado da liberação</td>
-          <td>até alteração ou remoção dos dados</td>
         </tr>
         <tr>
           <td><code>tri.config</code></td>
@@ -419,6 +422,41 @@
           <td>até você mudar</td>
         </tr>
         <tr>
+          <td><code>ept.situacao.limites</code>, <code>ept.situacao.estilo</code></td>
+          <td>os três limites de dias e o desenho da tarja da situação</td>
+          <td>até você mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.situacao.cache</code></td>
+          <td>número do processo, situação e data inicial confirmada pelo histórico</td>
+          <td><b>4 horas</b>, com descarte quando muda a versão</td>
+        </tr>
+        <tr>
+          <td><code>ept.blocos.ordem</code></td>
+          <td>os títulos dos blocos do Painel do Servidor na ordem escolhida</td>
+          <td>até você restaurar ou mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.zerados.modo</code></td>
+          <td>se as filas com total zero ficam esmaecidas ou escondidas</td>
+          <td>até você mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.relatorio.secoes.v2</code>, <code>ept.relatorio.apenasResumo</code></td>
+          <td>as seções escolhidas e se a aba deve mostrar apenas os totais</td>
+          <td>até você mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.copiarNumero.formato</code></td>
+          <td>se o clique normal copia o CNJ com pontuação ou apenas os vinte dígitos</td>
+          <td>até você mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.senha.modo</code>, <code>ept.senha.gatilho</code></td>
+          <td>o comportamento e o gesto escolhidos; estas chaves não contêm a senha</td>
+          <td>até você mudar</td>
+        </tr>
+        <tr>
           <td><code>ept.options.tema</code></td>
           <td>a preferência de tema claro ou escuro para a página de ferramentas</td>
           <td>até você mudar</td>
@@ -469,9 +507,31 @@
       </tbody>
     </table>
   </div>
-  <p>Além dos itens da tabela, há uma marca no <code>localStorage</code> do EPROC
-  e duas chaves no <code>sessionStorage</code>. Estas últimas existem apenas na
-  aba atual e desaparecem quando ela é fechada.</p>
+  <p>Além dos itens da tabela, há uma marca no <code>localStorage</code> do EPROC,
+  duas chaves no <code>sessionStorage</code> das abas e registros temporários em
+  <code>chrome.storage.session</code>. Os registros de sessão desaparecem ao
+  reiniciar o navegador ou recarregar a extensão.</p>
+
+  <p><code>ept.senha.viva</code> guarda temporariamente a senha digitada e o
+  instante de vencimento. O prazo máximo é de uma hora, e a página de opções
+  recebe somente a informação de existência e a data, nunca o valor.
+  <code>ept.relatorio.dados</code> transporta a coleta do Painel do Servidor para
+  a aba interna do relatório e é apagada na primeira leitura.</p>
+
+  <p>A seção <b>Em teste</b> possui uma senha de acesso distinta da senha do
+  EPROC. Ela é conferida localmente pelo serviço da extensão e não é armazenada
+  nem enviada a um servidor. O pacote contém apenas um verificador derivado da
+  senha. Essa trava limita o acesso pela interface; não é uma autenticação
+  institucional nem impede alterações por quem controla a instalação.</p>
+  <p><code>ept.testes.acessos</code> registra a página e a aba autorizadas, com
+  validade máxima de <b>30 minutos</b>. O acesso é revogado ao sair da seção ou
+  fechar a aba; uma página recarregada precisa de nova liberação. Registros
+  vencidos são ignorados e descartados na próxima atualização.
+  <code>ept.testes.tentativas</code> guarda somente quantidade de falhas e
+  horários, sem a senha digitada. Após cinco falhas, novas tentativas aguardam
+  um minuto. Esses registros ficam em <code>chrome.storage.session</code>,
+  restrito aos contextos internos da extensão, até o navegador ou a extensão
+  reiniciar. As antigas marcas de liberação individual são removidas.</p>
 
   <p><code>ept.tema</code> fica no <code>localStorage</code> de
   <code>eproc1g</code> e <code>eproc2g</code>. Seu conteúdo é um único caractere,
@@ -560,8 +620,8 @@
   </ul>
 
   <h2 id="triagem-ai">7.1. Triagem AI e envio ao provedor</h2>
-  <p>A ferramenta chega desligada e protegida por senha. Para usar, é preciso
-  liberar o interruptor, escolher o provedor, informar a chave e autorizar o
+  <p>A ferramenta chega desligada na seção Em teste. Para usar, é preciso
+  acessar a seção com a senha, ligar o interruptor, escolher o provedor, informar a chave e autorizar o
   acesso ao endereço nas opções. O envio começa quando você inicia a análise
   individual ou a rodada em lote. <b>O modo Sombra também envia dados ao
   provedor</b>; sua restrição é não gravar alterações no EPROC.</p>
@@ -648,11 +708,18 @@
           <td><b>exclui</b> a cópia de uma minuta criada pela automação de localizadores no mesmo processo</td>
           <td>por ser a única ferramenta capaz de apagar algo, possui as travas adicionais explicadas no item 8.1</td>
         </tr>
+        <tr>
+          <td>Preenchimento rápido de senha</td>
+          <td>no modo opcional <b>Preencher e confirmar</b>, aciona o botão de envio do formulário do campo de senha</td>
+          <td>a ferramenta e esse modo nascem desligados. O botão é procurado somente dentro do mesmo formulário, nunca pelo texto solto da página</td>
+        </tr>
       </tbody>
     </table>
   </div>
-  <p>Além dessas operações, a extensão não desfaz marcações manuais nem realiza
-  assinaturas. As decisões e a assinatura continuam sob seu controle. As ferramentas têm interruptores próprios na página de opções.</p>
+  <p>Além dessas operações, a extensão não desfaz marcações manuais. A
+  confirmação automática ocorre somente quando o preenchimento de senha e o
+  modo correspondente foram ligados de forma expressa. As demais decisões e
+  assinaturas continuam sob seu controle.</p>
   <p>Os comandos da barra do editor atuam diretamente <b>na minuta aberta</b>
   após seu clique. Eles podem marcar os itens 5 e 6 ou substituir o corpo da
   certidão pelo modelo destinado a dois ou mais recorrentes. Há ainda um terceiro
@@ -717,8 +784,10 @@
     <code>new Function</code>, scripts externos, folhas de estilo remotas ou
     fontes de CDN. Como não há execução de código remoto, qualquer alteração
     depende de uma nova versão analisada pela Chrome Web Store.</li>
-    <li>As consultas ao EPROC utilizam a sessão que você mantém aberta. A extensão não copia a senha de login do EPROC. A chave do provedor
-    informada nas opções da Triagem AI é armazenada separadamente.</li>
+    <li>As consultas ao EPROC utilizam a sessão que você mantém aberta. A senha
+    só é recebida quando você liga e aciona o preenchimento rápido; fica na
+    sessão isolada pelo prazo informado. A chave do provedor informada nas
+    opções da Triagem AI é armazenada separadamente.</li>
     <li>Todo endereço recebido da página é validado antes de virar uma requisição.
     As consultas judiciais devem respeitar as origens previstas para cada
     serviço. As chamadas ao provedor exigem HTTPS e destino autorizado.</li>
@@ -734,6 +803,7 @@
   <p>Nas opções da Triagem AI, <b>Apagar a trilha</b> remove o histórico local.
   A chave pode ser apagada no campo de configuração. Nenhuma dessas ações
   remove resultados guardados ou informações já enviadas ao provedor.
+  A senha temporária pode ser apagada nas opções e também vence em uma hora.
   Desinstalar a extensão remove o armazenamento pertencente a ela. Arquivos
   exportados, cópias na área de transferência e marcas do tema no site do EPROC
   precisam ser tratados separadamente. Limpar apenas o histórico de navegação
@@ -775,7 +845,7 @@
       <tbody>
         <tr>
           <td><code>storage</code></td>
-          <td>manter na sua máquina as preferências e o cache detalhados no item 5. Sem essa permissão, cada aba exigiria nova configuração e toda reabertura dos autos repetiria consultas ao Tribunal</td>
+          <td>manter na sua máquina as preferências e o cache detalhados no item 5, além dos dados efêmeros da senha e do relatório durante a sessão. Sem essa permissão, cada aba exigiria nova configuração e toda reabertura dos autos repetiria consultas ao Tribunal</td>
         </tr>
         <tr>
           <td><code>unlimitedStorage</code></td>
