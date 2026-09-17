@@ -107,17 +107,17 @@
 
   <p class="meta">
     <b>Extensão:</b> TR Ágil, ferramentas da CPE para as Turmas Recursais (EPROC TJMG)<br>
-    <b>Versão a que este texto corresponde:</b> 1.16.5<br>
+    <b>Versão a que este texto corresponde:</b> 1.17.0<br>
     <b>Responsável pelo tratamento:</b> João Lucas Bernardes, desenvolvedor da extensão<br>
     <b>Contato:</b> <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
-    <b>Última atualização:</b> 16 de setembro de 2026
+    <b>Última atualização:</b> 17 de setembro de 2026
   </p>
 
   <h2 id="frase">Em resumo</h2>
   <div class="resumo">
     <p>A extensão trabalha com a página do processo já aberta por você, faz
     consultas em três sistemas mantidos pelo TJMG e, mediante sua solicitação,
-    transforma em texto os documentos escolhidos. A leitura de PDFs e as verificações do programa ocorrem no navegador.
+    transforma em texto os documentos escolhidos. A leitura de PDFs, inclusive o reconhecimento de texto das páginas digitalizadas, e as verificações do programa ocorrem no navegador.
     A Triagem AI, quando configurada e iniciada por você, envia dados dos autos
     ao provedor escolhido para análise, inclusive no modo Sombra. A extensão
     não possui servidor próprio, não envia dados ao desenvolvedor e não utiliza
@@ -267,6 +267,12 @@
   uma abertura manual. Os PDFs são processados no navegador por uma cópia local
   da biblioteca <b>pdf.js</b>, da Mozilla, incluída no pacote. O componente recebe
   o arquivo e entrega o texto, sem acesso à rede.</p>
+  <p><b>Páginas digitalizadas.</b> Quando uma página do PDF é apenas imagem, sem
+  camada de texto, a extensão a desenha na memória do navegador e usa uma cópia
+  local do <b>Tesseract</b>, incluída no pacote com o modelo de português. O OCR
+  ocorre na própria máquina: a imagem não é gravada nem enviada a serviço algum e
+  é descartada após a leitura. O texto reconhecido segue o mesmo caminho dos
+  demais PDFs e informa a confiança, pois letras e números podem ser trocados.</p>
   <p><b>Destino do texto neste recurso.</b> O Dossiê não faz o envio ao provedor. As quatro
   formas de entrega abaixo permanecem na sua máquina:</p>
   <ul>
@@ -290,10 +296,9 @@
   entregues ao Google: além do que aparece na tela, passa a seguir o <b>conteúdo
   integral das peças</b>. O envio de documentos sigilosos exige uma decisão
   consciente, que a extensão não toma em seu lugar.</p>
-  <p>A extensão <b>não</b> executa reconhecimento de imagem. Como um PDF digitalizado
-  pode não conter camada textual, sua extração resulta vazia. Nessa situação, o
-  documento é indicado em vermelho tanto na tarja quanto na transcrição, evitando
-  que uma peça não lida passe despercebida.</p>
+  <p>Se o OCR não conseguir ler um PDF digitalizado, por exemplo por imagem
+  ilegível, o documento é indicado em vermelho na tarja e na transcrição. O OCR
+  reconhece texto; não analisa fotos, assinaturas ou outro conteúdo visual.</p>
   <p>A extensão não recolhe senhas ou cookies de outros sites. Se o preenchimento
   rápido estiver ligado e você acionar o gatilho, a senha do EPROC é solicitada
   na própria tela e mantida somente na memória da sessão por até uma hora. A
@@ -651,8 +656,9 @@
   essenciais e o modelo pode solicitar outras do índice durante a execução.
   As mensagens podem incluir nomes, CPF, CNPJ e dados pessoais sensíveis
   presentes nos autos. <b>Não há anonimização automática antes do envio.</b>
-  PDFs são convertidos em texto no navegador; imagens e OCR não fazem parte
-  deste fluxo.</p>
+  PDFs são convertidos em texto no navegador, e as páginas digitalizadas passam
+  pelo reconhecimento de texto local descrito no item 3.1. O provedor recebe
+  somente o texto reconhecido; as imagens das páginas não são enviadas.</p>
   <div class="rolagem">
     <table>
       <thead><tr><th>Opção</th><th>Destino autorizado</th></tr></thead>
@@ -795,14 +801,19 @@
 
   <h2 id="seguranca">9. Segurança</h2>
   <ul>
-    <li>A única dependência de terceiros é o <b>pdf.js</b>, da Mozilla, licenciado
-    sob Apache 2.0 e utilizado para transcrever PDFs dos autos. A biblioteca é
-    incluída no pacote em versão não minificada e funciona sem acesso à rede,
-    sem desenhar o documento e sem executar JavaScript eventualmente contido
-    nele.</li>
+    <li>Há duas dependências de terceiros, ambas licenciadas sob Apache 2.0 e
+    incluídas no pacote. O <b>pdf.js</b>, da Mozilla, em versão não minificada,
+    transcreve os PDFs dos autos sem acesso à rede e sem executar JavaScript
+    eventualmente contido neles; ele só desenha, na memória, as páginas
+    digitalizadas. O <b>Tesseract</b> faz o reconhecimento de texto dessas
+    páginas: o núcleo compilado em WebAssembly e o modelo de língua portuguesa
+    acompanham o pacote, sem nenhum download.</li>
     <li>Todo o JavaScript acompanha o pacote. Não são usados <code>eval</code>,
     <code>new Function</code>, scripts externos, folhas de estilo remotas ou
-    fontes de CDN. Como não há execução de código remoto, qualquer alteração
+    fontes de CDN. A política de segurança da extensão libera somente a execução
+    do WebAssembly incluído no pacote (<code>wasm-unsafe-eval</code>), necessária
+    ao reconhecimento de texto, e não permite <code>eval</code> nem código de outra
+    origem. Como não há execução de código remoto, qualquer alteração
     depende de uma nova versão analisada pela Chrome Web Store.</li>
     <li>As consultas ao EPROC utilizam a sessão que você mantém aberta. A senha
     só é recebida quando você liga e aciona o preenchimento rápido; fica na
