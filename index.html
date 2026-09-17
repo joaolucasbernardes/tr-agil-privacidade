@@ -225,6 +225,9 @@
     <li>no Painel do Servidor, os títulos dos blocos, os totais de cada fila e,
     quando você gera o relatório, o número dos processos e a data de inclusão
     nos localizadores escolhidos;</li>
+    <li>quando você pede, na página de ferramentas, a lista de localizadores
+    cadastrados no órgão, usada para montar os perfis de trabalho. A lista
+    contém apenas os nomes dos localizadores, sem processo nem pessoa;</li>
     <li>ao usar a antecipação de tutela, o valor da causa e o nível de sigilo
     presentes no formulário de Informações Adicionais;</li>
     <li>nesse mesmo formulário, <b>Processo Migrado</b> e o <b>nível de
@@ -472,6 +475,23 @@
           <td><code>ept.lembretesTarja.aberta</code>, <code>ept.localizadoresTarja.aberta</code>, <code>ept.dossieTarja.aberta</code></td>
           <td>a preferência de manter cada uma dessas tarjas aberta ou recolhida</td>
           <td>até você mudar</td>
+        </tr>
+        <tr>
+          <td><code>ept.perfisTrabalho.config</code></td>
+          <td>os perfis de trabalho: o perfil em uso, os nomes dos perfis criados
+          por você e, em cada perfil, os textos dos lembretes, com ou sem prazo,
+          e os nomes dos localizadores oferecidos nas tarjas da capa. Nenhum
+          processo ou pessoa é guardado. Os perfis podem ser salvos num arquivo
+          no seu computador e trazidos de um arquivo escolhido por você, sem
+          envio a lugar nenhum</td>
+          <td>até você mudar ou restaurar</td>
+        </tr>
+        <tr>
+          <td><code>ept.perfisTrabalho.localizadores</code>, <code>ept.perfisTrabalho.pedido</code></td>
+          <td>a lista de nomes de localizadores de cada órgão, lida do EPROC
+          quando você pede na página de ferramentas, e a marca desse pedido,
+          apagada assim que a lista é lida</td>
+          <td>a lista fica até um novo pedido; a marca, até ser atendida</td>
         </tr>
         <tr>
           <td><code>ept.partes.*</code>, <code>ept.partesEproc.*</code>, <code>ept.imped.*</code>, <code>ept.capa.*</code>, <code>ept.lembrete.*</code>, <code>ept.localizador.*</code></td>
