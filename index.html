@@ -301,10 +301,10 @@
   reconhece texto; não analisa fotos, assinaturas ou outro conteúdo visual.</p>
   <p>A extensão não recolhe senhas ou cookies de outros sites. Se o preenchimento
   rápido estiver ligado, a senha do EPROC é solicitada na própria tela na
-  primeira utilização e mantida somente na memória da sessão do navegador, por
-  até 24 horas ou até ele ser fechado. Ela não é gravada no computador, não é
-  sincronizada e não é enviada a terceiros. Se o EPROC a recusar, ela é apagada
-  na hora. A
+  primeira utilização e mantida apenas na memória da sessão do navegador, por
+  até 24 horas ou até ele ser fechado. Ela não é gravada no computador,
+  sincronizada nem enviada a terceiros. Se o EPROC a recusar, é removida
+  imediatamente. A
   credencial informada nas opções da Triagem AI é armazenada para autenticar as chamadas
   ao provedor. Essa ferramenta mantém registros locais de análise e aplicação,
   conforme o item 5; não há envio de telemetria ou relatórios ao desenvolvedor.</p>
@@ -540,11 +540,11 @@
   <code>chrome.storage.session</code>. Os registros de sessão desaparecem ao
   reiniciar o navegador ou recarregar a extensão.</p>
 
-  <p><code>ept.senha.viva</code> guarda na memória da sessão a senha digitada e
-  o instante de vencimento. O prazo máximo é de 24 horas, o registro some antes
-  se o navegador for fechado, e é apagado na hora se o EPROC responder que a
-  senha é inválida. A página de opções recebe somente a informação de
-  existência e a data, nunca o valor.
+  <p><code>ept.senha.viva</code> mantém na sessão a senha digitada e o instante
+  de vencimento. O limite é de 24 horas; o registro desaparece antes se o
+  navegador fechar e é removido imediatamente se o EPROC responder que a senha
+  foi recusada. A página de opções recebe apenas a existência e a data, nunca o
+  valor.
   <code>ept.relatorio.dados</code> transporta a coleta do Painel do Servidor para
   a aba interna do relatório e é apagada na primeira leitura.</p>
 
@@ -741,16 +741,16 @@
         </tr>
         <tr>
           <td>Preenchimento rápido de senha</td>
-          <td>no modo <b>Preencher e confirmar</b>, que é o padrão da ferramenta, aciona o botão de envio do formulário do campo de senha, como o Assinar com Senha</td>
-          <td>a ferramenta nasce desligada. O botão é procurado somente entre os controles do mesmo formulário, nunca pelo texto solto da página, e a confirmação não ocorre em formulário com mais de um campo de senha</td>
+          <td>no modo <b>Preencher e confirmar</b>, selecionado por padrão, preenche a senha e aciona o envio do mesmo formulário, como o Assinar com Senha</td>
+          <td>a ferramenta começa desligada. O botão é procurado apenas entre os controles do formulário do campo, nunca pelo texto solto da página, e formulários com mais de um campo de senha não recebem confirmação automática</td>
         </tr>
       </tbody>
     </table>
   </div>
   <p>Além dessas operações, a extensão não desfaz marcações manuais. A
   confirmação automática ocorre somente depois que o preenchimento de senha é
-  ligado de forma expressa; o modo que confirma é o padrão dessa ferramenta e
-  pode ser trocado por Apenas preencher. As demais decisões e
+  ligado de forma expressa; o modo que confirma vem selecionado e pode ser
+  trocado por Apenas preencher. As demais decisões e
   assinaturas continuam sob seu controle.</p>
   <p>Os comandos da barra do editor atuam diretamente <b>na minuta aberta</b>
   após seu clique. Eles podem marcar os itens 5 e 6 ou substituir o corpo da
@@ -840,7 +840,7 @@
   <p>Nas opções da Triagem AI, <b>Apagar a trilha</b> remove o histórico local.
   A chave pode ser apagada no campo de configuração. Nenhuma dessas ações
   remove resultados guardados ou informações já enviadas ao provedor.
-  A senha guardada pode ser removida nas opções, pelo botão Remover senha salva, e vence em 24 horas ou ao fechar o navegador.
+  A senha disponível pode ser removida nas opções pelo botão Remover senha disponível e vence em 24 horas ou ao fechar o navegador.
   Desinstalar a extensão remove o armazenamento pertencente a ela. Arquivos
   exportados, cópias na área de transferência e marcas do tema no site do EPROC
   precisam ser tratados separadamente. Limpar apenas o histórico de navegação
