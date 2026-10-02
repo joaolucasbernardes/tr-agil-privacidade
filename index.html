@@ -107,10 +107,10 @@
 
   <p class="meta">
     <b>Extensão:</b> TR Ágil, ferramentas da CPE para as Turmas Recursais (EPROC TJMG)<br>
-    <b>Versão a que este texto corresponde:</b> 1.17.4<br>
+    <b>Versão a que este texto corresponde:</b> 1.17.7<br>
     <b>Responsável pelo tratamento:</b> João Lucas Bernardes, desenvolvedor da extensão<br>
     <b>Contato:</b> <a href="mailto:joaolucasbernardes@gmail.com">joaolucasbernardes@gmail.com</a><br>
-    <b>Última atualização:</b> 17 de setembro de 2026
+    <b>Última atualização:</b> 2 de outubro de 2026
   </p>
 
   <h2 id="frase">Em resumo</h2>
@@ -135,7 +135,7 @@
       <li><a href="#uso">Como ela usa esses dados</a></li>
       <li><a href="#guarda">Informações mantidas no seu computador</a></li>
       <li><a href="#partilha">Destinatários das informações consultadas</a></li>
-      <li><a href="#gemini">Uso do Gemini realizado pelo usuário</a></li>
+      <li><a href="#assistente">Uso de IA por escolha do usuário</a></li>
       <li><a href="#triagem-ai">Triagem AI e envio ao provedor</a></li>
       <li><a href="#escreve">O que ela escreve no EPROC</a>
         <ul><li><a href="#excluir">Exclusão de minutas duplicadas</a></li></ul>
@@ -235,7 +235,7 @@
     anterior por outra Turma Recursal. O sigilo é necessário porque processos
     sigilosos não aparecem na consulta pública do PJe; sem essa informação, uma
     busca vazia poderia ser confundida com ausência de prevenção;</li>
-    <li>a resposta do Gemini colada por você no painel de triagem, que pode
+    <li>a resposta de um assistente de IA que você cola no painel de triagem e que pode
     repetir informações já relacionadas acima;</li>
     <li>ao usar o Dossiê para a IA, <b>todo o conteúdo dos documentos que você
     selecionar</b>, inclusive o texto de PDFs transcritos localmente. Por ser o
@@ -255,8 +255,8 @@
   <h2 id="dossie">3.1. Dossiê para a IA e leitura das peças</h2>
   <p>O Dossiê para a IA abre e transcreve documentos selecionados nos autos.
   A Triagem AI também lê peças, pelo fluxo descrito no item 7.1.</p>
-  <p><b>Motivo de existir.</b> O Gemini do Chrome analisa a página aberta, mas
-  não abre arquivos PDF. Recurso, contrarrazões, guia de custas, comprovante de
+  <p><b>Por que usar o dossiê.</b> A leitura da página por um assistente de IA
+  não inclui a abertura dos PDFs dos autos. Recurso, contrarrazões, guia de custas, comprovante de
   pagamento e procurações costumam estar nesse formato; sem o dossiê, os itens 1
   a 4 da certidão seriam decididos sem a leitura dessas peças. A ferramenta as
   converte em texto para que a análise considere o conteúdo dos autos.</p>
@@ -290,11 +290,11 @@
     <li><b>Salva</b> num arquivo <code>.txt</code>, para você anexar onde
     quiser.</li>
   </ul>
-  <p>A decisão de levar esse conteúdo ao Gemini é exclusivamente sua. Nessa
+  <p>Você decide se compartilha esse conteúdo com um assistente de IA. Nesse caso,
   hipótese, aplicam-se todas as informações do item 7.</p>
-  <p class="warn">Usar o dossiê no Gemini aumenta o volume de informações
-  entregues ao Google: além do que aparece na tela, passa a seguir o <b>conteúdo
-  integral das peças</b>. O envio de documentos sigilosos exige uma decisão
+  <p class="warn">Ao compartilhar o dossiê com um assistente de IA, você entrega ao fornecedor
+  mais informações do que as exibidas na tela, incluindo o <b>conteúdo integral
+  das peças</b>. O envio de documentos sigilosos exige uma decisão
   consciente, que a extensão não toma em seu lugar.</p>
   <p>Se o OCR não conseguir ler um PDF digitalizado, por exemplo por imagem
   ilegível, o documento é indicado em vermelho na tarja e na transcrição. O OCR
@@ -625,23 +625,22 @@
   e a extensão informa a indisponibilidade; ela não transforma a falha em um
   resultado negativo.</p>
 
-  <h2 id="gemini">7. Uso do Gemini pelo usuário</h2>
-  <p>A Triagem Express utiliza uma resposta obtida por você no Gemini.
-  Esse percurso é diferente das chamadas de API da Triagem AI, explicadas no item 7.1.</p>
-  <p><b>A Triagem Express não chama a API do Gemini.</b> O botão do prompt
-  copia uma instrução para a área de transferência. O Dossiê pode acrescentar
+  <h2 id="assistente">7. Uso de assistente de IA pelo usuário</h2>
+  <p>A Triagem Express recebe a resposta que você obtém no assistente de IA escolhido.
+  As chamadas à API feitas pela Triagem AI seguem outro fluxo, descrito no item 7.1.</p>
+  <p><b>A Triagem Express funciona sem chamadas à API do assistente.</b> O botão de
+  cópia coloca o prompt na área de transferência. O Dossiê pode acrescentar
   o texto dos autos, conforme a opção de entrega escolhida. A Triagem AI, por
   sua vez, pode usar a API do Google quando esse for o provedor configurado.</p>
-  <p><b>O acesso ao Gemini é feito por você.</b> Cabe ao usuário abrir o
-  assistente do Chrome, colar a instrução, permitir a leitura da página dos autos
-  exibida na tela e depois colar a resposta no painel da extensão. Durante esse
-  percurso, o Google passa a tratar os dados conforme a política de privacidade
-  e os termos do Gemini. Esta política não rege o funcionamento de outro
-  produto.</p>
+  <p><b>Você inicia o uso do assistente.</b> Abra o serviço de IA no navegador,
+  cole o prompt, autorize a leitura da página dos autos e traga a resposta para
+  o painel da extensão. Ao receber o material, o fornecedor trata os dados
+  segundo seus próprios termos e sua política de privacidade. A política da
+  TR Ágil não se aplica ao funcionamento desse serviço.</p>
   <p>Embora esse compartilhamento seja iniciado pelo usuário, ele é real e deve
   ficar expresso. Na prática:</p>
   <ul>
-    <li>é possível preencher a certidão manualmente, sem utilizar o Gemini. As
+    <li>a certidão pode ser preenchida manualmente, sem consultar um assistente de IA. As
     outras ferramentas funcionam de forma independente;</li>
     <li>se a unidade não permitir IA generativa para dados processuais, esse passo
     simplesmente não deve ser realizado;</li>
